@@ -35,7 +35,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               Print<span className="text-[#4ade80]">Magic</span>
             </span>
           </div>
-          <p className="text-xs text-[#7D7D7D] leading-relaxed">
+          <p className="text-xs text-[#FFFFFF] leading-relaxed">
             Delivering high-quality, professional printing and custom creative layouts to the local Batangas City community.
           </p>
           <div className="flex items-center gap-3 pt-2">
@@ -43,7 +43,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               href="https://www.facebook.com/Printmagic29"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#4ade80]/20 text-[#7D7D7D] hover:text-[#4ade80] border border-[#28473B] flex items-center justify-center transition-colors shadow-sm"
+              className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#4ade80]/20 text-[#FFFFFF] hover:text-[#4ade80] border border-[#28473B] flex items-center justify-center transition-colors shadow-sm"
               aria-label="Facebook Page"
               id="footer-facebook-link"
             >
@@ -54,7 +54,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
         {/* Our Services */}
         <div>
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Our Services
           </h3>
           <ul className="space-y-2 text-xs font-sans">
@@ -71,7 +71,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <li key={service.page}>
                 <button
                   onClick={() => handleLinkClick(service.page)}
-                  className="text-[#7D7D7D] hover:text-[#4ade80] transition-colors font-semibold text-left focus:outline-none cursor-pointer"
+                  className="text-[#FFFFFF] hover:text-[#4ade80] transition-colors font-semibold text-left focus:outline-none cursor-pointer"
                 >
                   {service.name}
                 </button>
@@ -82,22 +82,22 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
         {/* Operating Hours */}
         <div>
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Operating Hours
           </h3>
-          <div className="space-y-3 text-xs text-[#7D7D7D] font-sans">
+          <div className="space-y-3 text-xs text-[#FFFFFF] font-sans">
             <div className="flex items-start gap-2">
-              <Clock className="w-4 h-4 text-[#7D7D7D] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold text-[#7D7D7D]">Monday - Saturday</p>
-                <p className="text-[11px] mt-0.5 text-[#7D7D7D]">8:00 AM - 6:00 PM</p>
+                <p className="font-semibold text-[#FFFFFF]">Monday - Saturday</p>
+                <p className="text-[11px] mt-0.5 text-[#FFFFFF]">8:00 AM - 6:00 PM</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
-              <Clock className="w-4 h-4 text-[#7D7D7D] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold text-[#7D7D7D]">Sunday</p>
-                <p className="text-[11px] mt-0.5 text-[#7D7D7D]">Closed / Appointments Only</p>
+                <p className="font-semibold text-[#FFFFFF]">Sunday</p>
+                <p className="text-[11px] mt-0.5 text-[#FFFFFF]">Closed / Appointments Only</p>
               </div>
             </div>
           </div>
@@ -105,23 +105,23 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
         {/* Business Contact Info */}
         <div>
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Contact Information
           </h3>
-          <ul className="space-y-3 text-xs text-[#7D7D7D] font-sans">
+          <ul className="space-y-3 text-xs text-[#FFFFFF] font-sans">
             <li className="flex items-start gap-2">
-              <Phone className="w-4 h-4 text-[#7D7D7D] shrink-0 mt-0.5" />
+              <Phone className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <span className="leading-normal">0926 022 6003</span>
             </li>
             <li className="flex items-start gap-2">
-              <Mail className="w-4 h-4 text-[#7D7D7D] shrink-0 mt-0.5" />
-              <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#4ade80] break-all font-semibold text-[#7D7D7D]">
+              <Mail className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
+              <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#4ade80] break-all font-semibold text-[#FFFFFF]">
                 printmagic_online@yahoo.com
               </a>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#7D7D7D] shrink-0 mt-0.5" />
-              <span className="leading-relaxed text-[#7D7D7D]">
+              <MapPin className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
+              <span className="leading-relaxed text-[#FFFFFF]">
                 Libjo, New San Vicente,<br />
                 Batangas City, Philippines 4200
               </span>
@@ -133,7 +133,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
       {/* Trust & Copyright Banner */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 mt-12 pt-8 border-t border-[#28473B]/50">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#7D7D7D]">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#FFFFFF]">
           <p className="font-sans">
             &copy; {currentYear} <strong>PrintMagic</strong>. All rights reserved.
           </p>
@@ -142,7 +142,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               href="https://www.facebook.com/Printmagic29" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:text-[#4ade80] flex items-center gap-0.5 font-semibold text-[#7D7D7D]"
+              className="hover:text-[#4ade80] flex items-center gap-0.5 font-semibold text-[#FFFFFF]"
             >
               <span>Connect on Facebook</span>
               <ArrowUpRight className="w-3 h-3" />

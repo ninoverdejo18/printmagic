@@ -45,14 +45,24 @@ export default function Navbar({
   ];
 
   const handleNavClick = (pageId: string) => {
-    if (pageId === "about" && currentPage === "home") {
-      const element = document.getElementById("about-section");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-        setIsMobileMenuOpen(false);
-        setIsDropdownOpen(false);
-        return;
+    if (pageId === "about") {
+      if (currentPage !== "home") {
+        setCurrentPage("home");
+        setTimeout(() => {
+          const element = document.getElementById("about-section");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 150);
+      } else {
+        const element = document.getElementById("about-section");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
+      setIsMobileMenuOpen(false);
+      setIsDropdownOpen(false);
+      return;
     }
 
     setCurrentPage(pageId);
@@ -76,7 +86,10 @@ export default function Navbar({
   };
 
   return (
-    <div className={currentPage === "home" ? "absolute top-0 left-0 right-0 z-50 bg-transparent w-full" : "relative z-50"}>
+    <div 
+      className={`no-liquid-cursor ${currentPage === "home" ? "absolute top-0 left-0 right-0 z-50 bg-transparent w-full" : "relative z-50"}`}
+      data-no-liquid-cursor="true"
+    >
       {/* Top micro bar for trust metrics */}
       <div className={`transition-all duration-300 text-[11px] sm:text-xs text-[#CBD5D1] ${
         currentPage === "home"

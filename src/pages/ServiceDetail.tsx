@@ -437,23 +437,17 @@ export default function ServiceDetail({
               {data.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-[#7D7D7D] font-sans leading-relaxed max-w-2xl drop-shadow">
+            <p className="text-sm sm:text-base text-[#C4C4C4] font-sans leading-relaxed max-w-2xl drop-shadow">
               {data.description}
             </p>
           </div>
 
-          {/* Right Column: Giant Promo Hero Image card */}
+          {/* Right Column: Giant Promo Hero card */}
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900/70 backdrop-blur-sm h-[280px] sm:h-[350px] lg:h-[400px] group">
-              <img
-                src={data.image}
-                alt={data.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-left">
                 <h3 className="text-lg font-bold text-emerald-400 mt-1">Guaranteed Vibrant Graphics</h3>
-                <p className="text-xs text-[#7D7D7D] font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
+                <p className="text-xs text-[#C4C4C4] font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
               </div>
             </div>
           </div>
@@ -497,7 +491,7 @@ export default function ServiceDetail({
                             transition={{ duration: 0.2 }}
                             className="border-t border-slate-800"
                           >
-                            <div className="px-5 py-4 text-xs sm:text-sm text-[#7D7D7D] font-sans text-left leading-relaxed bg-slate-950/60">
+                            <div className="px-5 py-4 text-xs sm:text-sm text-[#C4C4C4] font-sans text-left leading-relaxed bg-slate-950/60">
                               {faq.a}
                             </div>
                           </motion.div>
@@ -522,7 +516,7 @@ export default function ServiceDetail({
                 <h3 className="text-lg sm:text-xl font-extrabold text-emerald-400 font-display leading-tight">
                   Need a Customized Quote for {data.title}?
                 </h3>
-                <p className="text-xs text-[#7D7D7D] font-sans leading-relaxed">
+                <p className="text-xs text-[#C4C4C4] font-sans leading-relaxed">
                   Tell us your exact sizes, quantities, or layout preferences. We will calculate a budget-friendly price quotation for you immediately!
                 </p>
               </div>

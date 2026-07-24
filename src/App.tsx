@@ -14,7 +14,7 @@ import PrintingServices from "./pages/PrintingServices";
 import DigitalServices from "./pages/DigitalServices";
 import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
-import About from "./pages/About";
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("home");
   const [showIntro, setShowIntro] = useState<boolean>(true);
@@ -89,7 +89,7 @@ export default function App() {
           />
         );
       case "about":
-        return <About setCurrentPage={setCurrentPage} />;
+        return <Home setCurrentPage={setCurrentPage} />;
       case "tarpaulin-printing":
       case "layout-design":
       case "souvenirs-giveaways":

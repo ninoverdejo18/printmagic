@@ -24,6 +24,8 @@ import SkewCards from "../components/ui/gradient-card-showcase";
 import GenerativeArtGallery from "../components/ui/generative-art-gallery";
 import FlowArt, { FlowSection } from "../components/ui/story-scroll";
 import AnimatedGradient from "../components/ui/animated-gradient";
+import { LiquidCursor } from "../components/ui/liquid-cursor";
+import { LiquidEffectAnimation } from "../components/ui/liquid-effect-animation";
 
 interface HomeProps {
   setCurrentPage: (page: string) => void;
@@ -135,12 +137,13 @@ export default function Home({ setCurrentPage }: HomeProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="flex flex-col"
+      className="flex flex-col relative"
       id="home-page"
     >
+      <LiquidCursor />
       <FlowArt aria-label="PrintMagic Homepage Story Scroll">
         {/* 1. INTERACTIVE INK REVEAL INTRODUCTION (HERO) */}
-        <FlowSection id="hero-flow" className="bg-[#0B1F18]">
+        <FlowSection id="hero-flow" className="bg-[#0B1F18] no-liquid-cursor" data-no-liquid-cursor="true">
           <InkRevealIntro />
         </FlowSection>
 
@@ -162,16 +165,24 @@ export default function Home({ setCurrentPage }: HomeProps) {
                   className="lg:col-span-5 flex justify-center w-full"
                   id="about-visual-col"
                 >
-                  <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none group">
+                  <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none group no-liquid-cursor" data-no-liquid-cursor="true">
                     {/* Portrait Card Container */}
-                    <div className="relative overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 shadow-xl">
+                    <div className="relative overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 shadow-xl w-full no-liquid-cursor" data-no-liquid-cursor="true">
+                      {/* Original crisp photo visible when idle */}
                       <img 
                         src="/profile pic/albert.webp" 
                         alt="Albert Inoc - Founder of PrintMagic" 
-                        className="w-full h-auto object-cover rounded-2xl shadow-lg"
+                        className="w-full h-auto object-cover rounded-2xl block transition-opacity duration-500 group-hover:opacity-0"
                       />
+                      {/* Liquid Effect Canvas overlay - active on hover */}
+                      <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        <LiquidEffectAnimation
+                          imageSrc="/profile pic/albert.webp"
+                          className="w-full h-full object-cover rounded-2xl"
+                        />
+                      </div>
                       {/* Overlay badge at the bottom */}
-                      <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent flex flex-col justify-end">
+                      <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent flex flex-col justify-end pointer-events-none z-10">
                         <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#4ade80]">FOUNDER & OWNER</span>
                         <p className="text-xl font-extrabold text-white font-display">Albert Inoc</p>
                       </div>
