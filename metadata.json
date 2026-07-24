@@ -1,0 +1,6 @@
+{
+  "name": "PrintMagic",
+  "description": "Modern website for PrintMagic, a local printing and creative design business in Batangas City.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
