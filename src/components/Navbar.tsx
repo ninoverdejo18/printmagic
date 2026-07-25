@@ -242,7 +242,7 @@ export default function Navbar({
               className={`hidden sm:inline-flex items-center justify-center bg-transparent font-extrabold text-xs sm:text-sm px-2 py-1 border-none shadow-none transition-all duration-200 cursor-pointer [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)] ${
                 currentPage === "contact"
                   ? "text-[#15803d] font-black"
-                  : "text-white hover:text-[#15803d]"
+                  : "text-black hover:text-[#15803d]"
               }`}
               id="nav-quotation-btn"
             >
