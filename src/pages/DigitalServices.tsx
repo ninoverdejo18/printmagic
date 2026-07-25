@@ -63,7 +63,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
                     alt={service.title}
                     className="w-full h-full object-cover transform hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-[#F4C542] border border-[#FFD85A]/30 py-1 px-3 rounded-lg text-[10px] font-bold text-[#0B1F18] uppercase tracking-wider font-mono shadow-sm">
+                  <div className="absolute top-4 left-4 bg-[#15803d] border border-[#15803d]/30 py-1 px-3 rounded-lg text-[10px] font-bold text-white uppercase tracking-wider font-mono shadow-sm">
                     {service.title} Portfolio Example
                   </div>
                 </div>
@@ -71,10 +71,10 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
 
               {/* Text side */}
               <div className="w-full lg:w-1/2 space-y-5">
-                <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider font-mono">
+                <span className="text-[10px] font-bold text-[#15803d] uppercase tracking-wider font-mono">
                   Creative Offering {index + 1}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-display">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#15803d] tracking-tight font-display">
                   {service.title}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#7D7D7D] font-sans leading-relaxed">
@@ -83,7 +83,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
                 
                 {/* Bullet details */}
                 <div className="space-y-2 pt-2">
-                  <p className="text-xs font-bold text-emerald-800 uppercase tracking-wider font-mono">
+                  <p className="text-xs font-bold text-[#15803d] uppercase tracking-wider font-mono">
                     What we deliver:
                   </p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#7D7D7D] font-sans">
@@ -99,7 +99,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
                 <div className="pt-4">
                   <button
                     onClick={() => handleQuoteRedirect(service.title)}
-                    className="px-6 py-2.5 rounded-lg bg-[#F4C542] text-[#0B1F18] hover:bg-[#FFD85A] border border-[#FFD85A] font-bold text-xs sm:text-sm transition-all shadow-md inline-flex items-center cursor-pointer"
+                    className="px-6 py-2.5 rounded-lg bg-[#15803d] text-white hover:bg-[#166534] border border-[#15803d] font-bold text-xs sm:text-sm transition-all shadow-md inline-flex items-center cursor-pointer"
                     id={`quote-service-btn-${service.id}`}
                   >
                     <span>Request Quote for {service.title}</span>
@@ -120,7 +120,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
         <div className="pt-2">
           <button
             onClick={() => handleQuoteRedirect("General Design consultation")}
-            className="px-6 py-2.5 rounded-lg bg-[#F4C542] text-[#0B1F18] hover:bg-[#FFD85A] border border-[#FFD85A] font-bold text-xs shadow-md cursor-pointer"
+            className="px-6 py-2.5 rounded-lg bg-[#15803d] text-white hover:bg-[#166534] border border-[#15803d] font-bold text-xs shadow-md cursor-pointer"
           >
             Start a Design Consultation
           </button>

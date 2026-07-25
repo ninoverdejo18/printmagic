@@ -29,15 +29,15 @@
   --font-oldpress: "Old Printing Press", serif;
   --font-italiana: "Italiana", Georgia, serif;
   --font-playfair: "Playfair Display", Georgia, serif;
-  --color-primary: #F4C542;
-  --color-secondary: #FFD85A;
-  --color-accent: #F4C542;
-  --color-accent-hover: #FFD85A;
+  --color-primary: #15803d;
+  --color-secondary: #166534;
+  --color-accent: #15803d;
+  --color-accent-hover: #166534;
   --color-main-bg: #0B1F18;
   --color-secondary-bg: #132C22;
   --color-card-bg: #1C3A2E;
-  --color-primary-accent: #F4C542;
-  --color-hover-accent: #FFD85A;
+  --color-primary-accent: #15803d;
+  --color-hover-accent: #166534;
   --color-primary-text: #F8FAFC;
   --color-secondary-text: #CBD5D1;
   --color-border-olive: #28473B;
@@ -114,6 +114,10 @@ body {
 
 h1, h2, h3 {
   font-family: "Beatrice Display", "Italiana", "Syne", "Space Grotesk", sans-serif;
+}
+
+h2 {
+  color: #15803d;
 }
 
 h4, h5, h6 {

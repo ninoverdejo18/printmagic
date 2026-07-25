@@ -147,7 +147,7 @@ export default function GraphicDesign({ setCurrentPage }: { setCurrentPage: (pag
             onClick={() => setActiveFilter(cat.id as any)}
             className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer focus:outline-none ${
               activeFilter === cat.id
-                ? "bg-[#F4C542] text-[#0B1F18] font-bold border border-[#FFD85A] shadow-sm"
+                ? "bg-[#15803d] text-white font-bold border border-[#15803d] shadow-sm"
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
             }`}
             id={`filter-btn-${cat.id}`}
@@ -201,7 +201,7 @@ export default function GraphicDesign({ setCurrentPage }: { setCurrentPage: (pag
         </p>
         <button
           onClick={handleQuoteClick}
-          className="px-8 py-3 bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] border border-[#FFD85A] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center mx-auto cursor-pointer"
+          className="px-8 py-3 bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center mx-auto cursor-pointer"
           id="quote-design-btn"
         >
           <span>Request a Quote Now</span>
@@ -264,7 +264,7 @@ export default function GraphicDesign({ setCurrentPage }: { setCurrentPage: (pag
                       setSelectedProject(null);
                       handleQuoteClick();
                     }}
-                    className="px-5 py-2.5 rounded-lg bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] border border-[#FFD85A] font-bold text-xs shadow-md transition-all cursor-pointer inline-flex items-center"
+                    className="px-5 py-2.5 rounded-lg bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] font-bold text-xs shadow-md transition-all cursor-pointer inline-flex items-center"
                   >
                     <span>Quote Design</span>
                   </button>

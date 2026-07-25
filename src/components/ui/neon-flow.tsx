@@ -16,6 +16,8 @@ interface TubesBackgroundProps {
   enableClickInteraction?: boolean;
   hoverOnly?: boolean;
   autoAnimate?: boolean;
+  bgImage?: string;
+  bgOverlayClass?: string;
 }
 
 export function TubesBackground({ 
@@ -23,7 +25,9 @@ export function TubesBackground({
   className,
   enableClickInteraction = true,
   hoverOnly = false,
-  autoAnimate = true
+  autoAnimate = true,
+  bgImage,
+  bgOverlayClass = "bg-black/35"
 }: TubesBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -81,6 +85,16 @@ export function TubesBackground({
         });
 
         tubesRef.current = app;
+
+        // Make WebGL canvas background transparent so underlying images/backgrounds show through
+        if (app.three) {
+          if (app.three.renderer) {
+            app.three.renderer.setClearColor(0x000000, 0);
+          }
+          if (app.three.scene) {
+            app.three.scene.background = null;
+          }
+        }
 
         // Auto animation motion loop across all regions of the hero section
         if (autoAnimate) {
@@ -284,16 +298,28 @@ export function TubesBackground({
   return (
     <div 
       ref={containerRef}
-      className={cn("relative w-full h-full min-h-screen overflow-hidden bg-[#0B1F18]", className)}
+      className={cn("relative w-full h-full min-h-screen overflow-hidden", !className?.includes('bg-') && "bg-[#0B1F18]", className)}
       onClick={handleClick}
       onPointerMove={handlePointerMove}
       onMouseEnter={() => hoverOnly && setIsHovered(true)}
       onMouseLeave={() => hoverOnly && setIsHovered(false)}
     >
+      {bgImage && (
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          <img 
+            src={bgImage} 
+            alt="Hero Background" 
+            className="w-full h-full object-cover object-center"
+            referrerPolicy="no-referrer"
+          />
+          {bgOverlayClass && <div className={cn("absolute inset-0", bgOverlayClass)} />}
+        </div>
+      )}
+
       <canvas 
         ref={canvasRef} 
         className={cn(
-          "absolute inset-0 w-full h-full block transition-opacity duration-700 pointer-events-none",
+          "absolute inset-0 w-full h-full block transition-opacity duration-700 pointer-events-none z-0",
           hoverOnly && !isHovered ? "opacity-0" : "opacity-100"
         )}
         style={{ touchAction: 'none', mixBlendMode: 'screen' }}

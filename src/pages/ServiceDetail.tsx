@@ -358,11 +358,11 @@ export default function ServiceDetail({
   if (!data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center text-slate-900 space-y-4 font-sans bg-white">
-        <h2 className="text-2xl font-bold">Service Not Found</h2>
+        <h2 className="text-2xl font-bold text-[#15803d]">Service Not Found</h2>
         <p className="text-sm text-slate-600">The requested service profile could not be located in our catalog database.</p>
         <button 
           onClick={() => setCurrentPage("home")}
-          className="px-6 py-2.5 rounded-lg bg-[#F4C542] text-[#0B1F18] font-bold text-sm cursor-pointer"
+          className="px-6 py-2.5 rounded-lg bg-[#15803d] text-white hover:bg-[#166534] font-bold text-sm cursor-pointer"
         >
           Return to Home
         </button>
@@ -524,7 +524,7 @@ export default function ServiceDetail({
               <div className="space-y-3 pt-1">
                 <button
                   onClick={handleQuoteRedirect}
-                  className="w-full py-3 bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] font-extrabold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-md transform hover:-translate-y-0.5"
+                  className="w-full py-3 bg-[#15803d] hover:bg-[#166534] text-white font-extrabold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-md transform hover:-translate-y-0.5"
                   id="service-detail-quote-btn"
                 >
                   <span>Request Instant Quotation</span>

@@ -78,7 +78,7 @@ export default function Intro({ onComplete }: IntroProps) {
         className="absolute inset-0 transition-opacity duration-[2500ms] ease-in-out z-0"
         style={{ 
           opacity: shouldMove ? 1 : 0,
-          backgroundImage: "linear-gradient(rgba(11, 31, 24, 0.65), rgba(11, 31, 24, 0.75)), url('/BG1.jpeg')",
+          backgroundImage: "url('/PrintMagic_2k.png')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}

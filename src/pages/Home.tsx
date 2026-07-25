@@ -148,10 +148,11 @@ export default function Home({ setCurrentPage }: HomeProps) {
         </FlowSection>
 
         {/* 2. ABOUT US SECTION */}
-        <FlowSection id="about-flow" className="bg-white">
+        <FlowSection id="about-flow" className="bg-[#0B1F18]">
           <section 
-            className="w-full bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden" 
+            className="w-full min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat" 
             id="about-section"
+            style={{ backgroundImage: "url('/InkBackground_3_2K.webp')" }}
           >
             <div className="max-w-7xl mx-auto relative z-20">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -183,7 +184,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                       </div>
                       {/* Overlay badge at the bottom */}
                       <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent flex flex-col justify-end pointer-events-none z-10">
-                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#4ade80]">FOUNDER & OWNER</span>
+                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#15803d]">FOUNDER & OWNER</span>
                         <p className="text-xl font-extrabold text-white font-display">Albert Inoc</p>
                       </div>
                     </div>
@@ -196,12 +197,12 @@ export default function Home({ setCurrentPage }: HomeProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                  className="lg:col-span-7 flex flex-col justify-center space-y-8 text-left pointer-events-auto text-black"
+                  className="lg:col-span-7 flex flex-col justify-center space-y-8 text-left pointer-events-auto text-black bg-white/90 backdrop-blur-md p-6 sm:p-8 lg:p-10 rounded-3xl shadow-2xl border border-white/40"
                   id="about-content-col"
                 >
                   {/* Section Header */}
                   <div className="space-y-3">
-                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight font-display">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#15803d] leading-tight font-display">
                       About Us
                     </h2>
                     <p className="text-base text-[#7D7D7D] leading-relaxed font-sans">
@@ -259,15 +260,19 @@ export default function Home({ setCurrentPage }: HomeProps) {
         </FlowSection>
 
         {/* 3. SERVICES SECTION */}
-        <FlowSection id="services-flow" className="bg-slate-50">
-          <section className="w-full py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200" id="services-section">
-            <div className="max-w-7xl mx-auto space-y-12">
+        <FlowSection id="services-flow" className="bg-[#0B1F18]">
+          <section 
+            className="w-full min-h-screen py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat" 
+            id="services-section"
+            style={{ backgroundImage: "url('/InkBackground_1_2K.webp')" }}
+          >
+            <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full">
               {/* Header */}
-              <div className="text-center max-w-3xl mx-auto space-y-3">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-display">
+              <div className="text-center max-w-3xl mx-auto space-y-3 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#15803d] tracking-tight font-display">
                   Printing & Graphic Services
                 </h2>
-                <p className="text-sm sm:text-base text-[#7D7D7D] font-sans leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-700 font-sans leading-relaxed">
                   Explore our complete suite of printing and creative design solutions tailored for local businesses, schools, events, and personal branding in Batangas.
                 </p>
               </div>
@@ -313,13 +318,17 @@ export default function Home({ setCurrentPage }: HomeProps) {
 
         {/* 4. CREATIVE GALLERY SECTION */}
         <FlowSection id="gallery-flow" className="bg-white">
-          <section className="w-full bg-white py-12 text-center border-b border-slate-200" id="gallery-section">
-            <div className="w-full space-y-8">
-              <div className="max-w-3xl mx-auto text-center space-y-3 px-4 sm:px-6 md:px-8 lg:px-10">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+          <section 
+            className="w-full min-h-screen py-16 text-center border-b border-slate-200 relative overflow-hidden flex flex-col items-center justify-center bg-contain bg-center bg-no-repeat bg-white" 
+            id="gallery-section"
+            style={{ backgroundImage: "url('/Green_Paint_PureWhite_2K.webp')" }}
+          >
+            <div className="w-full space-y-8 relative z-10">
+              <div className="max-w-3xl mx-auto text-center space-y-3 px-4 sm:px-6 md:px-8 lg:px-10 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#15803d] tracking-tight font-display">
                   Our Gallery
                 </h2>
-                <p className="text-sm text-[#7D7D7D] font-sans">
+                <p className="text-sm sm:text-base text-slate-700 font-sans">
                   Watch our custom designs, high-quality tarpaulin prints, souvenirs, and signage elements take shape dynamically.
                 </p>
               </div>
@@ -354,7 +363,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
                     <button
                       onClick={() => handleNav("contact")}
-                      className="px-8 py-3 bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] border border-[#FFD85A] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-quote-btn"
                     >
                       <span>Request a Quote</span>

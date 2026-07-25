@@ -152,7 +152,7 @@ export const AnimatedTestimonialGrid = ({
           <a
             href={ctaHref}
             onClick={onCtaClick}
-            className="inline-flex items-center justify-center rounded-full bg-[#F4C542] hover:bg-[#FFD85A] px-6 py-3 text-base font-bold text-[#0B1F18] shadow-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center justify-center rounded-full bg-[#15803d] hover:bg-[#166534] px-6 py-3 text-base font-bold text-white shadow-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
           >
             {ctaText}
           </a>

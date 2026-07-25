@@ -44,6 +44,8 @@ export default function Navbar({
     { name: "Stickers", page: "stickers", category: "large-format", quote: "Stickers & Decals" },
   ];
 
+  const isHome = currentPage === "home";
+
   const handleNavClick = (pageId: string) => {
     if (pageId === "about") {
       if (currentPage !== "home") {
@@ -98,17 +100,17 @@ export default function Navbar({
       }`}>
         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-1.5 font-sans relative z-10">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-[#CBD5D1]/80">
-              <Calendar className="w-3.5 h-3.5 text-white" />
+            <span className={`flex items-center gap-1 font-medium ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+              <Calendar className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
               <span>Est. August 2022</span>
             </span>
-            <span className="flex items-center gap-1 text-[#CBD5D1]/80">
-              <ShieldCheck className="w-3.5 h-3.5 text-white" />
+            <span className={`flex items-center gap-1 font-medium ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+              <ShieldCheck className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
               <span>Trusted Local Printing Business</span>
             </span>
           </div>
-          <div className="flex items-center gap-1.5 font-medium text-[#F8FAFC]">
-            <Phone className="w-3.5 h-3.5 text-white" />
+          <div className={`flex items-center gap-1.5 font-semibold ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+            <Phone className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
             <span>Call us: <strong>0926 022 6003</strong></span>
           </div>
         </div>
@@ -120,7 +122,7 @@ export default function Navbar({
           ? "bg-transparent border-none shadow-none"
           : "sticky top-0 z-50 bg-[#0B1F18]/90 backdrop-blur-md border-b border-[#28473B]/30 shadow-md"
       }`}>
-        <nav className="w-full h-16 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 border-none relative z-10">
+        <nav className="w-full h-16 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 border-none outline-none relative z-10">
           
           {/* Logo brand */}
           <button 
@@ -142,10 +144,10 @@ export default function Navbar({
                 referrerPolicy="no-referrer" 
               />
               <div>
-                <h1 className="text-lg sm:text-xl font-bold tracking-tight text-[#F8FAFC] flex items-center gap-0.5">
-                  Print<span className="text-[#4ade80]">Magic</span>
+                <h1 className={`text-lg sm:text-xl font-black tracking-tight flex items-center gap-0.5 ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"}`}>
+                  <span className={isHome ? "text-black" : "text-white"}>Print</span><span className="text-[#15803d]">Magic</span>
                 </h1>
-                <p className="text-[9px] font-semibold text-[#CBD5D1] italic leading-none mt-0.5">
+                <p className="text-[9px] font-bold text-[#15803d] italic leading-none mt-0.5 [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]">
                   "Personalan Ba? PrintMagic na!"
                 </p>
               </div>
@@ -153,7 +155,7 @@ export default function Navbar({
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 md:absolute md:left-1/2 md:-translate-x-1/2">
             {navItems.map((item) => {
               if (item.isDropdown) {
                 const isDropdownActive = [
@@ -171,10 +173,10 @@ export default function Navbar({
                     id="nav-services-dropdown-container"
                   >
                     <button
-                      className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-1 ${
+                      className={`relative px-2 py-1 text-sm font-bold transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-1 border-none bg-transparent ${
                         isDropdownActive || isDropdownOpen
-                          ? "text-[#4ade80]" 
-                          : "text-[#CBD5D1] hover:text-[#F8FAFC]"
+                          ? "text-[#15803d] font-black [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]" 
+                          : isHome ? "text-black hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
                       }`}
                       id={`nav-item-${item.id}`}
                     >
@@ -215,38 +217,49 @@ export default function Navbar({
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`relative transition-all duration-200 cursor-pointer focus:outline-none px-4 py-2 rounded-lg text-sm font-semibold ${
+                  className={`relative transition-all duration-200 cursor-pointer focus:outline-none px-2 py-1 text-sm font-bold border-none bg-transparent ${
                     isActive 
-                      ? "text-[#4ade80]" 
-                      : "text-[#CBD5D1] hover:text-[#F8FAFC]"
+                      ? "text-[#15803d] font-black [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]" 
+                      : isHome ? "text-black hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
                   }`}
                   id={`nav-item-${item.id}`}
                 >
                   {item.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#4ade80]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
                 </button>
               );
             })}
-            
-
           </div>
 
-          {/* Mobile Menu Trigger */}
-          <div className="flex md:hidden">
+          {/* Right side CTA & Mobile Menu Trigger */}
+          <div className="flex items-center gap-3">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-[#CBD5D1] hover:bg-[#1C3A2E] hover:text-[#F8FAFC] focus:outline-none cursor-pointer"
-              aria-label="Toggle Menu"
-              id="mobile-menu-toggle"
+              onClick={() => {
+                if (setSelectedServiceQuote) {
+                  setSelectedServiceQuote("General Quotation");
+                }
+                setCurrentPage("contact");
+              }}
+              className={`hidden sm:inline-flex items-center justify-center bg-transparent font-extrabold text-xs sm:text-sm px-2 py-1 border-none shadow-none transition-all duration-200 cursor-pointer [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)] ${
+                currentPage === "contact"
+                  ? "text-[#15803d] font-black"
+                  : "text-white hover:text-[#15803d]"
+              }`}
+              id="nav-quotation-btn"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              Need Quotation?
             </button>
+
+            {/* Mobile Menu Trigger */}
+            <div className="flex md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none cursor-pointer [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
+                aria-label="Toggle Menu"
+                id="mobile-menu-toggle"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </nav>
 
@@ -328,10 +341,16 @@ export default function Navbar({
                 })}
                 <div className="pt-3 pb-2 border-t border-[#28473B]/20">
                   <button
-                    onClick={() => handleNavClick("contact")}
-                    className="w-full text-center py-2.5 rounded-full bg-[#4ade80] hover:bg-[#22c55e] text-[#0B1F18] border border-[#4ade80] font-bold text-sm shadow-sm transition-all"
+                    onClick={() => {
+                      if (setSelectedServiceQuote) {
+                        setSelectedServiceQuote("General Quotation");
+                      }
+                      handleNavClick("contact");
+                    }}
+                    className="w-full text-center py-2.5 rounded-full bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] font-extrabold text-sm shadow-sm transition-all"
+                    id="mobile-nav-quotation-btn"
                   >
-                    Request a Quote
+                    Need Quotation?
                   </button>
                 </div>
               </div>

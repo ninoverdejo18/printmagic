@@ -119,7 +119,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
               <li>
                 <div>
                   <span className="block text-[10px] uppercase font-bold text-slate-400 font-mono">Store Hours</span>
-                  <span className="font-semibold text-slate-900 block">Mon - Sat: 8:00 AM - 7:30 PM</span>
+                  <span className="font-semibold text-slate-900 block">Mon - Sat: 8:00 AM - 6:00 PM</span>
                   <span className="text-[11px] text-slate-500 mt-0.5">Closed on Sundays</span>
                 </div>
               </li>
@@ -184,7 +184,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
-                  className="px-6 py-2 bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] border border-[#FFD85A] rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
+                  className="px-6 py-2 bg-[#15803d] hover:bg-[#166534] text-white rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -304,7 +304,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3 rounded-lg bg-[#F4C542] hover:bg-[#FFD85A] text-[#0B1F18] border border-[#FFD85A] font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-amber-200"
+                    className="px-8 py-3 rounded-lg bg-[#15803d] hover:bg-[#166534] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-emerald-300"
                     id="submit-quote-btn"
                   >
                     <span>{isSubmitting ? "Sending..." : "Send Request"}</span>

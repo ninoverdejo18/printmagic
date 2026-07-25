@@ -595,7 +595,7 @@ export default function SkewCards({ setCurrentPage }: SkewCardsProps) {
           className="flex flex-col items-center justify-center gap-3 bg-white p-6 text-center select-none"
           style={{ gridColumn: "2 / span 3", gridRow: "2 / span 2" }}
         >
-          <h2 className="text-2xl lg:text-3xl font-extrabold text-black tracking-tight font-display max-w-[500px] leading-snug">
+          <h2 className="text-2xl lg:text-3xl font-extrabold text-[#15803d] tracking-tight font-display max-w-[500px] leading-snug">
             Trusted by Industry Leaders Across Batangas
           </h2>
           <p className="text-xs text-slate-600 font-sans max-w-[440px] leading-relaxed">
@@ -611,7 +611,7 @@ export default function SkewCards({ setCurrentPage }: SkewCardsProps) {
       {/* Mobile & Tablet Responsive Layout */}
       <div className="lg:hidden flex flex-col gap-6 max-w-2xl mx-auto">
         <div className="flex flex-col items-center justify-center gap-3 bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
-          <h2 className="text-2xl font-extrabold text-black tracking-tight font-display leading-snug">
+          <h2 className="text-2xl font-extrabold text-[#15803d] tracking-tight font-display leading-snug">
             Trusted by Industry Leaders Across Batangas
           </h2>
           <p className="text-xs text-slate-600 font-sans leading-relaxed">
