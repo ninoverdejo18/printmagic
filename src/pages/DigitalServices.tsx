@@ -71,10 +71,10 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
 
               {/* Text side */}
               <div className="w-full lg:w-1/2 space-y-5">
-                <span className="text-[10px] font-bold text-[#15803d] uppercase tracking-wider font-mono">
+                <span className="text-[10px] font-bold text-[#12941F] uppercase tracking-wider font-mono">
                   Creative Offering {index + 1}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#15803d] tracking-tight font-display">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#12941F] tracking-tight font-display">
                   {service.title}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#7D7D7D] font-sans leading-relaxed">
@@ -83,7 +83,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
                 
                 {/* Bullet details */}
                 <div className="space-y-2 pt-2">
-                  <p className="text-xs font-bold text-[#15803d] uppercase tracking-wider font-mono">
+                  <p className="text-xs font-bold text-[#12941F] uppercase tracking-wider font-mono">
                     What we deliver:
                   </p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#7D7D7D] font-sans">

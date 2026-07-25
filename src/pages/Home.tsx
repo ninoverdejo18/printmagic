@@ -184,7 +184,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                       </div>
                       {/* Overlay badge at the bottom */}
                       <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent flex flex-col justify-end pointer-events-none z-10">
-                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#15803d]">FOUNDER & OWNER</span>
+                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#12941F]">FOUNDER & OWNER</span>
                         <p className="text-xl font-extrabold text-white font-display">Albert Inoc</p>
                       </div>
                     </div>
@@ -202,10 +202,10 @@ export default function Home({ setCurrentPage }: HomeProps) {
                 >
                   {/* Section Header */}
                   <div className="space-y-3">
-                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#15803d] leading-tight font-display">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#12941F] leading-tight font-display">
                       About Us
                     </h2>
-                    <p className="text-base text-[#7D7D7D] leading-relaxed font-sans">
+                    <p className="text-sm sm:text-base text-[#454545] opacity-90 leading-relaxed font-sans">
                       Delivering high-quality, professional printing and custom creative layouts to the local Batangas City community.
                     </p>
                   </div>
@@ -269,10 +269,10 @@ export default function Home({ setCurrentPage }: HomeProps) {
             <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full">
               {/* Header */}
               <div className="text-center max-w-3xl mx-auto space-y-3 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#15803d] tracking-tight font-display">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight font-display">
                   Printing & Graphic Services
                 </h2>
-                <p className="text-sm sm:text-base text-slate-700 font-sans leading-relaxed">
+                <p className="text-sm sm:text-base text-[#454545] opacity-90 font-sans leading-relaxed">
                   Explore our complete suite of printing and creative design solutions tailored for local businesses, schools, events, and personal branding in Batangas.
                 </p>
               </div>
@@ -285,12 +285,12 @@ export default function Home({ setCurrentPage }: HomeProps) {
                       key={service.id}
                       id={`home-service-card-${service.id}`}
                       onClick={() => handleNav(service.id)}
-                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-slate-400 text-left h-full"
+                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-[#12941F] text-left h-full"
                     >
                       <div className="space-y-1.5 flex-1 flex flex-col justify-between">
                         <div>
                           {/* Title */}
-                          <h3 className="text-sm font-extrabold text-slate-900 font-display tracking-tight group-hover:text-amber-600 transition-colors leading-snug">
+                          <h3 className="text-sm font-extrabold text-slate-900 font-display tracking-tight group-hover:text-[#12941F] transition-colors leading-snug">
                             {service.title}
                           </h3>
 
@@ -301,9 +301,9 @@ export default function Home({ setCurrentPage }: HomeProps) {
                         </div>
 
                         {/* Navigation Link Button */}
-                        <div className="pt-2.5 border-t border-slate-100 mt-3 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-amber-600">
+                        <div className="pt-2.5 border-t border-slate-100 mt-3 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-[#12941F]">
                           <span>Explore Service</span>
-                          <div className="w-5 h-5 rounded-full bg-slate-100 group-hover:bg-amber-500 group-hover:text-slate-950 text-slate-800 flex items-center justify-center transition-all">
+                          <div className="w-5 h-5 rounded-full bg-slate-100 group-hover:bg-[#12941F] group-hover:text-white text-slate-800 flex items-center justify-center transition-all">
                             <ChevronRight className="w-3 h-3" />
                           </div>
                         </div>
@@ -325,10 +325,10 @@ export default function Home({ setCurrentPage }: HomeProps) {
           >
             <div className="w-full space-y-8 relative z-10">
               <div className="max-w-3xl mx-auto text-center space-y-3 px-4 sm:px-6 md:px-8 lg:px-10 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#15803d] tracking-tight font-display">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12941F] tracking-tight font-display">
                   Our Gallery
                 </h2>
-                <p className="text-sm sm:text-base text-slate-700 font-sans">
+                <p className="text-sm sm:text-base text-[#454545] opacity-90 font-sans leading-relaxed">
                   Watch our custom designs, high-quality tarpaulin prints, souvenirs, and signage elements take shape dynamically.
                 </p>
               </div>
@@ -348,22 +348,22 @@ export default function Home({ setCurrentPage }: HomeProps) {
         <FlowSection id="cta-flow" className="bg-white">
           <section className="w-full bg-white py-16 text-slate-900" id="cta-section">
             <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl text-white">
+              <div className="bg-[#0B1F18] border border-[#28473B]/50 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl text-white">
                 {/* Abstract background subtle circle */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#F4C542]/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#F4C542]/10 rounded-full blur-xl -ml-10 -mb-10"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#12941F]/15 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#12941F]/15 rounded-full blur-xl -ml-10 -mb-10"></div>
 
                 <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12941F] tracking-tight">
                     Ready to See the Magic on Your Next Project?
                   </h2>
-                  <p className="text-sm sm:text-base text-[#7D7D7D] font-sans">
+                  <p className="text-sm sm:text-base text-[#D1D5DB] font-sans">
                     Get an instant quotation for tarpaulins, customized t-shirts, branding logos, Sintra boards, stickers, and more. Connect with our helpful team now!
                   </p>
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
                     <button
                       onClick={() => handleNav("contact")}
-                      className="px-8 py-3 bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#12941F] hover:bg-[#14A823] text-white border border-[#12941F] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-quote-btn"
                     >
                       <span>Request a Quote</span>
@@ -372,7 +372,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                       href="https://www.facebook.com/Printmagic29"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-3 bg-[#132C22] border-2 border-[#28473B] text-[#F8FAFC] rounded-lg font-bold hover:bg-[#F4C542]/10 transition-all duration-200 flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#132C22] border-2 border-[#28473B] text-[#F8FAFC] rounded-lg font-bold hover:bg-[#28473B]/50 transition-all duration-200 flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-messenger-btn"
                     >
                       <span>Chat on Messenger</span>

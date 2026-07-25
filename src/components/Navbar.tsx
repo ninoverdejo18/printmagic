@@ -48,19 +48,23 @@ export default function Navbar({
 
   const handleNavClick = (pageId: string) => {
     if (pageId === "about") {
+      const scrollToAbout = () => {
+        const element = document.getElementById("about-flow") || document.getElementById("about-section");
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetY = rect.top + scrollTop;
+          window.scrollTo({ top: targetY > 0 ? targetY : window.innerHeight, behavior: "smooth" });
+        } else {
+          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        }
+      };
+
       if (currentPage !== "home") {
         setCurrentPage("home");
-        setTimeout(() => {
-          const element = document.getElementById("about-section");
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }, 150);
+        setTimeout(scrollToAbout, 300);
       } else {
-        const element = document.getElementById("about-section");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        scrollToAbout();
       }
       setIsMobileMenuOpen(false);
       setIsDropdownOpen(false);
@@ -93,25 +97,25 @@ export default function Navbar({
       data-no-liquid-cursor="true"
     >
       {/* Top micro bar for trust metrics */}
-      <div className={`transition-all duration-300 text-[11px] sm:text-xs text-[#CBD5D1] ${
+      <div className={`transition-all duration-300 text-[10px] text-[#CBD5D1] ${
         currentPage === "home"
           ? "bg-transparent border-b border-white/10 py-2 px-4 sm:px-6 md:px-8 lg:px-10"
           : "bg-[#0B1F18] border-b border-[#28473B]/30 py-2 px-4 sm:px-6 md:px-8 lg:px-10"
       }`}>
-        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-1.5 font-sans relative z-10">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-1.5 font-sans relative z-10 font-normal">
           <div className="flex items-center gap-4">
-            <span className={`flex items-center gap-1 font-medium ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+            <span className={`flex items-center gap-1 font-normal ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white"}`}>
               <Calendar className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
               <span>Est. August 2022</span>
             </span>
-            <span className={`flex items-center gap-1 font-medium ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+            <span className={`flex items-center gap-1 font-normal ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white"}`}>
               <ShieldCheck className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
               <span>Trusted Local Printing Business</span>
             </span>
           </div>
-          <div className={`flex items-center gap-1.5 font-semibold ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.55)]"}`}>
+          <div className={`flex items-center gap-1.5 font-normal sm:pr-2 ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white"}`}>
             <Phone className={`w-3.5 h-3.5 ${isHome ? "text-black" : "text-white"}`} />
-            <span>Call us: <strong>0926 022 6003</strong></span>
+            <span>Call us: <span>0926 022 6003</span></span>
           </div>
         </div>
       </div>
@@ -144,10 +148,10 @@ export default function Navbar({
                 referrerPolicy="no-referrer" 
               />
               <div>
-                <h1 className={`text-lg sm:text-xl font-black tracking-tight flex items-center gap-0.5 ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)]" : "text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"}`}>
-                  <span className={isHome ? "text-black" : "text-white"}>Print</span><span className="text-[#15803d]">Magic</span>
+                <h1 className={`text-lg sm:text-xl font-black tracking-tight flex items-center gap-0.5 ${isHome ? "text-black [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)]" : "text-white"}`}>
+                  <span className={isHome ? "text-black" : "text-white"}>Print</span><span className="text-[#14A823]">Magic</span>
                 </h1>
-                <p className="text-[9px] font-bold text-[#15803d] italic leading-none mt-0.5 [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]">
+                <p className="text-[9px] font-bold text-[#14A823] italic leading-none mt-0.5">
                   Personalan Ba? PrintMagic na!
                 </p>
               </div>
@@ -175,8 +179,8 @@ export default function Navbar({
                     <button
                       className={`relative px-2 py-1 text-sm font-bold transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-1 border-none bg-transparent ${
                         isDropdownActive || isDropdownOpen
-                          ? "text-[#15803d] font-black [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]" 
-                          : isHome ? "text-black hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
+                          ? "text-[#14A823] font-black" 
+                          : isHome ? "text-black hover:text-[#14A823] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#14A823]"
                       }`}
                       id={`nav-item-${item.id}`}
                     >
@@ -219,8 +223,8 @@ export default function Navbar({
                   onClick={() => handleNavClick(item.id)}
                   className={`relative transition-all duration-200 cursor-pointer focus:outline-none px-2 py-1 text-sm font-bold border-none bg-transparent ${
                     isActive 
-                      ? "text-[#15803d] font-black [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]" 
-                      : isHome ? "text-black hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#15803d] [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
+                      ? "text-[#14A823] font-black" 
+                      : isHome ? "text-black hover:text-[#14A823] [text-shadow:_0_1px_2px_rgba(255,255,255,0.65)]" : "text-white hover:text-[#14A823]"
                   }`}
                   id={`nav-item-${item.id}`}
                 >
@@ -239,10 +243,12 @@ export default function Navbar({
                 }
                 setCurrentPage("contact");
               }}
-              className={`hidden sm:inline-flex items-center justify-center bg-transparent font-extrabold text-xs sm:text-sm px-2 py-1 border-none shadow-none transition-all duration-200 cursor-pointer [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)] ${
+              className={`hidden sm:inline-flex items-center justify-center bg-transparent font-extrabold text-xs sm:text-sm px-2 py-1 border-none shadow-none transition-all duration-200 cursor-pointer ${
                 currentPage === "contact"
-                  ? "text-[#15803d] font-black"
-                  : "text-black hover:text-[#15803d]"
+                  ? "text-[#14A823] font-black [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
+                  : isHome
+                  ? "text-black hover:text-[#14A823] [text-shadow:_0_1px_2px_rgba(255,255,255,0.7)]"
+                  : "text-white hover:text-[#14A823] [text-shadow:_0_0_8px_rgba(0,0,0,0.8),_0_1px_3px_rgba(0,0,0,0.9)]"
               }`}
               id="nav-quotation-btn"
             >

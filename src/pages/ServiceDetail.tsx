@@ -358,7 +358,7 @@ export default function ServiceDetail({
   if (!data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center text-slate-900 space-y-4 font-sans bg-white">
-        <h2 className="text-2xl font-bold text-[#15803d]">Service Not Found</h2>
+        <h2 className="text-2xl font-bold text-[#12941F]">Service Not Found</h2>
         <p className="text-sm text-slate-600">The requested service profile could not be located in our catalog database.</p>
         <button 
           onClick={() => setCurrentPage("home")}
@@ -433,7 +433,7 @@ export default function ServiceDetail({
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full min-h-[40vh] lg:min-h-[50vh] py-6">
           <div className="lg:col-span-7 space-y-5 text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-display drop-shadow-md">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#14A823] tracking-tight leading-tight font-display">
               {data.title}
             </h1>
 
@@ -446,7 +446,7 @@ export default function ServiceDetail({
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900/70 backdrop-blur-sm h-[280px] sm:h-[350px] lg:h-[400px] group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-left">
-                <h3 className="text-lg font-bold text-emerald-400 mt-1">Guaranteed Vibrant Graphics</h3>
+                <h3 className="text-lg font-bold text-[#14A823] mt-1">Guaranteed Vibrant Graphics</h3>
                 <p className="text-xs text-[#C4C4C4] font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
               </div>
             </div>
@@ -461,7 +461,7 @@ export default function ServiceDetail({
             
             {/* Interactive Collapsible FAQ Section */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-extrabold text-emerald-400 font-display text-left">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#14A823] font-display text-left">
                 Frequently Asked Questions
               </h3>
               
@@ -478,8 +478,8 @@ export default function ServiceDetail({
                         className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-slate-800/80 cursor-pointer focus:outline-none transition-all"
                         id={`faq-toggle-btn-${idx}`}
                       >
-                        <span className="text-xs sm:text-sm font-bold text-white font-display leading-tight">{faq.q}</span>
-                        <ChevronDown className={`w-4 h-4 text-amber-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                        <span className="text-xs sm:text-sm font-bold text-[#DEDEDE] font-display leading-tight">{faq.q}</span>
+                        <ChevronDown className={`w-4 h-4 text-[#14A823] shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
                       </button>
                       
                       <AnimatePresence initial={false}>
@@ -510,10 +510,10 @@ export default function ServiceDetail({
             
             {/* Custom Quote Submission Block */}
             <div className="bg-slate-900/90 backdrop-blur-md text-white border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-5 text-left shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#F4C542]/10 rounded-full blur-xl -mr-6 -mt-6"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#14A823]/10 rounded-full blur-xl -mr-6 -mt-6"></div>
               
               <div className="space-y-2">
-                <h3 className="text-lg sm:text-xl font-extrabold text-emerald-400 font-display leading-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#14A823] font-display leading-tight">
                   Need a Customized Quote for {data.title}?
                 </h3>
                 <p className="text-xs text-[#C4C4C4] font-sans leading-relaxed">

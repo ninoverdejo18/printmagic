@@ -37,9 +37,9 @@ const GenerativeArtCanvas: React.FC<GenerativeArtCanvasProps> = ({ isHovered }) 
         this.speed = Math.random() * 0.7 + 0.2;
         this.angle = Math.random() * Math.PI * 2;
         this.length = Math.random() * 25 + 8;
-        // Brand aligned colors: Gold (#F4C542) or Emerald Green (#4ade80)
+        // Brand aligned colors: Gold (#F4C542) or Emerald Green (#12941F)
         const isGold = Math.random() > 0.5;
-        this.color = isGold ? "244, 197, 66" : "74, 222, 128";
+        this.color = isGold ? "244, 197, 66" : "18, 148, 31";
       }
 
       update() {
@@ -167,7 +167,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, index, onClick }) => {
       onHoverEnd={() => setIsHovered(false)}
       onClick={onClick}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="group relative w-full aspect-[3/4] sm:aspect-[4/5] rounded-xl bg-[#091612] border border-[#28473B]/30 overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:border-[#F4C542]/40 transition-all duration-300"
+      className="group relative w-full aspect-[3/4] sm:aspect-[4/5] rounded-xl bg-[#091612] border border-[#28473B]/30 overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:border-[#12941F] transition-all duration-300"
     >
       <div
         style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
@@ -197,7 +197,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, index, onClick }) => {
             initial={{ y: 15, opacity: 0 }}
             animate={{ y: isHovered ? 0 : 5, opacity: isHovered ? 1 : 0.9 }}
             transition={{ type: "spring", stiffness: 180, damping: 15 }}
-            className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#F4C542] transition-colors leading-tight drop-shadow-md"
+            className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#12941F] transition-colors leading-tight drop-shadow-md"
           >
             {item.title}
           </motion.h3>
@@ -220,7 +220,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, index, onClick }) => {
 
         {/* Interactive hover indicator */}
         <div className="absolute top-4 right-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 z-20">
-          <span className="px-2.5 py-1 rounded-full bg-black/75 border border-white/10 text-[#F4C542] text-[10px] font-bold uppercase tracking-wider shadow-lg">
+          <span className="px-2.5 py-1 rounded-full bg-black/75 border border-white/10 text-[#12941F] text-[10px] font-bold uppercase tracking-wider shadow-lg">
             View Print
           </span>
         </div>

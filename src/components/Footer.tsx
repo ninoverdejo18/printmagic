@@ -32,10 +32,10 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               referrerPolicy="no-referrer" 
             />
             <span className="text-lg font-extrabold tracking-tight text-[#F8FAFC] font-display">
-              Print<span className="text-[#15803d]">Magic</span>
+              Print<span className="text-[#12941F]">Magic</span>
             </span>
           </div>
-          <p className="text-xs text-[#FFFFFF] leading-relaxed">
+          <p className="text-[10px] text-[#FFFFFF] leading-relaxed">
             Delivering high-quality, professional printing and custom creative layouts to the local Batangas City community.
           </p>
           <div className="flex items-center gap-3 pt-2">
@@ -57,7 +57,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Our Services
           </h3>
-          <ul className="space-y-2 text-xs font-sans">
+          <ul className="space-y-2 text-[10px] font-sans">
             {[
               { name: "Tarpaulin Printing", page: "tarpaulin-printing" },
               { name: "Layout & Graphic Design", page: "layout-design" },
@@ -71,7 +71,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <li key={service.page}>
                 <button
                   onClick={() => handleLinkClick(service.page)}
-                  className="text-[#FFFFFF] hover:text-[#4ade80] transition-colors font-semibold text-left focus:outline-none cursor-pointer"
+                  className="text-[#FFFFFF] hover:text-[#4ade80] transition-colors font-normal text-left focus:outline-none cursor-pointer"
                 >
                   {service.name}
                 </button>
@@ -85,12 +85,12 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Operating Hours
           </h3>
-          <div className="space-y-3 text-xs text-[#FFFFFF] font-sans">
+          <div className="space-y-3 text-[10px] text-[#FFFFFF] font-sans">
             <div className="flex items-start gap-2">
               <Clock className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold text-[#FFFFFF]">Monday - Sunday</p>
-                <p className="text-[11px] mt-0.5 text-[#FFFFFF]">8:00 AM - 7:30 PM</p>
+                <p className="font-normal text-[#FFFFFF]">Monday - Sunday</p>
+                <p className="text-[10px] mt-0.5 text-[#FFFFFF]">8:00 AM - 7:30 PM</p>
               </div>
             </div>
           </div>
@@ -101,14 +101,14 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
             Contact Information
           </h3>
-          <ul className="space-y-3 text-xs text-[#FFFFFF] font-sans">
+          <ul className="space-y-3 text-[10px] text-[#FFFFFF] font-sans">
             <li className="flex items-start gap-2">
               <Phone className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <span className="leading-normal">0926 022 6003</span>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
-              <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#4ade80] break-all font-semibold text-[#FFFFFF]">
+              <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#4ade80] break-all font-normal text-[#FFFFFF]">
                 printmagic_online@yahoo.com
               </a>
             </li>
@@ -128,14 +128,14 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 mt-12 pt-8 border-t border-[#28473B]/50">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#FFFFFF]">
           <p className="font-sans">
-            &copy; {currentYear} <strong>PrintMagic</strong>. All rights reserved.
+            &copy; {currentYear} PrintMagic. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-[11px] sm:text-xs font-sans">
             <a 
               href="https://www.facebook.com/Printmagic29" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:text-[#4ade80] flex items-center gap-0.5 font-semibold text-[#FFFFFF]"
+              className="hover:text-[#4ade80] flex items-center gap-0.5 font-normal text-[#FFFFFF]"
             >
               <span>Connect on Facebook</span>
               <ArrowUpRight className="w-3 h-3" />

@@ -70,7 +70,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
     >
       {/* Header */}
       <div className="text-center space-y-3 pt-6">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight">
           Contact PrintMagic
         </h1>
         <p className="text-sm sm:text-base text-[#7D7D7D] max-w-xl mx-auto font-sans">
@@ -204,7 +204,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your first and last name"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                   />
                 </div>
 
@@ -222,7 +222,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. name@example.com"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                     />
                   </div>
 
@@ -239,7 +239,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="e.g. 0912 345 6789"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                     />
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none font-sans text-xs sm:text-sm cursor-pointer"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none font-sans text-xs sm:text-sm cursor-pointer"
                   >
                     {printingCategories.map((cat) => (
                       <optgroup key={cat.id} label={cat.title} className="bg-white text-slate-900">
@@ -292,7 +292,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Enter sizes (e.g. 3ft x 2ft), quantity, design preferences, or deadlines..."
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                   ></textarea>
                 </div>
 
