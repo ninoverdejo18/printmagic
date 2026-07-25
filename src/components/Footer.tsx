@@ -90,7 +90,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <Clock className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-[#FFFFFF]">Monday - Saturday</p>
-                <p className="text-[11px] mt-0.5 text-[#FFFFFF]">8:00 AM - 6:00 PM</p>
+                <p className="text-[11px] mt-0.5 text-[#FFFFFF]">8:00 AM - 7:30 PM</p>
               </div>
             </div>
             <div className="flex items-start gap-2">

@@ -119,7 +119,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
               <li>
                 <div>
                   <span className="block text-[10px] uppercase font-bold text-slate-400 font-mono">Store Hours</span>
-                  <span className="font-semibold text-slate-900 block">Mon - Sat: 8:00 AM - 6:00 PM</span>
+                  <span className="font-semibold text-slate-900 block">Mon - Sat: 8:00 AM - 7:30 PM</span>
                   <span className="text-[11px] text-slate-500 mt-0.5">Closed on Sundays</span>
                 </div>
               </li>
