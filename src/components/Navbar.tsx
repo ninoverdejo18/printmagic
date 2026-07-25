@@ -148,7 +148,7 @@ export default function Navbar({
                   <span className={isHome ? "text-black" : "text-white"}>Print</span><span className="text-[#15803d]">Magic</span>
                 </h1>
                 <p className="text-[9px] font-bold text-[#15803d] italic leading-none mt-0.5 [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]">
-                  "Personalan Ba? PrintMagic na!"
+                  Personalan Ba? PrintMagic na!
                 </p>
               </div>
             </motion.div>
