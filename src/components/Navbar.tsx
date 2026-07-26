@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from "react";
-import { Menu, X, Phone, ShieldCheck, Calendar, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ShieldCheck, Calendar, ChevronDown, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface NavbarProps {
@@ -33,16 +33,16 @@ export default function Navbar({
 
   const servicesList = [
     { name: "Tarpaulin Printing", page: "tarpaulin-printing", category: "large-format", quote: "Tarpaulin" },
-    { name: "Layout and Design", page: "layout-design", category: "", quote: "Layout and Design" },
-    { name: "Souvenirs and Corporate Giveaways", page: "souvenirs-giveaways", category: "promotional-items", quote: "Custom Giveaways" },
+    { name: "Layout & Graphic Design", page: "layout-design", category: "", quote: "Layout and Design" },
+    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways", category: "promotional-items", quote: "Custom Giveaways" },
     { name: "Document Scanning and Printing", page: "document-scanning-printing", category: "", quote: "Document Scanning and Printing" },
     { name: "Rush ID", page: "rush-id", category: "promotional-items", quote: "PVC IDs" },
     { name: "Business Cards", page: "business-cards", category: "business-printing", quote: "Calling Cards / Business Cards" },
     { name: "T-Shirt Printing", page: "tshirt-printing", category: "apparel-printing", quote: "T-Shirt Printing" },
     { name: "PVC ID & ID Lace", page: "pvc-id-lace", category: "promotional-items", quote: "PVC IDs & ID Lace" },
-    { name: "Nameplates", page: "nameplates", category: "large-format", quote: "Sintra Board / Nameplates" },
-    { name: "Stickers", page: "stickers", category: "large-format", quote: "Stickers & Decals" },
-    { name: "ID Application Links", page: "id-application-links", category: "credentials", quote: "Online ID Application" },
+    { name: "ID Application Links", page: "id-application-links", category: "credentials", quote: "Online ID Application", isSubitem: true },
+    { name: "Nameplates & Signage", page: "nameplates", category: "large-format", quote: "Sintra Board / Nameplates" },
+    { name: "Custom Stickers & Decals", page: "stickers", category: "large-format", quote: "Stickers & Decals" },
   ];
 
   const isHome = currentPage === "home";
@@ -151,7 +151,7 @@ export default function Navbar({
             >
               {/* Premium vector brand logo */}
               <img 
-                src="/app-icon11.png" 
+                src="/main-logo1.png" 
                 alt="PrintMagic Logo" 
                 className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
                 referrerPolicy="no-referrer" 
@@ -175,7 +175,7 @@ export default function Navbar({
                   "graphic-design", "printing-services", "digital-services",
                   "tarpaulin-printing", "layout-design", "souvenirs-giveaways",
                   "document-scanning-printing", "rush-id", "business-cards",
-                  "tshirt-printing", "pvc-id-lace", "nameplates", "stickers"
+                  "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links"
                 ].includes(currentPage);
                 return (
                   <div
@@ -212,10 +212,18 @@ export default function Navbar({
                             <button
                               key={service.name}
                               onClick={() => handleServiceClick(service)}
-                              className="block w-full text-left px-5 py-2 mx-1 text-xs sm:text-sm text-[#CBD5D1] hover:text-[#4ade80] hover:bg-[#1C3A2E]/60 transition-colors duration-150 font-sans font-medium rounded-lg w-[calc(100%-8px)] cursor-pointer"
+                              className={`flex items-center gap-1.5 text-left py-2 mx-1 text-[#CBD5D1] hover:text-[#4ade80] hover:bg-[#1C3A2E]/60 transition-colors duration-150 font-sans font-medium rounded-lg cursor-pointer ${
+                                service.isSubitem
+                                  ? "pl-8 pr-5 text-slate-300 font-normal text-[11px]"
+                                  : "px-5 text-xs sm:text-sm"
+                              }`}
+                              style={{ width: "calc(100% - 8px)" }}
                               id={`dropdown-item-${index}`}
                             >
-                              {service.name}
+                              {service.isSubitem && (
+                                <ChevronRight className="w-3.5 h-3.5 text-[#14A823] shrink-0" />
+                              )}
+                              <span>{service.name}</span>
                             </button>
                           ))}
                         </motion.div>
@@ -310,7 +318,7 @@ export default function Navbar({
                       "graphic-design", "printing-services", "digital-services",
                       "tarpaulin-printing", "layout-design", "souvenirs-giveaways",
                       "document-scanning-printing", "rush-id", "business-cards",
-                      "tshirt-printing", "pvc-id-lace", "nameplates", "stickers"
+                      "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links"
                     ].includes(currentPage);
                     return (
                       <div key={item.id} className="space-y-1">
@@ -334,17 +342,22 @@ export default function Navbar({
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.2 }}
-                              className="pl-4 space-y-1 overflow-hidden"
+                              className="pl-2 space-y-1 overflow-hidden"
                             >
                               {servicesList.map((service, index) => (
                                 <button
                                   key={service.name}
                                   onClick={() => handleServiceClick(service)}
-                                  className="block w-full text-left px-4 py-2.5 rounded-lg text-xs font-semibold hover:bg-[#1C3A2E]/50 transition-colors"
+                                  className={`flex items-center gap-1.5 w-full text-left py-2.5 rounded-lg font-semibold hover:bg-[#1C3A2E]/50 transition-colors ${
+                                    service.isSubitem ? "pl-7 pr-3 text-[11px] font-medium" : "px-4 text-xs"
+                                  }`}
                                   style={{ color: "#12941F" }}
                                   id={`mobile-dropdown-item-${index}`}
                                 >
-                                  {service.name}
+                                  {service.isSubitem && (
+                                    <ChevronRight className="w-3.5 h-3.5 text-[#12941F] shrink-0" style={{ color: "#12941F", stroke: "#12941F" }} />
+                                  )}
+                                  <span>{service.name}</span>
                                 </button>
                               ))}
                             </motion.div>

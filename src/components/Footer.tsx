@@ -25,6 +25,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
     { name: "Business Cards", page: "business-cards" },
     { name: "T-Shirt Printing", page: "tshirt-printing" },
     { name: "PVC ID & ID Lace", page: "pvc-id-lace" },
+    { name: "ID Application Links", page: "id-application-links", isSubitem: true },
     { name: "Nameplates & Signage", page: "nameplates" },
     { name: "Custom Stickers & Decals", page: "stickers" }
   ];
@@ -38,7 +39,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         {/* Centered Top Brand Header */}
         <div className="flex flex-col items-center text-center mb-8">
           <img 
-            src="/app-icon11.png" 
+            src="/main-logo1.png" 
             alt="PrintMagic Logo" 
             className="w-16 h-16 rounded-full object-cover border-2 border-[#12941F]/40 shadow-lg mb-3" 
             referrerPolicy="no-referrer" 
@@ -71,12 +72,13 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             </h3>
             <ul className="space-y-3 text-xs font-sans">
               {services.map((service) => (
-                <li key={service.page}>
+                <li key={service.page} className={service.isSubitem ? "pl-3 text-[11px]" : ""}>
                   <button
                     onClick={() => handleLinkClick(service.page)}
-                    className="text-slate-200 hover:text-[#12941F] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug"
+                    className="text-slate-200 hover:text-[#12941F] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug flex items-center gap-1"
                   >
-                    {service.name}
+                    {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
+                    <span>{service.name}</span>
                   </button>
                 </li>
               ))}
@@ -162,7 +164,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img 
-                src="/app-icon11.png" 
+                src="/main-logo1.png" 
                 alt="PrintMagic Logo" 
                 className="w-8 h-8 rounded-full border border-[#12941F]/40 object-cover" 
                 referrerPolicy="no-referrer" 
@@ -195,12 +197,13 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             </h3>
             <ul className="space-y-2.5 text-xs font-sans">
               {services.map((service) => (
-                <li key={service.page}>
+                <li key={service.page} className={service.isSubitem ? "pl-3 text-[11px]" : ""}>
                   <button
                     onClick={() => handleLinkClick(service.page)}
-                    className="text-[#E2E8F0] hover:text-[#12941F] transition-colors font-medium text-left focus:outline-none cursor-pointer"
+                    className="text-[#E2E8F0] hover:text-[#12941F] transition-colors font-medium text-left focus:outline-none cursor-pointer flex items-center gap-1"
                   >
-                    {service.name}
+                    {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
+                    <span>{service.name}</span>
                   </button>
                 </li>
               ))}

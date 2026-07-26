@@ -18,6 +18,7 @@ export interface FlowSectionProps {
   children: React.ReactNode;
   'aria-label'?: string;
   id?: string;
+  'data-section-title'?: string;
 }
 
 export const FlowSection: React.FC<FlowSectionProps> = ({
@@ -27,10 +28,12 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
   children,
   'aria-label': ariaLabel,
   id,
+  'data-section-title': dataSectionTitle,
 }) => (
   <section
     id={id}
     data-flow-section
+    data-section-title={dataSectionTitle}
     aria-label={ariaLabel}
     className={cx('relative min-h-screen w-full overflow-hidden bg-inherit', className)}
   >

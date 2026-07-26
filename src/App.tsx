@@ -16,11 +16,96 @@ import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import IdApplicationLinks from "./pages/IdApplicationLinks";
 
+const PAGE_TITLES: Record<string, string> = {
+  "home": "Home",
+  "about": "About Us",
+  "services": "Services",
+  "printing-services": "Services",
+  "contact": "Contact Us",
+  "graphic-design": "Layout & Graphic Design",
+  "digital-services": "Digital Printing & Services",
+  "id-application-links": "ID Application Links",
+  "tarpaulin-printing": "Tarpaulin Printing",
+  "layout-design": "Layout & Graphic Design",
+  "souvenirs-giveaways": "Souvenirs & Giveaways",
+  "document-scanning-printing": "Document Scanning & Printing",
+  "rush-id": "Rush ID",
+  "business-cards": "Business Cards",
+  "business-card": "Business Cards",
+  "tshirt-printing": "T-Shirt Printing",
+  "pvc-id-lace": "PVC ID & ID Lace",
+  "nameplates": "Nameplates & Signage",
+  "nameplate": "Nameplates & Signage",
+  "stickers": "Custom Stickers & Decals",
+};
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("home");
   const [showIntro, setShowIntro] = useState<boolean>(true);
   const [selectedServiceQuote, setSelectedServiceQuote] = useState<string>("");
   const [initialPrintingCategory, setInitialPrintingCategory] = useState<string>("large-format");
+
+  // Dynamic Browser Tab Title Management
+  useEffect(() => {
+    const isHomeLayout = currentPage === "home" || currentPage === "about" || currentPage === "services" || currentPage === "printing-services";
+
+    if (!isHomeLayout) {
+      const pageTitle = PAGE_TITLES[currentPage] || "PrintMagic";
+      document.title = `${pageTitle} | PrintMagic`;
+      return;
+    }
+
+    // Set initial title based on currentPage
+    const initialTitle = PAGE_TITLES[currentPage] || "Home";
+    document.title = `${initialTitle} | PrintMagic`;
+
+    // IntersectionObserver for active section on single-page scrolling
+    const activeSectionsMap = new Map<Element, number>();
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSectionsMap.set(entry.target, entry.intersectionRatio);
+        } else {
+          activeSectionsMap.delete(entry.target);
+        }
+      });
+
+      if (activeSectionsMap.size > 0) {
+        let maxRatio = -1;
+        let bestTarget: Element | null = null;
+        activeSectionsMap.forEach((ratio, target) => {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            bestTarget = target;
+          }
+        });
+
+        if (bestTarget) {
+          const sectionTitle = (bestTarget as HTMLElement).getAttribute("data-section-title");
+          if (sectionTitle) {
+            document.title = `${sectionTitle} | PrintMagic`;
+          }
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: "-15% 0px -35% 0px",
+      threshold: [0.1, 0.25, 0.5, 0.75, 1.0]
+    });
+
+    const timeoutId = setTimeout(() => {
+      const sectionElements = document.querySelectorAll("[data-section-title]");
+      sectionElements.forEach((el) => observer.observe(el));
+    }, 150);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, [currentPage]);
 
   // Inject Structured Local Business Schema SEO Data
   useEffect(() => {

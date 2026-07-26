@@ -172,15 +172,16 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
       <LiquidCursor />
       <FlowArt aria-label="PrintMagic Homepage Story Scroll">
         {/* 1. INTERACTIVE INK REVEAL INTRODUCTION (HERO) */}
-        <FlowSection id="hero-flow" className="bg-[#0B1F18] no-liquid-cursor" data-no-liquid-cursor="true">
+        <FlowSection id="hero-flow" className="bg-[#0B1F18] no-liquid-cursor" data-no-liquid-cursor="true" data-section-title="Home">
           <InkRevealIntro />
         </FlowSection>
 
         {/* 2. ABOUT US SECTION */}
-        <FlowSection id="about-flow" className="bg-[#0B1F18]">
+        <FlowSection id="about-flow" className="bg-[#0B1F18]" data-section-title="About Us">
           <section 
             className="w-full min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat" 
             id="about-section"
+            data-section-title="About Us"
             style={{ backgroundImage: "url('/ink_splash_2k4.webp')" }}
           >
             <div className="max-w-7xl mx-auto relative z-20">
@@ -289,10 +290,11 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
         </FlowSection>
 
         {/* 3. SERVICES SECTION */}
-        <FlowSection id="services-flow" className="bg-[#0B1F18]">
+        <FlowSection id="services-flow" className="bg-[#0B1F18]" data-section-title="Services">
           <section 
             className="w-full min-h-screen py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat" 
             id="services-section"
+            data-section-title="Services"
             style={{ backgroundImage: "url('/InkBackground_1_2K.webp')" }}
           >
             <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full">
@@ -346,10 +348,11 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
         </FlowSection>
 
         {/* 4. CREATIVE GALLERY SECTION */}
-        <FlowSection id="gallery-flow" className="bg-white">
+        <FlowSection id="gallery-flow" className="bg-white" data-section-title="Gallery">
           <section 
             className="w-full min-h-screen py-16 text-center border-b border-slate-200 relative overflow-hidden flex flex-col items-center justify-center bg-contain bg-center bg-no-repeat bg-white" 
             id="gallery-section"
+            data-section-title="Gallery"
             style={{ backgroundImage: "url('/Green_Paint_PureWhite_2K.webp')" }}
           >
             <div className="w-full space-y-8 relative z-10">
@@ -369,13 +372,13 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
         </FlowSection>
 
         {/* 5. CUSTOMER REVIEWS */}
-        <FlowSection id="clients-flow" className="bg-white">
+        <FlowSection id="clients-flow" className="bg-white" data-section-title="Client Reviews">
           <SkewCards setCurrentPage={setCurrentPage} />
         </FlowSection>
 
         {/* 7. CALL TO ACTION */}
-        <FlowSection id="cta-flow" className="bg-white">
-          <section className="w-full bg-white py-16 text-slate-900" id="cta-section">
+        <FlowSection id="cta-flow" className="bg-white" data-section-title="Contact Us">
+          <section className="w-full bg-white py-16 text-slate-900" id="cta-section" data-section-title="Contact Us">
             <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
               <div className="bg-[#0B1F18] border border-[#28473B]/50 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl text-white">
                 {/* Abstract background subtle circle */}
