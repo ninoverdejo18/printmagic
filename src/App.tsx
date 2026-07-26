@@ -14,6 +14,7 @@ import PrintingServices from "./pages/PrintingServices";
 import DigitalServices from "./pages/DigitalServices";
 import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
+import IdApplicationLinks from "./pages/IdApplicationLinks";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("home");
@@ -67,13 +68,19 @@ export default function App() {
   const renderPageView = () => {
     switch (currentPage) {
       case "intro":
-        return <Home setCurrentPage={setCurrentPage} />;
       case "home":
-        return <Home setCurrentPage={setCurrentPage} />;
+      case "printing-services":
+      case "about":
+        return <Home setCurrentPage={setCurrentPage} setSelectedServiceQuote={setSelectedServiceQuote} />;
+      case "id-application-links":
+        return (
+          <IdApplicationLinks
+            setCurrentPage={setCurrentPage}
+            setSelectedServiceQuote={setSelectedServiceQuote}
+          />
+        );
       case "graphic-design":
         return <GraphicDesign setCurrentPage={setCurrentPage} />;
-      case "printing-services":
-        return <Home setCurrentPage={setCurrentPage} />;
       case "digital-services":
         return (
           <DigitalServices

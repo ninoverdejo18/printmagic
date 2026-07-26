@@ -583,7 +583,8 @@ export default function SkewCards({ setCurrentPage }: SkewCardsProps) {
   return (
     <section
       id="client-feedback-gradient-section"
-      className="w-full bg-white border-t border-b border-slate-200 py-16 px-4 sm:px-6 md:px-8 lg:px-10"
+      className="w-full bg-cover bg-center bg-no-repeat border-t border-b border-slate-200 py-16 px-4 sm:px-6 md:px-8 lg:px-10"
+      style={{ backgroundImage: "url('/InkBackground_3_2K.webp')" }}
     >
       {/* Desktop Grid Layout (14 Cards surrounding center text block) */}
       <div

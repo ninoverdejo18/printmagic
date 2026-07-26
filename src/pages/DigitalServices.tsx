@@ -115,7 +115,7 @@ export default function DigitalServices({ setCurrentPage, setSelectedServiceQuot
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 text-center w-full space-y-4 shadow-xl text-white">
         <h3 className="text-xl font-extrabold text-white font-display">How does our Digital Design process work?</h3>
         <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-xl mx-auto leading-relaxed">
-          It's simple! You share your design goals with us (colors, text, style preferences) via the contact form or Messenger. Our design artist sketches 2 to 3 concepts, incorporates your changes until you are 100% happy, and then delivers high-resolution vector assets!
+          You share your design goals with us (colors, text, style preferences) via the contact form or Messenger. Our design artist creates initial concepts, incorporates your revisions, and delivers high-resolution vector assets.
         </p>
         <div className="pt-2">
           <button

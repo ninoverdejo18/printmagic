@@ -295,7 +295,7 @@ export const digitalServices: DigitalServiceItem[] = [
     image: "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&w=800&q=80",
     details: [
       "Multiple initial design concepts",
-      "Unlimited revisions until approval",
+      "Revision rounds for concept approval",
       "Full ownership & source files (.AI, .EPS, .PNG, .SVG)",
       "Style sheet with color codes"
     ]

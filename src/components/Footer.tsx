@@ -18,131 +18,255 @@ export default function Footer({ setCurrentPage }: FooterProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const services = [
+    { name: "Tarpaulin Printing", page: "tarpaulin-printing" },
+    { name: "Layout & Graphic Design", page: "layout-design" },
+    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways" },
+    { name: "Business Cards", page: "business-cards" },
+    { name: "T-Shirt Printing", page: "tshirt-printing" },
+    { name: "PVC ID & ID Lace", page: "pvc-id-lace" },
+    { name: "Nameplates & Signage", page: "nameplates" },
+    { name: "Custom Stickers & Decals", page: "stickers" }
+  ];
+
   return (
-    <footer className="bg-[#0B1F18] border-t border-[#28473B]/50 pt-16 pb-8 text-[#F8FAFC]" id="main-footer">
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+    <footer className="bg-[#0B1F18] border-t border-[#28473B]/50 pt-12 md:pt-8 pb-8 md:pb-6 text-[#F8FAFC]" id="main-footer">
+      
+      {/* MOBILE VIEW (md:hidden) */}
+      <div className="md:hidden max-w-4xl mx-auto px-4">
         
-        {/* Brand & Tagline */}
-        <div className="md:col-span-1 space-y-4">
-          <div className="flex items-center gap-2">
-            <img 
-              src="/app-icon.png" 
-              alt="PrintMagic Logo" 
-              className="w-10 h-10 object-contain" 
-              referrerPolicy="no-referrer" 
-            />
-            <span className="text-lg font-extrabold tracking-tight text-[#F8FAFC] font-display">
-              Print<span className="text-[#12941F]">Magic</span>
-            </span>
-          </div>
-          <p className="text-[10px] text-[#FFFFFF] leading-relaxed">
+        {/* Centered Top Brand Header */}
+        <div className="flex flex-col items-center text-center mb-8">
+          <img 
+            src="/app-icon11.png" 
+            alt="PrintMagic Logo" 
+            className="w-16 h-16 rounded-full object-cover border-2 border-[#12941F]/40 shadow-lg mb-3" 
+            referrerPolicy="no-referrer" 
+          />
+          <h2 className="text-2xl font-extrabold tracking-tight text-white font-display">
+            Print<span className="text-[#12941F]">Magic</span>
+          </h2>
+          <p className="text-xs text-slate-200 max-w-xs text-center mt-3 leading-relaxed font-sans">
             Delivering high-quality, professional printing and custom creative layouts to the local Batangas City community.
           </p>
-          <div className="flex items-center gap-3 pt-2">
-            <a
-              href="https://www.facebook.com/Printmagic29"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#4ade80]/20 text-[#FFFFFF] hover:text-[#4ade80] border border-[#28473B] flex items-center justify-center transition-colors shadow-sm"
-              aria-label="Facebook Page"
-              id="footer-facebook-link"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
+          <a
+            href="https://www.facebook.com/Printmagic29"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-white/20 hover:border-[#12941F] flex items-center justify-center text-white hover:text-[#12941F] transition-colors mt-5"
+            aria-label="Facebook Page"
+            id="mobile-footer-facebook-link"
+          >
+            <Facebook className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* 2-Column Main Section with Vertical Divider */}
+        <div className="grid grid-cols-2 gap-3 pt-6 border-t border-white/10">
+          
+          {/* Left Column: OUR SERVICES */}
+          <div className="pr-2 border-r border-white/15">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+              OUR SERVICES
+            </h3>
+            <ul className="space-y-3 text-xs font-sans">
+              {services.map((service) => (
+                <li key={service.page}>
+                  <button
+                    onClick={() => handleLinkClick(service.page)}
+                    className="text-slate-200 hover:text-[#12941F] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug"
+                  >
+                    {service.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
+
+          {/* Right Column: OPERATING HOURS & CONTACT INFORMATION */}
+          <div className="pl-2 space-y-6">
+            
+            {/* Operating Hours */}
+            <div>
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-3 font-display">
+                OPERATING HOURS
+              </h3>
+              <div className="flex items-start gap-2 text-xs font-sans">
+                <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0 mt-0.5">
+                  <Clock className="w-3.5 h-3.5 text-white" />
+                </div>
+                <div>
+                  <p className="font-normal text-white">Monday - Sunday</p>
+                  <p className="text-slate-300 mt-0.5 text-[11px]">8:00 AM - 7:30 PM</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div>
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-3 font-display">
+                CONTACT INFORMATION
+              </h3>
+              <ul className="space-y-3 text-xs font-sans">
+                <li className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <span className="text-slate-200 font-normal text-[11px]">0926 022 6003</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+                    <Mail className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <a href="mailto:printmagic_online@yahoo.com" className="text-slate-200 hover:text-[#12941F] break-all font-normal text-[10px]">
+                    printmagic_online@yahoo.com
+                  </a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <span className="text-slate-200 leading-relaxed font-normal text-[11px]">
+                    Libjo, New San Vicente,<br />
+                    Batangas City, Philippines 4200
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Our Services */}
-        <div>
-          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
-            Our Services
-          </h3>
-          <ul className="space-y-2 text-[10px] font-sans">
-            {[
-              { name: "Tarpaulin Printing", page: "tarpaulin-printing" },
-              { name: "Layout & Graphic Design", page: "layout-design" },
-              { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways" },
-              { name: "Business Cards", page: "business-cards" },
-              { name: "T-Shirt Printing", page: "tshirt-printing" },
-              { name: "PVC ID & ID Lace", page: "pvc-id-lace" },
-              { name: "Nameplates & Signage", page: "nameplates" },
-              { name: "Custom Stickers & Decals", page: "stickers" }
-            ].map((service) => (
-              <li key={service.page}>
-                <button
-                  onClick={() => handleLinkClick(service.page)}
-                  className="text-[#FFFFFF] hover:text-[#4ade80] transition-colors font-normal text-left focus:outline-none cursor-pointer"
-                >
-                  {service.name}
-                </button>
-              </li>
-            ))}
-          </ul>
+        {/* Mobile Copyright */}
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col justify-between items-center gap-3 text-xs text-slate-400 font-sans">
+          <p>&copy; {currentYear} PrintMagic. All rights reserved.</p>
+          <a 
+            href="https://www.facebook.com/Printmagic29" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#12941F] flex items-center gap-1 font-normal text-slate-300 transition-colors"
+          >
+            <span>Connect on Facebook</span>
+            <ArrowUpRight className="w-3 h-3" />
+          </a>
         </div>
 
-        {/* Operating Hours */}
-        <div>
-          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
-            Operating Hours
-          </h3>
-          <div className="space-y-3 text-[10px] text-[#FFFFFF] font-sans">
-            <div className="flex items-start gap-2">
-              <Clock className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
-              <div>
-                <p className="font-normal text-[#FFFFFF]">Monday - Sunday</p>
-                <p className="text-[10px] mt-0.5 text-[#FFFFFF]">8:00 AM - 7:30 PM</p>
+      </div>
+
+      {/* DESKTOP / TABLET VIEW (hidden md:block) */}
+      <div className="hidden md:block w-full px-6 md:px-10 lg:px-14 py-0">
+        <div className="grid grid-cols-4 gap-6 lg:gap-10">
+          
+          {/* Column 1: Brand & Tagline */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <img 
+                src="/app-icon11.png" 
+                alt="PrintMagic Logo" 
+                className="w-8 h-8 rounded-full border border-[#12941F]/40 object-cover" 
+                referrerPolicy="no-referrer" 
+              />
+              <span className="text-xl font-bold tracking-tight text-white font-display">
+                Print<span className="text-[#12941F]">Magic</span>
+              </span>
+            </div>
+            <p className="text-xs text-[#E2E8F0] leading-relaxed font-sans max-w-xs">
+              Delivering high-quality, professional printing and custom creative layouts to the local Batangas City community.
+            </p>
+            <div className="pt-1">
+              <a
+                href="https://www.facebook.com/Printmagic29"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#12941F]/20 text-white hover:text-[#12941F] flex items-center justify-center transition-colors"
+                aria-label="Facebook Page"
+                id="desktop-footer-facebook-link"
+              >
+                <Facebook className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: OUR SERVICES */}
+          <div>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+              OUR SERVICES
+            </h3>
+            <ul className="space-y-2.5 text-xs font-sans">
+              {services.map((service) => (
+                <li key={service.page}>
+                  <button
+                    onClick={() => handleLinkClick(service.page)}
+                    className="text-[#E2E8F0] hover:text-[#12941F] transition-colors font-medium text-left focus:outline-none cursor-pointer"
+                  >
+                    {service.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: OPERATING HOURS */}
+          <div>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+              OPERATING HOURS
+            </h3>
+            <div className="space-y-3 text-xs text-[#E2E8F0] font-sans">
+              <div className="flex items-start gap-2.5">
+                <Clock className="w-4 h-4 text-white shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Monday - Sunday</p>
+                  <p className="text-xs text-[#CBD5E1] mt-0.5">8:00 AM - 7:30 PM</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Business Contact Info */}
-        <div>
-          <h3 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider mb-4 font-display">
-            Contact Information
-          </h3>
-          <ul className="space-y-3 text-[10px] text-[#FFFFFF] font-sans">
-            <li className="flex items-start gap-2">
-              <Phone className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
-              <span className="leading-normal">0926 022 6003</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Mail className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
-              <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#4ade80] break-all font-normal text-[#FFFFFF]">
-                printmagic_online@yahoo.com
-              </a>
-            </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" />
-              <span className="leading-relaxed text-[#FFFFFF]">
-                Libjo, New San Vicente,<br />
-                Batangas City, Philippines 4200
-              </span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Trust & Copyright Banner */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 mt-12 pt-8 border-t border-[#28473B]/50">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#FFFFFF]">
-          <p className="font-sans">
-            &copy; {currentYear} PrintMagic. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs font-sans">
-            <a 
-              href="https://www.facebook.com/Printmagic29" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:text-[#4ade80] flex items-center gap-0.5 font-normal text-[#FFFFFF]"
-            >
-              <span>Connect on Facebook</span>
-              <ArrowUpRight className="w-3 h-3" />
-            </a>
+          {/* Column 4: CONTACT INFORMATION */}
+          <div>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-display">
+              CONTACT INFORMATION
+            </h3>
+            <ul className="space-y-3.5 text-xs text-[#E2E8F0] font-sans">
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-white shrink-0" />
+                <span className="leading-normal font-medium">0926 022 6003</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-white shrink-0" />
+                <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#12941F] break-all font-medium text-[#E2E8F0]">
+                  printmagic_online@yahoo.com
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
+                <span className="leading-relaxed text-[#E2E8F0]">
+                  Libjo, New San Vicente,<br />
+                  Batangas City, Philippines 4200
+                </span>
+              </li>
+            </ul>
           </div>
+
         </div>
+
+        {/* Desktop Copyright Banner (without top border/padding) */}
+        <div className="mt-10 pt-4 flex justify-between items-center text-xs text-[#E2E8F0] font-sans">
+          <p className="font-semibold">&copy; {currentYear} PrintMagic. All rights reserved.</p>
+          <a 
+            href="https://www.facebook.com/Printmagic29" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#12941F] flex items-center gap-1 font-semibold text-[#E2E8F0] transition-colors"
+          >
+            <span>Connect on Facebook</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
       </div>
+
     </footer>
   );
 }

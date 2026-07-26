@@ -78,9 +78,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Finishing Finishes", value: "Eyelets, fold-margins, pocket loops, or clean cuts" }
     ],
     faqs: [
-      { q: "How long does a tarpaulin print take?", a: "Standard turnaround is 1 to 2 business days. We also offer 10-minute/same-day rush printing options for urgent events and tight deadlines!" },
-      { q: "Can you help with the graphic layout?", a: "Absolutely! We have a dedicated professional layout artist ready to bring your vision to life (refer to our Layout and Design service)." },
-      { q: "What file format is best for print?", a: "For best resolution, we prefer high-quality PDF, JPG, or PNG files at 150-300 DPI, set to CMYK color profile." }
+      { q: "How long does a tarpaulin print take?", a: "Standard turnaround is 1 to 2 business days. Same-day rush printing options may be available depending on schedule and volume." },
+      { q: "Can you help with the graphic layout?", a: "Yes, we have a layout artist available to assist with your design (refer to our Layout and Design service)." },
+      { q: "What file format is best for print?", a: "High-quality PDF, JPG, or PNG files at 150-300 DPI in CMYK color profile are recommended for print resolution." }
     ],
     bestFor: "Grand Openings, Birthdays, Local Store Promotions, Corporate Ads, School Events",
     turnaroundTime: "1-2 Days (Same-day rush available)"
@@ -106,9 +106,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Standard Turnaround", value: "1 to 3 business days depending on complexity" }
     ],
     faqs: [
-      { q: "Do I get full ownership of the final design?", a: "Yes, you receive full rights to the approved custom layout design, including the high-resolution vector source files upon project completion." },
-      { q: "How many revisions do I get?", a: "We provide multiple rounds of standard adjustments to ensure the final layout looks exactly how you envisioned it." },
-      { q: "Can you design a brand logo from scratch?", a: "Yes, logo design is one of our creative specialties. We build memorable visual brand identities for local businesses." }
+      { q: "Do I get full ownership of the final design?", a: "Yes, you receive rights to the approved custom layout design, including vector source files upon project completion." },
+      { q: "How many revisions do I get?", a: "Standard revision rounds are provided during the design phase to align the layout with your preferences." },
+      { q: "Can you design a brand logo from scratch?", a: "Yes, logo design is available to help create visual brand identities for local businesses." }
     ],
     bestFor: "Brand Identity, Custom Flyers, Menu Boards, Tarpaulin Layouts, Logo Creations",
     turnaroundTime: "1-3 Days"
@@ -120,7 +120,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     categoryLabel: "Promotional Items",
     subtitle: "Customized Keepsakes, Brand Merchandise & Souvenirs",
     image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=1200&q=80",
-    description: "Delight your guests, clients, and employees with fully customized corporate giveaways and event souvenirs. From custom-printed mugs, keychains, and tote bags to high-end company gifts, we ensure your brand leaves an enduring impression.",
+    description: "Delight your guests, clients, and employees with fully customized corporate giveaways and event souvenirs. From custom-printed mugs, keychains, and tote bags to high-end company gifts, we offer items tailored for your events.",
     features: [
       "Vibrant custom prints that resist washing and daily wear",
       "Wide range of custom products (mugs, keychains, tote bags, umbrellas, pens)",
@@ -134,9 +134,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Packaging Options", value: "Individual boxes, clear acetate styling options available" }
     ],
     faqs: [
-      { q: "Can I print different names on each mug or giveaway?", a: "Yes, we support individual personalization (e.g., specific guest names) for keychains, mugs, and corporate badges!" },
-      { q: "Do you offer discounts for school or company events?", a: "Yes, we provide special bulk discount structures for bulk corporate purchases and school events." },
-      { q: "How are the canvas tote bags printed?", a: "We use high-fidelity heat transfers or digital printing which ensures the print stays sharp, durable, and fully washable." }
+      { q: "Can I print different names on each mug or giveaway?", a: "Yes, individual personalization (such as specific guest names) is supported for keychains, mugs, and badges." },
+      { q: "Do you offer discounts for school or company events?", a: "Yes, volume discount pricing is available for bulk corporate or school event orders." },
+      { q: "How are the canvas tote bags printed?", a: "Heat transfer or digital printing methods are used to deliver durable, washable tote bag prints." }
     ],
     bestFor: "Weddings, Baptisms, Company Anniversary Gifts, Team Merch, Trade Show Promos",
     turnaroundTime: "3-5 Days (Depending on quantity)"
@@ -162,9 +162,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Finishing Services", value: "Lamination, Comb/Spiral Binding, Stapling, and Ring Binding" }
     ],
     faqs: [
-      { q: "Can I email my files to you for printing?", a: "Yes, you can send your documents directly via email or our Facebook Messenger. We will print them and have them ready for pickup!" },
-      { q: "Do you offer legal-size scanning?", a: "Yes, we can scan short, A4, and long legal-size documents directly into high-fidelity PDF formats." },
-      { q: "Do you support double-sided document printing?", a: "Yes, we offer fully automated duplex (double-sided) black-and-white or color prints at cost-efficient prices." }
+      { q: "Can I email my files to you for printing?", a: "Yes, you can send documents via email or Facebook Messenger for printing and pick up." },
+      { q: "Do you offer legal-size scanning?", a: "Yes, scanning is available for short, A4, and long legal-size documents directly into PDF formats." },
+      { q: "Do you support double-sided document printing?", a: "Yes, automated double-sided (duplex) black-and-white and color printing options are available." }
     ],
     bestFor: "School Handouts, Legal Forms, Portfolios, Resume Packets, Office Duplication",
     turnaroundTime: "Same-Day / Immediate"
@@ -190,9 +190,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Turnaround", value: "Immediate – printed and cut within 10 to 15 minutes" }
     ],
     faqs: [
-      { q: "Do you provide digital copies of my ID photo?", a: "Yes, we can send the high-resolution cropped digital file directly to your email or social media inbox for your future online applications." },
-      { q: "Can you change my casual clothes to formal attire digitally?", a: "Yes, we can digitally overlay formal coats, business suits, or school collared shirts onto your ID photo!" },
-      { q: "Are passport-size photos compliant with government requirements?", a: "Yes, our passport-size photo captures strictly adhere to official government rules regarding size, background color, and facial visibility." }
+      { q: "Do you provide digital copies of my ID photo?", a: "Yes, cropped digital files can be sent to your email or social media inbox upon request." },
+      { q: "Can you change my casual clothes to formal attire digitally?", a: "Yes, digital overlays for formal coats, suits, or collared shirts are available for ID photo orders." },
+      { q: "Are passport-size photos compliant with government requirements?", a: "Passport-size photo captures follow standard guidelines for dimensions, background colors, and framing." }
     ],
     bestFor: "Job Applications, School Enrollments, Visa Documents, Professional Licenses",
     turnaroundTime: "10-15 Minutes"
@@ -218,9 +218,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Minimum Order", value: "1 box (contains 100 premium cards)" }
     ],
     faqs: [
-      { q: "Do my cards come with storage containers?", a: "Yes, every box of 100 cards is delivered in a high-quality acrylic storage case to keep them clean and neat." },
-      { q: "Can you print cards with custom curved corners?", a: "Yes! We can cut cards with rounded, sleek corners for a modern, tactile design." },
-      { q: "Can I use different names in a single business card order?", a: "No, because print setup is done in batches, a single box of 100 cards contains the exact same design details." }
+      { q: "Do my cards come with storage containers?", a: "Acrylic storage cases are provided with business card orders to help keep them organized." },
+      { q: "Can you print cards with custom curved corners?", a: "Yes, rounded corner cutting options are available." },
+      { q: "Can I use different names in a single business card order?", a: "Business cards are printed in single-design batches per box of 100." }
     ],
     bestFor: "Executive Branding, Store Cards, Service Appointments, VIP Invites",
     turnaroundTime: "1-2 Days"
@@ -246,9 +246,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Turnaround", value: "3 to 5 days standard, same day available for small batches of active dry-fit" }
     ],
     faqs: [
-      { q: "How should I wash my custom printed shirt?", a: "We advise washing inside-out with cool water and a gentle detergent. Avoid bleaching and do not iron directly onto the printed vinyl or DTF design." },
-      { q: "Can I bring my own blank shirts for printing?", a: "Yes! We accept print-only jobs if you provide your own clean shirts, as long as the fabric is compatible with our thermal processes." },
-      { q: "Is there a minimum order count?", a: "No minimum order! We can print individual custom shirts for gifts or personal streetwear, but we provide higher discounts for bulk orders." }
+      { q: "How should I wash my custom printed shirt?", a: "Washing inside-out with gentle detergent and avoiding direct ironing over printed areas is recommended." },
+      { q: "Can I bring my own blank shirts for printing?", a: "Print-only services are available for customer-supplied garments subject to fabric testing." },
+      { q: "Is there a minimum order count?", a: "Single-item custom shirt printing is available, with volume pricing offered for larger quantity orders." }
     ],
     bestFor: "Barangay Tournaments, School Reunions, Corporate Uniforms, Campaign Promos",
     turnaroundTime: "3-5 Days (Same-day active dry-fit options available)"
@@ -274,9 +274,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Security Extras", value: "Barcode printing, magnetic stripe options, and photo badge slots" }
     ],
     faqs: [
-      { q: "Are your PVC IDs water-resistant?", a: "Yes, our PVC IDs are 100% waterproof and sweatproof. The ink is sealed deep inside the plastic layers so it won't smudge or rub off." },
-      { q: "Can we submit our own ID list in Excel?", a: "Absolutely! For school or corporate orders, we accept structured Excel files with photos named after the ID numbers for seamless batch production." },
-      { q: "Do you supply ID cases?", a: "Yes, we have a variety of clear plastic card protectors, hard plastic cases, and retractable badge reels in several colors." }
+      { q: "Are your PVC IDs water-resistant?", a: "PVC cards and lamination layers are water-resistant under standard everyday use." },
+      { q: "Can we submit our own ID list in Excel?", a: "Yes, structured Excel files with matching photo filenames can be accepted for batch processing." },
+      { q: "Do you supply ID cases?", a: "Clear plastic card protectors, hard plastic cases, and retractable badge reels are available." }
     ],
     bestFor: "Student IDs, Office Credentials, Event Access Badges, Membership Clubs",
     turnaroundTime: "2-3 Days"
@@ -302,9 +302,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "Design Style", value: "Custom logo placement, name text, department, and custom accents" }
     ],
     faqs: [
-      { q: "Can I stick Sintra Board nameplates onto rough walls?", a: "We apply highly durable mounting tapes, but for rough concrete walls, we recommend adding a drop of silicone adhesive for safety." },
-      { q: "Do you offer desktop metal or wood stands?", a: "Yes! We supply elegant acrylic slot bases and desktop frames for standing nameplates on executive desks." },
-      { q: "Are the names written on nameplates customizable?", a: "Yes, every single nameplate is custom designed with individual employee names, titles, and department branding." }
+      { q: "Can I stick Sintra Board nameplates onto rough walls?", a: "Heavy-duty mounting tape is included, though rough concrete surfaces may require additional silicone mounting." },
+      { q: "Do you offer desktop metal or wood stands?", a: "Acrylic slot bases and desktop frames are available for standing desk displays." },
+      { q: "Are the names written on nameplates customizable?", a: "Yes, nameplates are custom designed with individual employee names, titles, and department details." }
     ],
     bestFor: "Executive Desks, Doctor's Clinics, Office Door Labels, Classroom Labels",
     turnaroundTime: "1-2 Days"
@@ -330,9 +330,9 @@ const servicesDatabase: Record<string, ServiceData> = {
       { label: "DPI Print Resolution", value: "Stunning photographic-quality 1440 DPI print run" }
     ],
     faqs: [
-      { q: "Are these stickers safe for frozen food packaging?", a: "Yes! Our high-grade vinyl stickers are moisture-resistant and completely safe for refrigerated products, honey jars, and cold milk tea cups." },
-      { q: "What is the difference between Die-Cut and Kiss-Cut?", a: "Die-Cut stickers are sliced completely through both the sticker and backing paper into individual stickers. Kiss-Cut stickers are sliced only through the top adhesive layer, leaving them on a handy sheet." },
-      { q: "What is the smallest sticker size you can print?", a: "We can print high-fidelity, readable text on stickers as small as 0.5 inches (12.7mm) wide." }
+      { q: "Are these stickers safe for frozen food packaging?", a: "High-grade vinyl stickers are moisture-resistant and suitable for refrigerated containers and jars." },
+      { q: "What is the difference between Die-Cut and Kiss-Cut?", a: "Die-cut stickers are sliced through both the vinyl and backing paper, while kiss-cut stickers are cut through the top adhesive layer on a sheet." },
+      { q: "What is the smallest sticker size you can print?", a: "Readable text printing is supported on small custom sticker sizes." }
     ],
     bestFor: "Cosmetic Labels, Coffee Jars, Pastry Bags, Vehicle Decals, Laptop Stickers",
     turnaroundTime: "1-2 Days (Same-day express sheet printing available)"
@@ -446,7 +446,7 @@ export default function ServiceDetail({
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900/70 backdrop-blur-sm h-[280px] sm:h-[350px] lg:h-[400px] group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-left">
-                <h3 className="text-lg font-bold text-[#14A823] mt-1">Guaranteed Vibrant Graphics</h3>
+                <h3 className="text-lg font-bold text-[#14A823] mt-1">High-Quality Vibrant Graphics</h3>
                 <p className="text-xs text-[#C4C4C4] font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
               </div>
             </div>

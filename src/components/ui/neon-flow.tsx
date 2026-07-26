@@ -17,6 +17,7 @@ interface TubesBackgroundProps {
   hoverOnly?: boolean;
   autoAnimate?: boolean;
   bgImage?: string;
+  bgImageMobile?: string;
   bgOverlayClass?: string;
 }
 
@@ -27,6 +28,7 @@ export function TubesBackground({
   hoverOnly = false,
   autoAnimate = true,
   bgImage,
+  bgImageMobile,
   bgOverlayClass = "bg-black/35"
 }: TubesBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -116,135 +118,146 @@ export function TubesBackground({
           const speed = 0.005; // Smooth, continuous gliding speed between hero regions
 
           const getPoint = (key: LandmarkKey) => {
-            const containerRect = containerRef.current?.getBoundingClientRect() || {
-              left: 0,
-              top: 0,
-              width: window.innerWidth,
-              height: window.innerHeight,
-            };
-            const w = containerRect.width;
-            const h = containerRect.height;
+            const containerRect = containerRef.current?.getBoundingClientRect();
+            const w = (containerRect && containerRect.width > 0) ? containerRect.width : (window.innerWidth || 1000);
+            const h = (containerRect && containerRect.height > 0) ? containerRect.height : (window.innerHeight || 800);
+            const left = containerRect ? containerRect.left : 0;
+            const top = containerRect ? containerRect.top : 0;
 
             if (key === 'print') {
               const el = document.getElementById('caption-print');
               if (el) {
                 const rect = el.getBoundingClientRect();
-                return { x: rect.left + rect.width * 0.4, y: rect.top + rect.height * 0.5 };
+                if (rect.width > 0 && rect.height > 0) {
+                  return { x: rect.left + rect.width * 0.4, y: rect.top + rect.height * 0.5 };
+                }
               }
-              return { x: containerRect.left + w * 0.2, y: containerRect.top + h * 0.25 };
+              return { x: left + w * 0.2, y: top + h * 0.25 };
             }
 
             if (key === 'design') {
               const el = document.getElementById('caption-design');
               if (el) {
                 const rect = el.getBoundingClientRect();
-                return { x: rect.left + rect.width * 0.45, y: rect.top + rect.height * 0.5 };
+                if (rect.width > 0 && rect.height > 0) {
+                  return { x: rect.left + rect.width * 0.45, y: rect.top + rect.height * 0.5 };
+                }
               }
-              return { x: containerRect.left + w * 0.45, y: containerRect.top + h * 0.5 };
+              return { x: left + w * 0.45, y: top + h * 0.5 };
             }
 
             if (key === 'layout') {
               const el = document.getElementById('caption-layout');
               if (el) {
                 const rect = el.getBoundingClientRect();
-                return { x: rect.left + rect.width * 0.5, y: rect.top + rect.height * 0.5 };
+                if (rect.width > 0 && rect.height > 0) {
+                  return { x: rect.left + rect.width * 0.5, y: rect.top + rect.height * 0.5 };
+                }
               }
-              return { x: containerRect.left + w * 0.75, y: containerRect.top + h * 0.75 };
+              return { x: left + w * 0.75, y: top + h * 0.75 };
             }
 
             if (key === 'top-right') {
-              return { x: containerRect.left + w * 0.82, y: containerRect.top + h * 0.22 };
+              return { x: left + w * 0.82, y: top + h * 0.22 };
             }
 
             if (key === 'bottom-left') {
-              return { x: containerRect.left + w * 0.18, y: containerRect.top + h * 0.78 };
+              return { x: left + w * 0.18, y: top + h * 0.78 };
             }
 
             // 'top-center'
-            return { x: containerRect.left + w * 0.5, y: containerRect.top + h * 0.15 };
+            return { x: left + w * 0.5, y: top + h * 0.15 };
           };
 
           const animateMotion = () => {
             if (mounted && containerRef.current && !userInteractedRef.current) {
-              progress += speed;
-              timeCounter += 0.015;
+              const containerRect = containerRef.current.getBoundingClientRect();
+              if (containerRect.width > 0 && containerRect.height > 0) {
+                progress += speed;
+                timeCounter += 0.015;
 
-              const currentSeq = sequences[seqIdx];
-              const fromKey = currentSeq[nodeIdx];
-              const toKey = currentSeq[(nodeIdx + 1) % currentSeq.length];
+                const currentSeq = sequences[seqIdx];
+                const fromKey = currentSeq[nodeIdx];
+                const toKey = currentSeq[(nodeIdx + 1) % currentSeq.length];
 
-              if (progress >= 1) {
-                progress = 0;
-                nodeIdx++;
-                if (nodeIdx >= currentSeq.length) {
-                  nodeIdx = 0;
-                  seqIdx = (seqIdx + 1) % sequences.length;
+                if (progress >= 1) {
+                  progress = 0;
+                  nodeIdx++;
+                  if (nodeIdx >= currentSeq.length) {
+                    nodeIdx = 0;
+                    seqIdx = (seqIdx + 1) % sequences.length;
+                  }
                 }
-              }
 
-              const pA = getPoint(fromKey);
-              const pB = getPoint(toKey);
+                const pA = getPoint(fromKey);
+                const pB = getPoint(toKey);
 
-              // Smooth quintic / cosine easing for dynamic fluid movement
-              const ease = 0.5 - 0.5 * Math.cos(progress * Math.PI);
+                if (Number.isFinite(pA.x) && Number.isFinite(pA.y) && Number.isFinite(pB.x) && Number.isFinite(pB.y)) {
+                  // Smooth quintic / cosine easing for dynamic fluid movement
+                  const ease = 0.5 - 0.5 * Math.cos(progress * Math.PI);
 
-              // Organic multi-harmonic Lissajous offsets so neon flows in flowing curves rather than rigid lines
-              const archX = Math.sin(progress * Math.PI) * 70 + Math.sin(timeCounter * 1.4) * 30;
-              const archY = Math.cos(progress * Math.PI * 0.5) * 55 + Math.cos(timeCounter * 1.8) * 25;
+                  // Organic multi-harmonic Lissajous offsets so neon flows in flowing curves rather than rigid lines
+                  const archX = Math.sin(progress * Math.PI) * 70 + Math.sin(timeCounter * 1.4) * 30;
+                  const archY = Math.cos(progress * Math.PI * 0.5) * 55 + Math.cos(timeCounter * 1.8) * 25;
 
-              const x = pA.x + (pB.x - pA.x) * ease + archX;
-              const y = pA.y + (pB.y - pA.y) * ease + archY;
+                  const x = pA.x + (pB.x - pA.x) * ease + archX;
+                  const y = pA.y + (pB.y - pA.y) * ease + archY;
 
-              // 1. Direct update to Three.js 3D world space target if available
-              if (tubesRef.current && tubesRef.current.tubes && tubesRef.current.tubes.target) {
-                const app = tubesRef.current;
-                if (app.three && app.three.size && app.three.size.width > 0) {
-                  const wWidth = app.three.size.wWidth || 10;
-                  const wHeight = app.three.size.wHeight || 6;
-                  const containerRect = containerRef.current.getBoundingClientRect();
+                  if (Number.isFinite(x) && Number.isFinite(y)) {
+                    // 1. Direct update to Three.js 3D world space target if available
+                    if (tubesRef.current && tubesRef.current.tubes && tubesRef.current.tubes.target) {
+                      const app = tubesRef.current;
+                      if (app.three && app.three.size && app.three.size.width > 0) {
+                        const wWidth = app.three.size.wWidth || 10;
+                        const wHeight = app.three.size.wHeight || 6;
 
-                  const nx = (x - containerRect.left) / containerRect.width - 0.5;
-                  const ny = -((y - containerRect.top) / containerRect.height - 0.5);
+                        const nx = (x - containerRect.left) / containerRect.width - 0.5;
+                        const ny = -((y - containerRect.top) / containerRect.height - 0.5);
 
-                  app.tubes.target.x = nx * wWidth;
-                  app.tubes.target.y = ny * wHeight;
+                        if (Number.isFinite(nx) && Number.isFinite(ny) && Number.isFinite(wWidth) && Number.isFinite(wHeight)) {
+                          app.tubes.target.x = nx * wWidth;
+                          app.tubes.target.y = ny * wHeight;
+                        }
+                      }
+                    }
+
+                    // 2. Also update pointer coordinates on app if set method exposed
+                    if (tubesRef.current) {
+                      if (tubesRef.current.pointer && typeof tubesRef.current.pointer.set === 'function') {
+                        tubesRef.current.pointer.set(x, y);
+                      } else if (tubesRef.current.mouse && typeof tubesRef.current.mouse.set === 'function') {
+                        tubesRef.current.mouse.set(x, y);
+                      }
+                    }
+
+                    // 3. Dispatch synthetic pointer and mouse events
+                    const eventProps: PointerEventInit = {
+                      clientX: x,
+                      clientY: y,
+                      screenX: x,
+                      screenY: y,
+                      pointerId: 1,
+                      pointerType: "mouse",
+                      isPrimary: true,
+                      bubbles: true,
+                      cancelable: true,
+                      view: window,
+                    };
+
+                    const pEvent = new PointerEvent("pointermove", eventProps);
+                    const mEvent = new MouseEvent("mousemove", eventProps);
+
+                    window.dispatchEvent(pEvent);
+                    window.dispatchEvent(mEvent);
+                    document.dispatchEvent(pEvent);
+                    document.dispatchEvent(mEvent);
+
+                    if (canvasRef.current) {
+                      canvasRef.current.dispatchEvent(pEvent);
+                      canvasRef.current.dispatchEvent(mEvent);
+                    }
+                  }
                 }
-              }
-
-              // 2. Also update pointer coordinates on app if set method exposed
-              if (tubesRef.current) {
-                if (tubesRef.current.pointer && typeof tubesRef.current.pointer.set === 'function') {
-                  tubesRef.current.pointer.set(x, y);
-                } else if (tubesRef.current.mouse && typeof tubesRef.current.mouse.set === 'function') {
-                  tubesRef.current.mouse.set(x, y);
-                }
-              }
-
-              // 3. Dispatch synthetic pointer and mouse events
-              const eventProps: PointerEventInit = {
-                clientX: x,
-                clientY: y,
-                screenX: x,
-                screenY: y,
-                pointerId: 1,
-                pointerType: "mouse",
-                isPrimary: true,
-                bubbles: true,
-                cancelable: true,
-                view: window,
-              };
-
-              const pEvent = new PointerEvent("pointermove", eventProps);
-              const mEvent = new MouseEvent("mousemove", eventProps);
-
-              window.dispatchEvent(pEvent);
-              window.dispatchEvent(mEvent);
-              document.dispatchEvent(pEvent);
-              document.dispatchEvent(mEvent);
-
-              if (canvasRef.current) {
-                canvasRef.current.dispatchEvent(pEvent);
-                canvasRef.current.dispatchEvent(mEvent);
               }
             }
             animFrameId = requestAnimationFrame(animateMotion);
@@ -304,14 +317,26 @@ export function TubesBackground({
       onMouseEnter={() => hoverOnly && setIsHovered(true)}
       onMouseLeave={() => hoverOnly && setIsHovered(false)}
     >
-      {bgImage && (
+      {(bgImage || bgImageMobile) && (
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <img 
-            src={bgImage} 
-            alt="Hero Background" 
-            className="w-full h-full object-cover object-center"
-            referrerPolicy="no-referrer"
-          />
+          {bgImageMobile ? (
+            <picture className="w-full h-full block">
+              <source media="(max-width: 767px)" srcSet={bgImageMobile} />
+              <img 
+                src={bgImage || bgImageMobile} 
+                alt="Hero Background" 
+                className="w-full h-full object-cover object-center"
+                referrerPolicy="no-referrer"
+              />
+            </picture>
+          ) : (
+            <img 
+              src={bgImage} 
+              alt="Hero Background" 
+              className="w-full h-full object-cover object-center"
+              referrerPolicy="no-referrer"
+            />
+          )}
           {bgOverlayClass && <div className={cn("absolute inset-0", bgOverlayClass)} />}
         </div>
       )}

@@ -16,7 +16,8 @@ export default function InkRevealIntro() {
       <TubesBackground 
         hoverOnly={false} 
         autoAnimate={true} 
-        bgImage="/PrintMagic_2k.png"
+        bgImage="/PrintMagic_2k11.png"
+        bgImageMobile="/printmagic_new_2k_mobile_view.webp"
         bgOverlayClass=""
         className="w-full h-full min-h-screen bg-transparent relative z-10"
       />

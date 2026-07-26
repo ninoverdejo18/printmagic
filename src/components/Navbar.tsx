@@ -42,11 +42,20 @@ export default function Navbar({
     { name: "PVC ID & ID Lace", page: "pvc-id-lace", category: "promotional-items", quote: "PVC IDs & ID Lace" },
     { name: "Nameplates", page: "nameplates", category: "large-format", quote: "Sintra Board / Nameplates" },
     { name: "Stickers", page: "stickers", category: "large-format", quote: "Stickers & Decals" },
+    { name: "ID Application Links", page: "id-application-links", category: "credentials", quote: "Online ID Application" },
   ];
 
   const isHome = currentPage === "home";
 
   const handleNavClick = (pageId: string) => {
+    if (pageId === "id-application-links") {
+      setCurrentPage("id-application-links");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+      setIsDropdownOpen(false);
+      return;
+    }
+
     if (pageId === "about") {
       const scrollToAbout = () => {
         const element = document.getElementById("about-flow") || document.getElementById("about-section");
@@ -142,7 +151,7 @@ export default function Navbar({
             >
               {/* Premium vector brand logo */}
               <img 
-                src="/app-icon.png" 
+                src="/app-icon11.png" 
                 alt="PrintMagic Logo" 
                 className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
                 referrerPolicy="no-referrer" 
@@ -259,11 +268,26 @@ export default function Navbar({
             <div className="flex md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none cursor-pointer [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]"
+                className="p-2.5 rounded-xl bg-transparent border-0 transition-all duration-200 focus:outline-none cursor-pointer flex items-center justify-center text-[#12941F] hover:bg-[#12941F]/10 active:scale-95"
+                style={{ color: "#12941F" }}
                 aria-label="Toggle Menu"
                 id="mobile-menu-toggle"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? (
+                  <X 
+                    className="w-6 h-6 stroke-[2.5] text-[#12941F]" 
+                    color="#12941F" 
+                    stroke="#12941F"
+                    style={{ color: "#12941F", stroke: "#12941F" }} 
+                  />
+                ) : (
+                  <Menu 
+                    className="w-6 h-6 stroke-[2.5] text-[#12941F]" 
+                    color="#12941F" 
+                    stroke="#12941F"
+                    style={{ color: "#12941F", stroke: "#12941F" }} 
+                  />
+                )}
               </button>
             </div>
           </div>
@@ -292,15 +316,15 @@ export default function Navbar({
                       <div key={item.id} className="space-y-1">
                         <button
                           onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                          className={`flex items-center justify-between w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
-                            isDropdownActive || isMobileDropdownOpen
-                              ? "bg-[#1C3A2E]/50 text-[#4ade80]" 
-                              : "text-[#CBD5D1] hover:bg-[#1C3A2E]/50 hover:text-[#F8FAFC]"
-                          }`}
+                          className="flex items-center justify-between w-full text-left px-4 py-3 rounded-lg text-sm font-bold transition-all bg-[#1C3A2E]/40 hover:bg-[#1C3A2E]/70"
+                          style={{ color: "#12941F" }}
                           id={`mobile-nav-${item.id}`}
                         >
-                          <span>{item.label}</span>
-                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileDropdownOpen ? "rotate-180" : ""}`} />
+                          <span style={{ color: "#12941F" }}>{item.label}</span>
+                          <ChevronDown 
+                            className={`w-4 h-4 transition-transform duration-200 ${isMobileDropdownOpen ? "rotate-180" : ""}`} 
+                            style={{ color: "#12941F", stroke: "#12941F" }}
+                          />
                         </button>
                         
                         <AnimatePresence>
@@ -316,7 +340,8 @@ export default function Navbar({
                                 <button
                                   key={service.name}
                                   onClick={() => handleServiceClick(service)}
-                                  className="block w-full text-left px-4 py-2.5 rounded-lg text-xs font-semibold text-[#CBD5D1] hover:text-[#4ade80] hover:bg-[#1C3A2E]/30 transition-colors"
+                                  className="block w-full text-left px-4 py-2.5 rounded-lg text-xs font-semibold hover:bg-[#1C3A2E]/50 transition-colors"
+                                  style={{ color: "#12941F" }}
                                   id={`mobile-dropdown-item-${index}`}
                                 >
                                   {service.name}
@@ -334,11 +359,8 @@ export default function Navbar({
                     <button
                       key={item.id}
                       onClick={() => handleNavClick(item.id)}
-                      className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
-                        isActive 
-                          ? "bg-[#1C3A2E] text-[#4ade80]" 
-                          : "text-[#CBD5D1] hover:bg-[#1C3A2E]/50 hover:text-[#F8FAFC]"
-                      }`}
+                      className="block w-full text-left px-4 py-3 rounded-lg text-sm font-bold transition-all bg-[#1C3A2E]/40 hover:bg-[#1C3A2E]/70"
+                      style={{ color: "#12941F" }}
                       id={`mobile-nav-${item.id}`}
                     >
                       {item.label}
@@ -353,7 +375,7 @@ export default function Navbar({
                       }
                       handleNavClick("contact");
                     }}
-                    className="w-full text-center py-2.5 rounded-full bg-[#15803d] hover:bg-[#166534] text-white border border-[#15803d] font-extrabold text-sm shadow-sm transition-all"
+                    className="w-full text-center py-2.5 rounded-full bg-[#12941F] hover:bg-[#0e7a18] text-white border border-[#12941F] font-extrabold text-sm shadow-sm transition-all"
                     id="mobile-nav-quotation-btn"
                   >
                     Need Quotation?

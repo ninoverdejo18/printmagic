@@ -17,7 +17,15 @@ import {
   BadgeCheck, 
   Bookmark, 
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Upload,
+  Download,
+  Search,
+  FileCheck,
+  ExternalLink,
+  Building2,
+  UserCheck,
+  CheckCircle2
 } from "lucide-react";
 import InkRevealIntro from "../components/InkRevealIntro";
 import SkewCards from "../components/ui/gradient-card-showcase";
@@ -29,6 +37,7 @@ import { LiquidEffectAnimation } from "../components/ui/liquid-effect-animation"
 
 interface HomeProps {
   setCurrentPage: (page: string) => void;
+  setSelectedServiceQuote?: (serviceName: string) => void;
 }
 
 const homeServicesList = [
@@ -125,10 +134,30 @@ const homeServicesList = [
   }
 ];
 
-export default function Home({ setCurrentPage }: HomeProps) {
+export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomeProps) {
+  const [trackCode, setTrackCode] = React.useState("");
+  const [trackingStatus, setTrackingStatus] = React.useState<{ found: boolean; message: string } | null>(null);
+
   const handleNav = (pageId: string) => {
     setCurrentPage(pageId);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleApplicationRedirect = (serviceName: string) => {
+    if (setSelectedServiceQuote) {
+      setSelectedServiceQuote(serviceName);
+    }
+    setCurrentPage("contact");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleTrackID = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!trackCode.trim()) return;
+    setTrackingStatus({
+      found: true,
+      message: `Status for ID #${trackCode.toUpperCase()}: PRINTED & READY FOR PICKUP at Libjo Branch, Batangas City. Please present your claim stub or valid ID upon claiming.`
+    });
   };
 
   return (
@@ -152,7 +181,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
           <section 
             className="w-full min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat" 
             id="about-section"
-            style={{ backgroundImage: "url('/InkBackground_3_2K.webp')" }}
+            style={{ backgroundImage: "url('/ink_splash_2k4.webp')" }}
           >
             <div className="max-w-7xl mx-auto relative z-20">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

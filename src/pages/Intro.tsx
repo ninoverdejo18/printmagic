@@ -133,7 +133,7 @@ export default function Intro({ onComplete }: IntroProps) {
         id="intro-logo-brand"
       >
         <img 
-          src="/app-icon.png" 
+          src="/app-icon11.png" 
           alt="PrintMagic Logo" 
           className="w-full h-full object-contain"
           referrerPolicy="no-referrer"
