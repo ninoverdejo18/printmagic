@@ -25,65 +25,32 @@ export default function Navbar({
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "services", label: "Services", isDropdown: true },
-    { id: "about", label: "About Us" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: "Home", hash: "/#home" },
+    { id: "services", label: "Services", isDropdown: true, hash: "/#services/tarpaulin-printing" },
+    { id: "about", label: "About Us", hash: "/#about" },
+    { id: "contact", label: "Contact", hash: "/#contact" },
   ];
 
   const servicesList = [
-    { name: "Tarpaulin Printing", page: "tarpaulin-printing", category: "large-format", quote: "Tarpaulin" },
-    { name: "Layout & Graphic Design", page: "layout-design", category: "", quote: "Layout and Design" },
-    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways", category: "promotional-items", quote: "Custom Giveaways" },
-    { name: "Document Scanning and Printing", page: "document-scanning-printing", category: "", quote: "Document Scanning and Printing" },
-    { name: "Rush ID", page: "rush-id", category: "promotional-items", quote: "PVC IDs" },
-    { name: "Business Cards", page: "business-cards", category: "business-printing", quote: "Calling Cards / Business Cards" },
-    { name: "T-Shirt Printing", page: "tshirt-printing", category: "apparel-printing", quote: "T-Shirt Printing" },
-    { name: "PVC ID & ID Lace", page: "pvc-id-lace", category: "promotional-items", quote: "PVC IDs & ID Lace" },
-    { name: "ID Application Links", page: "id-application-links", category: "credentials", quote: "Online ID Application", isSubitem: true },
-    { name: "Nameplates & Signage", page: "nameplates", category: "large-format", quote: "Sintra Board / Nameplates" },
-    { name: "Custom Stickers & Decals", page: "stickers", category: "large-format", quote: "Stickers & Decals" },
+    { name: "Tarpaulin Printing", page: "tarpaulin-printing", hash: "/#services/tarpaulin-printing", category: "large-format", quote: "Tarpaulin" },
+    { name: "Layout & Graphic Design", page: "layout-design", hash: "/#services/layout-graphic-design", category: "", quote: "Layout and Design" },
+    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways", hash: "/#services/souvenirs-giveaways", category: "promotional-items", quote: "Custom Giveaways" },
+    { name: "Document Scanning and Printing", page: "document-scanning-printing", hash: "/#Document Scanning and Printing", category: "", quote: "Document Scanning and Printing" },
+    { name: "Rush ID", page: "rush-id", hash: "/#Rush ID", category: "promotional-items", quote: "PVC IDs" },
+    { name: "Business Cards", page: "business-cards", hash: "/#services/business-cards", category: "business-printing", quote: "Calling Cards / Business Cards" },
+    { name: "T-Shirt Printing", page: "tshirt-printing", hash: "/#services/t-shirt-printing", category: "apparel-printing", quote: "T-Shirt Printing" },
+    { name: "PVC ID & ID Lace", page: "pvc-id-lace", hash: "/#services/pvc-id-id-lace", category: "promotional-items", quote: "PVC IDs & ID Lace" },
+    { name: "ID Application Links", page: "id-application-links", hash: "/#services/id-application-links", category: "credentials", quote: "Online ID Application", isSubitem: true },
+    { name: "Nameplates & Signage", page: "nameplates", hash: "/#services/nameplates-signage", category: "large-format", quote: "Sintra Board / Nameplates" },
+    { name: "Custom Stickers & Decals", page: "stickers", hash: "/#services/custom-stickers-decals", category: "large-format", quote: "Stickers & Decals" },
   ];
 
   const isHome = currentPage === "home";
 
-  const handleNavClick = (pageId: string) => {
-    if (pageId === "id-application-links") {
-      setCurrentPage("id-application-links");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-      setIsDropdownOpen(false);
-      return;
-    }
-
-    if (pageId === "about") {
-      const scrollToAbout = () => {
-        const element = document.getElementById("about-flow") || document.getElementById("about-section");
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetY = rect.top + scrollTop;
-          window.scrollTo({ top: targetY > 0 ? targetY : window.innerHeight, behavior: "smooth" });
-        } else {
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-        }
-      };
-
-      if (currentPage !== "home") {
-        setCurrentPage("home");
-        setTimeout(scrollToAbout, 300);
-      } else {
-        scrollToAbout();
-      }
-      setIsMobileMenuOpen(false);
-      setIsDropdownOpen(false);
-      return;
-    }
-
-    setCurrentPage(pageId);
+  const handleNavClick = (target: string) => {
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setCurrentPage(target);
   };
 
   const handleServiceClick = (service: typeof servicesList[0]) => {
@@ -96,8 +63,7 @@ export default function Navbar({
     setIsDropdownOpen(false);
     setIsMobileMenuOpen(false);
     setIsMobileDropdownOpen(false);
-    setCurrentPage(service.page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setCurrentPage(service.hash);
   };
 
   return (
@@ -138,8 +104,12 @@ export default function Navbar({
         <nav className="w-full h-16 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 border-none outline-none relative z-10">
           
           {/* Logo brand */}
-          <button 
-            onClick={() => handleNavClick("home")}
+          <a 
+            href="/#home"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("/#home");
+            }}
             className="flex flex-col text-left group cursor-pointer focus:outline-none"
             id="brand-logo"
           >
@@ -165,7 +135,7 @@ export default function Navbar({
                 </p>
               </div>
             </motion.div>
-          </button>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 md:absolute md:left-1/2 md:-translate-x-1/2">
@@ -176,7 +146,7 @@ export default function Navbar({
                   "tarpaulin-printing", "layout-design", "souvenirs-giveaways",
                   "document-scanning-printing", "rush-id", "business-cards",
                   "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links"
-                ].includes(currentPage);
+                ].includes(currentPage) || (typeof window !== "undefined" && window.location.hash.includes("services"));
                 return (
                   <div
                     key={item.id}
@@ -185,7 +155,12 @@ export default function Navbar({
                     onMouseLeave={() => setIsDropdownOpen(false)}
                     id="nav-services-dropdown-container"
                   >
-                    <button
+                    <a
+                      href={item.hash}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.hash);
+                      }}
                       className={`relative px-2 py-1 text-sm font-bold transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-1 border-none bg-transparent ${
                         isDropdownActive || isDropdownOpen
                           ? "text-[#14A823] font-black" 
@@ -195,7 +170,7 @@ export default function Navbar({
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
-                    </button>
+                    </a>
                     
                     {/* Dropdown Menu */}
                     <AnimatePresence>
@@ -209,9 +184,13 @@ export default function Navbar({
                           id="nav-services-dropdown-menu"
                         >
                           {servicesList.map((service, index) => (
-                            <button
+                            <a
                               key={service.name}
-                              onClick={() => handleServiceClick(service)}
+                              href={service.hash}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleServiceClick(service);
+                              }}
                               className={`flex items-center gap-1.5 text-left py-2 mx-1 text-[#CBD5D1] hover:text-[#4ade80] hover:bg-[#1C3A2E]/60 transition-colors duration-150 font-sans font-medium rounded-lg cursor-pointer ${
                                 service.isSubitem
                                   ? "pl-8 pr-5 text-slate-300 font-normal text-[11px]"
@@ -224,7 +203,7 @@ export default function Navbar({
                                 <ChevronRight className="w-3.5 h-3.5 text-[#14A823] shrink-0" />
                               )}
                               <span>{service.name}</span>
-                            </button>
+                            </a>
                           ))}
                         </motion.div>
                       )}
@@ -233,11 +212,15 @@ export default function Navbar({
                 );
               }
 
-              const isActive = currentPage === item.id;
+              const isActive = currentPage === item.id || (typeof window !== "undefined" && window.location.hash.endsWith(item.id));
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  href={item.hash}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.hash);
+                  }}
                   className={`relative transition-all duration-200 cursor-pointer focus:outline-none px-2 py-1 text-sm font-bold border-none bg-transparent ${
                     isActive 
                       ? "text-[#14A823] font-black" 
@@ -246,19 +229,21 @@ export default function Navbar({
                   id={`nav-item-${item.id}`}
                 >
                   {item.label}
-                </button>
+                </a>
               );
             })}
           </div>
 
           {/* Right side CTA & Mobile Menu Trigger */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => {
+            <a
+              href="/#contact"
+              onClick={(e) => {
+                e.preventDefault();
                 if (setSelectedServiceQuote) {
                   setSelectedServiceQuote("General Quotation");
                 }
-                setCurrentPage("contact");
+                handleNavClick("/#contact");
               }}
               className={`hidden sm:inline-flex items-center justify-center bg-transparent font-extrabold text-xs sm:text-sm px-2 py-1 border-none shadow-none transition-all duration-200 cursor-pointer ${
                 currentPage === "contact"
@@ -270,7 +255,7 @@ export default function Navbar({
               id="nav-quotation-btn"
             >
               Need Quotation?
-            </button>
+            </a>
 
             {/* Mobile Menu Trigger */}
             <div className="flex md:hidden">
@@ -345,9 +330,13 @@ export default function Navbar({
                               className="pl-2 space-y-1 overflow-hidden"
                             >
                               {servicesList.map((service, index) => (
-                                <button
+                                <a
                                   key={service.name}
-                                  onClick={() => handleServiceClick(service)}
+                                  href={service.hash}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    handleServiceClick(service);
+                                  }}
                                   className={`flex items-center gap-1.5 w-full text-left py-2.5 rounded-lg font-semibold hover:bg-[#1C3A2E]/50 transition-colors ${
                                     service.isSubitem ? "pl-7 pr-3 text-[11px] font-medium" : "px-4 text-xs"
                                   }`}
@@ -358,7 +347,7 @@ export default function Navbar({
                                     <ChevronRight className="w-3.5 h-3.5 text-[#12941F] shrink-0" style={{ color: "#12941F", stroke: "#12941F" }} />
                                   )}
                                   <span>{service.name}</span>
-                                </button>
+                                </a>
                               ))}
                             </motion.div>
                           )}
@@ -367,32 +356,37 @@ export default function Navbar({
                     );
                   }
 
-                  const isActive = currentPage === item.id;
                   return (
-                    <button
+                    <a
                       key={item.id}
-                      onClick={() => handleNavClick(item.id)}
+                      href={item.hash}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.hash);
+                      }}
                       className="block w-full text-left px-4 py-3 rounded-lg text-sm font-bold transition-all bg-[#1C3A2E]/40 hover:bg-[#1C3A2E]/70"
                       style={{ color: "#12941F" }}
                       id={`mobile-nav-${item.id}`}
                     >
                       {item.label}
-                    </button>
+                    </a>
                   );
                 })}
                 <div className="pt-3 pb-2 border-t border-[#28473B]/20">
-                  <button
-                    onClick={() => {
+                  <a
+                    href="/#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
                       if (setSelectedServiceQuote) {
                         setSelectedServiceQuote("General Quotation");
                       }
-                      handleNavClick("contact");
+                      handleNavClick("/#contact");
                     }}
-                    className="w-full text-center py-2.5 rounded-full bg-[#12941F] hover:bg-[#0e7a18] text-white border border-[#12941F] font-extrabold text-sm shadow-sm transition-all"
+                    className="block w-full text-center py-2.5 rounded-full bg-[#12941F] hover:bg-[#0e7a18] text-white border border-[#12941F] font-extrabold text-sm shadow-sm transition-all"
                     id="mobile-nav-quotation-btn"
                   >
                     Need Quotation?
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

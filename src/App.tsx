@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,51 +15,116 @@ import DigitalServices from "./pages/DigitalServices";
 import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import IdApplicationLinks from "./pages/IdApplicationLinks";
-
-const PAGE_TITLES: Record<string, string> = {
-  "home": "Home",
-  "about": "About Us",
-  "services": "Services",
-  "printing-services": "Services",
-  "contact": "Contact Us",
-  "graphic-design": "Layout & Graphic Design",
-  "digital-services": "Digital Printing & Services",
-  "id-application-links": "ID Application Links",
-  "tarpaulin-printing": "Tarpaulin Printing",
-  "layout-design": "Layout & Graphic Design",
-  "souvenirs-giveaways": "Souvenirs & Giveaways",
-  "document-scanning-printing": "Document Scanning & Printing",
-  "rush-id": "Rush ID",
-  "business-cards": "Business Cards",
-  "business-card": "Business Cards",
-  "tshirt-printing": "T-Shirt Printing",
-  "pvc-id-lace": "PVC ID & ID Lace",
-  "nameplates": "Nameplates & Signage",
-  "nameplate": "Nameplates & Signage",
-  "stickers": "Custom Stickers & Decals",
-};
+import { getRouteByHash, getRouteByPageId, updateHashSilently } from "./utils/navigation";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<string>("home");
+  const [currentPage, setCurrentPageRaw] = useState<string>(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const initialRoute = getRouteByHash(window.location.hash);
+      return initialRoute.pageId === "about" ? "home" : initialRoute.pageId;
+    }
+    return "home";
+  });
+
   const [showIntro, setShowIntro] = useState<boolean>(true);
   const [selectedServiceQuote, setSelectedServiceQuote] = useState<string>("");
   const [initialPrintingCategory, setInitialPrintingCategory] = useState<string>("large-format");
 
-  // Dynamic Browser Tab Title Management
-  useEffect(() => {
-    const isHomeLayout = currentPage === "home" || currentPage === "about" || currentPage === "services" || currentPage === "printing-services";
+  // Custom unified navigation function that accepts pageId or hash
+  const handleSetCurrentPage = useCallback((pageOrHash: string) => {
+    const route = getRouteByHash(pageOrHash);
 
-    if (!isHomeLayout) {
-      const pageTitle = PAGE_TITLES[currentPage] || "PrintMagic";
-      document.title = `${pageTitle} | PrintMagic`;
+    if (route.serviceQuote && setSelectedServiceQuote) {
+      setSelectedServiceQuote(route.serviceQuote);
+    }
+    if (route.serviceCategory && setInitialPrintingCategory) {
+      setInitialPrintingCategory(route.serviceCategory);
+    }
+
+    if (route.pageId === "about") {
+      setCurrentPageRaw("home");
+      if (window.location.hash !== route.hash) {
+        window.history.pushState(null, "", route.hash);
+      }
+      setTimeout(() => {
+        const element = document.getElementById("about-flow") || document.getElementById("about-section");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        }
+      }, 100);
       return;
     }
 
-    // Set initial title based on currentPage
-    const initialTitle = PAGE_TITLES[currentPage] || "Home";
-    document.title = `${initialTitle} | PrintMagic`;
+    setCurrentPageRaw(route.pageId);
+    if (window.location.hash !== route.hash) {
+      window.history.pushState(null, "", route.hash);
+    }
+  }, []);
 
-    // IntersectionObserver for active section on single-page scrolling
+  // Listen for hashchange events (browser back/forward & direct hash navigation)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const currentHash = window.location.hash;
+      const route = getRouteByHash(currentHash);
+
+      if (route.serviceQuote) {
+        setSelectedServiceQuote(route.serviceQuote);
+      }
+      if (route.serviceCategory) {
+        setInitialPrintingCategory(route.serviceCategory);
+      }
+
+      if (route.pageId === "about") {
+        setCurrentPageRaw("home");
+        setTimeout(() => {
+          const element = document.getElementById("about-flow") || document.getElementById("about-section");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        setCurrentPageRaw(route.pageId);
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Initial scroll position handling if loaded with hash on page load
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const initialRoute = getRouteByHash(window.location.hash);
+      if (initialRoute.pageId === "about") {
+        setTimeout(() => {
+          const element = document.getElementById("about-flow") || document.getElementById("about-section");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      } else if (initialRoute.hash) {
+        // Normalize hash in location bar
+        updateHashSilently(initialRoute.hash);
+      }
+    }
+  }, []);
+
+  // Dynamic Browser Tab Title & Active Section Synchronization on Scroll
+  useEffect(() => {
+    const currentRoute = getRouteByPageId(currentPage);
+    document.title = `${currentRoute.title} | PrintMagic`;
+
+    // Ensure URL hash is updated if not on home layout
+    if (currentPage !== "home") {
+      updateHashSilently(currentRoute.hash);
+      return;
+    }
+
+    // IntersectionObserver for active section tracking on single-page scrolling
     const activeSectionsMap = new Map<Element, number>();
 
     const observerCallback: IntersectionObserverCallback = (entries) => {
@@ -82,7 +147,12 @@ export default function App() {
         });
 
         if (bestTarget) {
+          const sectionHash = (bestTarget as HTMLElement).getAttribute("data-section-hash");
           const sectionTitle = (bestTarget as HTMLElement).getAttribute("data-section-title");
+
+          if (sectionHash) {
+            updateHashSilently(sectionHash);
+          }
           if (sectionTitle) {
             document.title = `${sectionTitle} | PrintMagic`;
           }
@@ -92,14 +162,14 @@ export default function App() {
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: "-15% 0px -35% 0px",
+      rootMargin: "-20% 0px -40% 0px",
       threshold: [0.1, 0.25, 0.5, 0.75, 1.0]
     });
 
     const timeoutId = setTimeout(() => {
       const sectionElements = document.querySelectorAll("[data-section-title]");
       sectionElements.forEach((el) => observer.observe(el));
-    }, 150);
+    }, 200);
 
     return () => {
       clearTimeout(timeoutId);
@@ -156,20 +226,20 @@ export default function App() {
       case "home":
       case "printing-services":
       case "about":
-        return <Home setCurrentPage={setCurrentPage} setSelectedServiceQuote={setSelectedServiceQuote} />;
+        return <Home setCurrentPage={handleSetCurrentPage} setSelectedServiceQuote={setSelectedServiceQuote} />;
       case "id-application-links":
         return (
           <IdApplicationLinks
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={handleSetCurrentPage}
             setSelectedServiceQuote={setSelectedServiceQuote}
           />
         );
       case "graphic-design":
-        return <GraphicDesign setCurrentPage={setCurrentPage} />;
+        return <GraphicDesign setCurrentPage={handleSetCurrentPage} />;
       case "digital-services":
         return (
           <DigitalServices
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={handleSetCurrentPage}
             setSelectedServiceQuote={setSelectedServiceQuote}
           />
         );
@@ -180,8 +250,6 @@ export default function App() {
             setSelectedServiceQuote={setSelectedServiceQuote}
           />
         );
-      case "about":
-        return <Home setCurrentPage={setCurrentPage} />;
       case "tarpaulin-printing":
       case "layout-design":
       case "souvenirs-giveaways":
@@ -197,13 +265,13 @@ export default function App() {
         return (
           <ServiceDetail
             serviceId={currentPage}
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={handleSetCurrentPage}
             setSelectedServiceQuote={setSelectedServiceQuote}
             setInitialPrintingCategory={setInitialPrintingCategory}
           />
         );
       default:
-        return <Home setCurrentPage={setCurrentPage} />;
+        return <Home setCurrentPage={handleSetCurrentPage} />;
     }
   };
 
@@ -220,7 +288,7 @@ export default function App() {
       {currentPage !== "intro" && (
         <Navbar 
           currentPage={currentPage} 
-          setCurrentPage={setCurrentPage} 
+          setCurrentPage={handleSetCurrentPage} 
           setSelectedServiceQuote={setSelectedServiceQuote}
           setInitialPrintingCategory={setInitialPrintingCategory}
         />
@@ -243,7 +311,7 @@ export default function App() {
 
       {/* Global Footer */}
       {currentPage !== "intro" && (
-        <Footer setCurrentPage={setCurrentPage} />
+        <Footer setCurrentPage={handleSetCurrentPage} />
       )}
     </div>
   );

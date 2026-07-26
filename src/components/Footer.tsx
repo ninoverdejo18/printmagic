@@ -19,15 +19,15 @@ export default function Footer({ setCurrentPage }: FooterProps) {
   };
 
   const services = [
-    { name: "Tarpaulin Printing", page: "tarpaulin-printing" },
-    { name: "Layout & Graphic Design", page: "layout-design" },
-    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways" },
-    { name: "Business Cards", page: "business-cards" },
-    { name: "T-Shirt Printing", page: "tshirt-printing" },
-    { name: "PVC ID & ID Lace", page: "pvc-id-lace" },
-    { name: "ID Application Links", page: "id-application-links", isSubitem: true },
-    { name: "Nameplates & Signage", page: "nameplates" },
-    { name: "Custom Stickers & Decals", page: "stickers" }
+    { name: "Tarpaulin Printing", page: "tarpaulin-printing", hash: "/#services/tarpaulin-printing" },
+    { name: "Layout & Graphic Design", page: "layout-design", hash: "/#services/layout-graphic-design" },
+    { name: "Souvenirs & Giveaways", page: "souvenirs-giveaways", hash: "/#services/souvenirs-giveaways" },
+    { name: "Business Cards", page: "business-cards", hash: "/#services/business-cards" },
+    { name: "T-Shirt Printing", page: "tshirt-printing", hash: "/#services/t-shirt-printing" },
+    { name: "PVC ID & ID Lace", page: "pvc-id-lace", hash: "/#services/pvc-id-id-lace" },
+    { name: "ID Application Links", page: "id-application-links", hash: "/#services/id-application-links", isSubitem: true },
+    { name: "Nameplates & Signage", page: "nameplates", hash: "/#services/nameplates-signage" },
+    { name: "Custom Stickers & Decals", page: "stickers", hash: "/#services/custom-stickers-decals" }
   ];
 
   return (
@@ -73,13 +73,17 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             <ul className="space-y-3 text-xs font-sans">
               {services.map((service) => (
                 <li key={service.page} className={service.isSubitem ? "pl-3 text-[11px]" : ""}>
-                  <button
-                    onClick={() => handleLinkClick(service.page)}
+                  <a
+                    href={service.hash}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setCurrentPage(service.hash);
+                    }}
                     className="text-slate-200 hover:text-[#12941F] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug flex items-center gap-1"
                   >
                     {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
                     <span>{service.name}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -141,7 +145,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         </div>
 
         {/* Mobile Copyright */}
-        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col justify-between items-center gap-3 text-xs text-slate-400 font-sans">
+        <div className="mt-8 pt-6 -mx-4 sm:-mx-6 px-4 sm:px-6 border-t border-white/10 flex flex-col justify-between items-center gap-3 text-xs text-slate-400 font-sans">
           <p>&copy; {currentYear} PrintMagic. All rights reserved.</p>
           <a 
             href="https://www.facebook.com/Printmagic29" 
@@ -198,13 +202,17 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             <ul className="space-y-2.5 text-xs font-sans">
               {services.map((service) => (
                 <li key={service.page} className={service.isSubitem ? "pl-3 text-[11px]" : ""}>
-                  <button
-                    onClick={() => handleLinkClick(service.page)}
+                  <a
+                    href={service.hash}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setCurrentPage(service.hash);
+                    }}
                     className="text-[#E2E8F0] hover:text-[#12941F] transition-colors font-medium text-left focus:outline-none cursor-pointer flex items-center gap-1"
                   >
                     {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
                     <span>{service.name}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -254,8 +262,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
         </div>
 
-        {/* Desktop Copyright Banner (without top border/padding) */}
-        <div className="mt-10 pt-4 flex justify-between items-center text-xs text-[#E2E8F0] font-sans">
+        {/* Desktop Copyright Banner (with full-width top border) */}
+        <div className="mt-10 pt-4 -mx-6 md:-mx-10 lg:-mx-14 px-6 md:px-10 lg:px-14 border-t border-[#28473B]/50 flex justify-between items-center text-xs text-[#E2E8F0] font-sans">
           <p className="font-semibold">&copy; {currentYear} PrintMagic. All rights reserved.</p>
           <a 
             href="https://www.facebook.com/Printmagic29" 
