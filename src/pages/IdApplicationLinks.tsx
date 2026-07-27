@@ -48,6 +48,9 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
               Batangas City Integrated High School
             </p>
           </div>
+
+          <div className="-mx-6 sm:-mx-10 h-px bg-slate-200" />
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight font-display" id="id-application-links-heading">
             ID Application Links
           </h2>
