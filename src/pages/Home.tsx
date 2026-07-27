@@ -202,14 +202,14 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                     <div className="relative overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 shadow-xl w-full no-liquid-cursor" data-no-liquid-cursor="true">
                       {/* Original crisp photo visible when idle */}
                       <img 
-                        src="/profile pic/albert.webp" 
+                        src="/profile pic/About-Us-Profile-Pick.webp" 
                         alt="Albert Inoc - Founder of PrintMagic" 
                         className="w-full h-auto object-cover rounded-2xl block transition-opacity duration-500 group-hover:opacity-0"
                       />
                       {/* Liquid Effect Canvas overlay - active on hover */}
                       <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                         <LiquidEffectAnimation
-                          imageSrc="/profile pic/albert.webp"
+                          imageSrc="/profile pic/About-Us-Profile-Pick.webp"
                           className="w-full h-full object-cover rounded-2xl"
                         />
                       </div>

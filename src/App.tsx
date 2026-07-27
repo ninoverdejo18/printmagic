@@ -26,12 +26,25 @@ export default function App() {
     return "home";
   });
 
-  const [showIntro, setShowIntro] = useState<boolean>(true);
+  const [showIntro, setShowIntro] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+
+    // Determine initial route/page on browser load/refresh
+    let initialPageId = "home";
+    if (window.location.hash) {
+      const initialRoute = getRouteByHash(window.location.hash);
+      initialPageId = initialRoute.pageId;
+    }
+
+    // Intro plays ONLY on direct visit or browser refresh while on the Home page
+    return initialPageId === "home" || initialPageId === "about";
+  });
   const [selectedServiceQuote, setSelectedServiceQuote] = useState<string>("");
   const [initialPrintingCategory, setInitialPrintingCategory] = useState<string>("large-format");
 
   // Custom unified navigation function that accepts pageId or hash
   const handleSetCurrentPage = useCallback((pageOrHash: string) => {
+    setShowIntro(false);
     const route = getRouteByHash(pageOrHash);
 
     if (route.serviceQuote && setSelectedServiceQuote) {
@@ -192,7 +205,7 @@ export default function App() {
         "description": "Premium small printing and custom creative design business in Batangas City, Philippines.",
         "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80",
         "telephone": "0926 022 6003",
-        "email": "printmagic_online@yahoo.com",
+        "email": "printmagiconline.service@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Libjo, New San Vicente",

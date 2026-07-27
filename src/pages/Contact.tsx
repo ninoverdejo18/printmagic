@@ -100,8 +100,8 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
               <li>
                 <div>
                   <span className="block text-[10px] uppercase font-bold text-slate-400 font-mono">Email Address</span>
-                  <a href="mailto:printmagic_online@yahoo.com" className="font-semibold text-slate-900 hover:text-emerald-700 break-all">
-                    printmagic_online@yahoo.com
+                  <a href="mailto:printmagiconline.service@gmail.com" className="font-semibold text-slate-900 hover:text-emerald-700 break-all">
+                    printmagiconline.service@gmail.com
                   </a>
                 </div>
               </li>

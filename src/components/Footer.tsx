@@ -124,8 +124,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                   <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0">
                     <Mail className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <a href="mailto:printmagic_online@yahoo.com" className="text-slate-200 hover:text-[#12941F] break-all font-normal text-[10px]">
-                    printmagic_online@yahoo.com
+                  <a href="mailto:printmagiconline.service@gmail.com" className="text-slate-200 hover:text-[#12941F] break-all font-normal text-[10px]">
+                    printmagiconline.service@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
@@ -246,8 +246,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-white shrink-0" />
-                <a href="mailto:printmagic_online@yahoo.com" className="hover:text-[#12941F] break-all font-medium text-[#E2E8F0]">
-                  printmagic_online@yahoo.com
+                <a href="mailto:printmagiconline.service@gmail.com" className="hover:text-[#12941F] break-all font-medium text-[#E2E8F0]">
+                  printmagiconline.service@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
