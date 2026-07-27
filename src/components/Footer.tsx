@@ -26,6 +26,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
     { name: "T-Shirt Printing", page: "tshirt-printing", hash: "/#services/t-shirt-printing" },
     { name: "PVC ID & ID Lace", page: "pvc-id-lace", hash: "/#services/pvc-id-id-lace" },
     { name: "ID Application Links", page: "id-application-links", hash: "/#services/id-application-links", isSubitem: true },
+    { name: "Lost ID Application", page: "lost-id-application", hash: "/#services/lost-id-application", isSubitem: true },
     { name: "Nameplates & Signage", page: "nameplates", hash: "/#services/nameplates-signage" },
     { name: "Custom Stickers & Decals", page: "stickers", hash: "/#services/custom-stickers-decals" }
   ];

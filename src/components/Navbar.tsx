@@ -41,6 +41,7 @@ export default function Navbar({
     { name: "T-Shirt Printing", page: "tshirt-printing", hash: "/#services/t-shirt-printing", category: "apparel-printing", quote: "T-Shirt Printing" },
     { name: "PVC ID & ID Lace", page: "pvc-id-lace", hash: "/#services/pvc-id-id-lace", category: "promotional-items", quote: "PVC IDs & ID Lace" },
     { name: "ID Application Links", page: "id-application-links", hash: "/#services/id-application-links", category: "credentials", quote: "Online ID Application", isSubitem: true },
+    { name: "Lost ID Application", page: "lost-id-application", hash: "/#services/lost-id-application", category: "credentials", quote: "Lost ID Application", isSubitem: true },
     { name: "Nameplates & Signage", page: "nameplates", hash: "/#services/nameplates-signage", category: "large-format", quote: "Sintra Board / Nameplates" },
     { name: "Custom Stickers & Decals", page: "stickers", hash: "/#services/custom-stickers-decals", category: "large-format", quote: "Stickers & Decals" },
   ];
@@ -145,7 +146,7 @@ export default function Navbar({
                   "graphic-design", "printing-services", "digital-services",
                   "tarpaulin-printing", "layout-design", "souvenirs-giveaways",
                   "document-scanning-printing", "rush-id", "business-cards",
-                  "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links"
+                  "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links", "lost-id-application"
                 ].includes(currentPage) || (typeof window !== "undefined" && window.location.hash.includes("services"));
                 return (
                   <div
@@ -303,7 +304,7 @@ export default function Navbar({
                       "graphic-design", "printing-services", "digital-services",
                       "tarpaulin-printing", "layout-design", "souvenirs-giveaways",
                       "document-scanning-printing", "rush-id", "business-cards",
-                      "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links"
+                      "tshirt-printing", "pvc-id-lace", "nameplates", "stickers", "id-application-links", "lost-id-application"
                     ].includes(currentPage);
                     return (
                       <div key={item.id} className="space-y-1">

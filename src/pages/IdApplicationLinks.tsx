@@ -20,6 +20,19 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
   const [copied, setCopied] = useState(false);
   const emailAddress = "printmagiconline.service@gmail.com";
 
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && (window.location.hash.includes("lost-id") || window.location.hash.includes("id-lost"))) {
+      setTimeout(() => {
+        const el = document.getElementById("id-lost-section");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopied(true);

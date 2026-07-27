@@ -118,6 +118,20 @@ export const ROUTE_MAP: RouteConfig[] = [
     serviceQuote: "Online ID Application",
   },
   {
+    pageId: "lost-id-application",
+    hash: "/#services/lost-id-application",
+    title: "Lost ID Application",
+    aliases: [
+      "/services/lost-id-application",
+      "lost-id-application",
+      "#services/lost-id-application",
+      "/#id-lost-section",
+      "#id-lost-section"
+    ],
+    serviceCategory: "credentials",
+    serviceQuote: "Lost ID Application",
+  },
+  {
     pageId: "nameplates",
     hash: "/#services/nameplates-signage",
     title: "Nameplates & Signage",

@@ -241,6 +241,7 @@ export default function App() {
       case "about":
         return <Home setCurrentPage={handleSetCurrentPage} setSelectedServiceQuote={setSelectedServiceQuote} />;
       case "id-application-links":
+      case "lost-id-application":
         return (
           <IdApplicationLinks
             setCurrentPage={handleSetCurrentPage}
