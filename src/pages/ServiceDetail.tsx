@@ -63,7 +63,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "large-format",
     categoryLabel: "Large Format Printing",
     subtitle: "Heavy-Duty Weatherproof Banners & Event Backdrops",
-    image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/tarpaulin-machine.webp",
     description: "High-impact outdoor and indoor tarpaulins perfect for commercial billboards, birthday backdrops, grand openings, school events, and announcements. Crafted with durable weather-resistant vinyl and vibrant, smudge-free inks to guarantee maximum visibility.",
     features: [
       "High-grade sturdy material (12oz / 15oz / 18oz thickness options)",
@@ -91,7 +91,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "graphic-design",
     categoryLabel: "Graphic Design",
     subtitle: "Professional Graphic Layouts & Vector Art Creation",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/layout-design-bg.webp",
     description: "Stunning, professional custom layouts and graphics tailored to match your precise personal or commercial requirements. We transform your raw concepts into clean, polished vector artworks ready for digital use and premium print outputs.",
     features: [
       "Experienced in-house creative design specialists",
@@ -119,7 +119,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "promotional-items",
     categoryLabel: "Promotional Items",
     subtitle: "Customized Keepsakes, Brand Merchandise & Souvenirs",
-    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/souvenir-corporate-giveaways.webp",
     description: "Delight your guests, clients, and employees with fully customized corporate giveaways and event souvenirs. From custom-printed mugs, keychains, and tote bags to high-end company gifts, we offer items tailored for your events.",
     features: [
       "Vibrant custom prints that resist washing and daily wear",
@@ -147,7 +147,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "digital-services",
     categoryLabel: "Digital Services",
     subtitle: "High-Speed Digitization & High-Quality Document Printing",
-    image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/Document-Scanning-Printing.webp",
     description: "Efficient and high-volume laser printing, copying, and high-speed document scanning. Whether you need corporate brochures, legal files, student reviews, or high-volume paperwork duplicated, we offer fast, clean, smudge-free prints on premium paper.",
     features: [
       "High-speed industrial digital printers and document scanners",
@@ -175,7 +175,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "promotional-items",
     categoryLabel: "Promotional Items",
     subtitle: "Instant Professional ID Photos & Government Form ID Prints",
-    image: "https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/Rush-ID.webp",
     description: "Professional quality instant studio photo prints and ID cards. Ideal for passport applications, visa files, school IDs, driver's licenses, and company records. Includes professional background removal, skin tone tuning, and premium smudge-free gloss photo paper.",
     features: [
       "Premium background replacements (White, Blue, Red, Custom colors)",
@@ -203,7 +203,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "business-printing",
     categoryLabel: "Business Printing",
     subtitle: "Premium Calling Cards with Beautiful Finishes",
-    image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/business_cards.webp",
     description: "Make an unforgettable, highly professional statement with our premium-grade custom business cards. Designed with high-contrast color depth, thick materials, and modern finishes. Perfect for business meetings, corporate reps, and personal branding.",
     features: [
       "Printed on premium extra-thick board stock (220gsm - 300gsm)",
@@ -231,7 +231,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "apparel-printing",
     categoryLabel: "Apparel Printing",
     subtitle: "Customized Apparel, Team Uniforms & Statement Shirts",
-    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/Tshirt.webp",
     description: "Comfortable, premium custom t-shirts printed with state-of-the-art methods like Sublimation, Direct-to-Film (DTF), and Premium Vinyl. Perfect for corporate uniforms, barangay tournaments, family reunions, school clubs, or personal streetwear designs.",
     features: [
       "High-durability prints that do not crack, peel, or fade in wash",
@@ -259,7 +259,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "promotional-items",
     categoryLabel: "Promotional Items",
     subtitle: "High-Durability Corporate Badges & Custom Sublimated Lanyards",
-    image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/PVC_ID_card_with_lanyards.webp",
     description: "Professional-grade, heavy-duty plastic PVC cards and premium sublimated ID lanyards. Ideal for student IDs, official company badges, visitor passes, and security access cards. Print on sturdy PVC material that resists bending, breaking, and moisture.",
     features: [
       "ATM-card grade durable PVC material (thick, glossy, or matte)",
@@ -287,7 +287,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "large-format",
     categoryLabel: "Large Format Printing",
     subtitle: "Professional Desk, Office Door, & Sintra Board Nameplates",
-    image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/premium-nameplate.jpeg",
     description: "Sleek, high-polish office nameplates, employee desk signs, door labels, and outdoor Sintra board indicators. Customized to match your precise branding and layout preferences, these nameplates lend a professional touch to your office workspace.",
     features: [
       "High-rigidity lightweight PVC Sintra boards (3mm / 5mm thickness)",
@@ -315,7 +315,7 @@ const servicesDatabase: Record<string, ServiceData> = {
     category: "large-format",
     categoryLabel: "Large Format Printing",
     subtitle: "Custom Waterproof Product Labels, Stickers & Decals",
-    image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?auto=format&fit=crop&w=1200&q=80",
+    image: "/sub-main-BG/corporate_stickers_and_decals_set.webp",
     description: "High-durability adhesive stickers, product labels, and custom decals. Made from premium vinyl that is completely waterproof, scratch-resistant, and tear-proof. Perfect for custom product jars, shipping boxes, car bumpers, window storefront decals, and branding giveaways.",
     features: [
       "Printed on premium waterproof, smudge-proof vinyl",
@@ -437,17 +437,22 @@ export default function ServiceDetail({
               {data.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-[#C4C4C4] font-sans leading-relaxed max-w-2xl drop-shadow">
+            <p className="text-sm sm:text-base text-[#C4C4C4] font-sans leading-relaxed max-w-2xl">
               {data.description}
             </p>
           </div>
 
           {/* Right Column: Giant Promo Hero card */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900/70 backdrop-blur-sm h-[280px] sm:h-[350px] lg:h-[400px] group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-left">
-                <h3 className="text-lg font-bold text-[#14A823] mt-1">High-Quality Vibrant Graphics</h3>
-                <p className="text-xs text-[#C4C4C4] font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 h-[280px] sm:h-[350px] lg:h-[400px] group">
+              <img 
+                src={data.image} 
+                alt={data.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 text-left">
+                <h3 className="text-lg font-bold text-[#14A823] mt-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">High-Quality Vibrant Graphics</h3>
+                <p className="text-xs text-white font-sans mt-0.5 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
               </div>
             </div>
           </div>

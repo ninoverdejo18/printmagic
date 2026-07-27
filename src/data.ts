@@ -23,8 +23,7 @@ export const printingCategories: PrintingCategory[] = [
         id: "tarpaulin",
         name: "Tarpaulin",
         description: "Durable, weather-resistant tarps for events, announcements, and commercial billboards.",
-        // PLACEHOLDER: Replace with actual PrintMagic Tarpaulin photo
-        image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/tarpaulin-machine.webp"
       },
       {
         id: "signage",
@@ -37,8 +36,7 @@ export const printingCategories: PrintingCategory[] = [
         id: "sintra-board",
         name: "Sintra Board",
         description: "Lightweight and rigid PVC boards, perfect for indoor displays, exhibits, and menu boards.",
-        // PLACEHOLDER: Replace with actual PrintMagic Sintra Board photo
-        image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/premium-nameplate.jpeg"
       },
       {
         id: "acrylic",
@@ -51,8 +49,7 @@ export const printingCategories: PrintingCategory[] = [
         id: "stickers",
         name: "Stickers & Decals",
         description: "Vinyl stickers for products, promotions, or vehicles. Waterproof and scratch-resistant.",
-        // PLACEHOLDER: Replace with actual PrintMagic Stickers photo
-        image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/corporate_stickers_and_decals_set.webp"
       },
       {
         id: "roll-up-banner",
@@ -80,8 +77,7 @@ export const printingCategories: PrintingCategory[] = [
         id: "calling-cards",
         name: "Calling Cards / Business Cards",
         description: "Premium weight business cards with matte, glossy, or laminated finishes to make a strong first impression.",
-        // PLACEHOLDER: Replace with actual PrintMagic Calling Cards photo
-        image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/business_cards.webp"
       },
       {
         id: "flyers",
@@ -202,8 +198,7 @@ export const printingCategories: PrintingCategory[] = [
         id: "tshirt",
         name: "T-Shirt Printing",
         description: "Comfortable high-grade shirts printed using sublimation, vinyl transfer, or screen-printing.",
-        // PLACEHOLDER: Replace with actual PrintMagic T-Shirt photo
-        image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/Tshirt.webp"
       },
       {
         id: "jersey",
@@ -245,15 +240,13 @@ export const printingCategories: PrintingCategory[] = [
         id: "lanyard",
         name: "Lanyards",
         description: "Sublimated full-color ID lanyards, perfect for schools, corporate employees, and events.",
-        // PLACEHOLDER: Replace with actual PrintMagic Lanyard photo
-        image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/PVC_ID_card_with_lanyards.webp"
       },
       {
         id: "id",
         name: "PVC IDs",
         description: "High-quality, durable plastic PVC cards for student IDs, company badges, and membership cards.",
-        // PLACEHOLDER: Replace with actual PrintMagic PVC ID photo
-        image: "https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?auto=format&fit=crop&w=600&q=80"
+        image: "/sub-main-BG/PVC_ID_card_with_lanyards.webp"
       },
       {
         id: "keychain",
@@ -279,7 +272,7 @@ export const digitalServices: DigitalServiceItem[] = [
     title: "Graphic Design",
     description: "Stunning, high-quality, professional illustrations and custom designs tailored for web, print, and branding.",
     // PLACEHOLDER: Replace with actual PrintMagic Graphic Design photo
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
+    image: "/sub-main-BG/layout-design-bg.webp",
     details: [
       "Custom layout and artwork creation",
       "High-resolution vector files",
