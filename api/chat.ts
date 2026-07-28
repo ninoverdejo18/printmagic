@@ -62,17 +62,41 @@ To ensure our clients achieve their goals by providing affordable, creative, and
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# LANGUAGE GUIDELINES
+# LANGUAGE & MENU SELECTION GUIDELINES
 
-• If the user speaks or asks in Tagalog, Filipino, or Taglish, respond warmly in Tagalog/Taglish.
-• If the user speaks or asks in English, respond warmly in English.
-• When listing options, use bracketed buttons like [🎨 Graphic Design & Layout] so the user can easily select them.
+When the user selects language options or asks for a menu:
+• If the user chooses "Tagalog", "🇵🇭 Tagalog", or speaks in Tagalog:
+  Respond warmly in Tagalog/Filipino welcoming them to PrintMagic, and list the main options using bracketed buttons:
+  "🇵🇭 Magandang araw! Maligayang pagdating sa PrintMagic. Ako ang inyong Virtual Assistant. Paano po namin kayo matutulungan ngayon?
+
+  Maaari kayong pumili sa ating mga pangunahing serbisyo:
+
+  [🎨 Graphic Design & Layout]
+  [🖨️ Printing Services]
+  [📱 Digital Services]
+  [📋 Request Quotation]
+  [📞 Contact Us]"
+
+• If the user chooses "English", "🇺🇸 English", or speaks in English:
+  Respond warmly in English welcoming them to PrintMagic, and list the main options using bracketed buttons:
+  "🇺🇸 Hello! Welcome to PrintMagic. I am your Virtual Assistant. How can we assist you with your printing or graphic design needs today?
+
+  Please select from our main options:
+
+  [🎨 Graphic Design & Layout]
+  [🖨️ Printing Services]
+  [📱 Digital Services]
+  [📋 Request Quotation]
+  [📞 Contact Us]"
+
+• Always use bracketed options like [🎨 Graphic Design & Layout] for interactive quick options.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # PERSONALITY
 
 Always be
+
 • Friendly
 • Professional
 • Helpful
@@ -81,33 +105,48 @@ Always be
 • Patient
 • Positive
 
-Keep responses concise. Avoid large paragraphs.
+Keep responses concise.
+
+Avoid large paragraphs.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # UNKNOWN INFORMATION POLICY FOR CHATBOT
 
-If a customer asks about a specific order status, private customer data, or a topic completely unrelated to printing, design, or PrintMagic, recommend contacting PrintMagic directly:
+If you do not have enough verified information to answer a customer's question, NEVER guess, assume, or fabricate an answer.
 
-📧 Email: printmagiconline.service@gmail.com
-📞 Phone: 0926 022 6003
-🌐 Website: https://printmagicna.vercel.app/
-📍 Address: Libjo, New San Vicente, Batangas City, Philippines 4200
-Business Hours: Monday – Sunday (8:00 AM – 7:30 PM)
+Instead:
+
+1. Clearly state that you don't have enough verified information.
+2. Recommend contacting PrintMagic directly for the most accurate assistance.
+3. Provide all official contact information.
+4. Remain professional, friendly, and helpful.
+
+Always include:
+
+📧 Email:
+printmagiconline.service@gmail.com
+
+📞 Phone:
+0926 022 6003
+
+🌐 Website:
+https://printmagicna.vercel.app/
+
+📍 Address:
+Libjo, New San Vicente,
+Batangas City, Philippines 4200
+
+Business Hours:
+Monday – Sunday
+8:00 AM – 7:30 PM
 `;
 
-export function getQuickMenuResponse(promptText: string): string | null {
+export function getFallbackResponse(promptText: string): string {
   const query = promptText.toLowerCase().trim();
 
   // Language: Tagalog / Filipino
-  if (
-    query === "tagalog" ||
-    query.includes("tagalog") ||
-    query.includes("🇵🇭") ||
-    query.includes("filipino") ||
-    query.includes("wika") ||
-    query.includes("ph tagalog")
-  ) {
+  if (query.includes("tagalog") || query.includes("🇵🇭") || query.includes("filipino") || query.includes("wika")) {
     return `🇵🇭 **Magandang araw! Maligayang pagdating sa PrintMagic.**
 
 Ako ang inyong PrintMagic Virtual Assistant. Paano po namin kayo matutulungan ngayon sa inyong printing o graphic design needs?
@@ -122,12 +161,7 @@ Maaari kayong pumili sa ating mga pangunahing serbisyo:
   }
 
   // Language: English
-  if (
-    query === "english" ||
-    query.includes("english") ||
-    query.includes("🇺🇸") ||
-    query.includes("us english")
-  ) {
+  if (query.includes("english") || query.includes("🇺🇸")) {
     return `🇺🇸 **Hello and welcome to PrintMagic!**
 
 I am your PrintMagic Virtual Assistant. How can we assist you with your printing or graphic design needs today?
@@ -142,13 +176,7 @@ Please select from our main options:
   }
 
   // Menu / Main Menu
-  if (
-    query === "menu" ||
-    query.includes("main menu") ||
-    query.includes("pangunahing menu") ||
-    query.includes("options") ||
-    query.includes("back to menu")
-  ) {
+  if (query.includes("menu") || query.includes("option")) {
     return `📋 **PrintMagic Main Menu / Pangunahing Menu**
 
 Please select an option below / Pumili ng opsyon sa ibaba:
@@ -162,14 +190,8 @@ Please select an option below / Pumili ng opsyon sa ibaba:
 [📞 Contact Us]`;
   }
 
-  // Graphic Design & Layout
-  if (
-    query === "graphic design & layout" ||
-    query === "graphic design" ||
-    query === "layout" ||
-    query.includes("graphic design") ||
-    query.includes("layout")
-  ) {
+  // Graphic Design / Layout
+  if (query.includes("graphic design") || query.includes("layout") || query.includes("design")) {
     return `🎨 **Layout & Graphic Design Services**
 
 We offer professional graphic design and creative layouts for:
@@ -186,12 +208,7 @@ Would you like to get a custom design or request a quotation?
   }
 
   // Printing Services
-  if (
-    query === "printing services" ||
-    query === "printing" ||
-    query.includes("printing service") ||
-    query.includes("printing services")
-  ) {
+  if (query.includes("printing services") || query.includes("printing")) {
     return `🖨️ **PrintMagic Printing Services**
 
 We provide high-quality printing solutions including:
@@ -211,12 +228,7 @@ Which specific item would you like to inquire about?
   }
 
   // Digital Services
-  if (
-    query === "digital services" ||
-    query === "digital" ||
-    query.includes("digital service") ||
-    query.includes("digital services")
-  ) {
+  if (query.includes("digital services") || query.includes("digital")) {
     return `📱 **Digital & Online Services**
 
 Our digital solutions include:
@@ -233,14 +245,7 @@ How can we assist you with your digital requirements today?
   }
 
   // Request Quotation
-  if (
-    query === "request quotation" ||
-    query === "request a quotation" ||
-    query.includes("request quotation") ||
-    query.includes("request a quotation") ||
-    query === "quote" ||
-    query === "quotation"
-  ) {
+  if (query.includes("quotation") || query.includes("quote")) {
     return `📋 **Request a Free Quotation**
 
 To get an accurate quote for your project, please provide us with the following details:
@@ -258,16 +263,8 @@ You can also send your specifications directly to us:
 How many items or what specifications are you looking for?`;
   }
 
-  // Contact Us
-  if (
-    query === "contact us" ||
-    query === "contact" ||
-    query.includes("contact us") ||
-    query.includes("business hours") ||
-    query.includes("address") ||
-    query.includes("location") ||
-    query.includes("phone number")
-  ) {
+  // Contact Us / Location / Hours
+  if (query.includes("contact") || query.includes("hours") || query.includes("address") || query.includes("location") || query.includes("phone") || query.includes("email")) {
     return `📞 **PrintMagic Contact Information**
 
 • **Phone / Mobile:** 0926 022 6003
@@ -279,85 +276,53 @@ How many items or what specifications are you looking for?`;
 How else can we assist you today?`;
   }
 
-  // Stickers & Decals
-  if (query.includes("sticker") || query.includes("decal")) {
-    return `🏷️ **Custom Stickers & Decals**
+  // Product Specifics
+  if (query.includes("tarpaulin") || query.includes("tarp")) {
+    return `🚩 **Tarpaulin Printing & Large Format**
 
-• **Description:** Waterproof precision-cut vinyl stickers and die-cut decals for packaging and branding.
-• **Common Uses:** Product labels, food jar stickers, laptop decals, vehicle stickers, packaging seals.
+• **Description:** Heavy-duty weather-resistant outdoor vinyl tarpaulins and indoor event backdrops.
+• **Common Uses:** Birthday backdrops, fiesta banners, store signages, announcement tarpaulins.
+• **Customization Options:** Eyelets (cut-rings), folded edges, custom dimensions (feet or inches).
 
-What dimensions and quantity of stickers do you need?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
+How many tarpaulins and what dimensions do you need?`;
   }
 
-  // T-Shirt Printing
   if (query.includes("t-shirt") || query.includes("shirt")) {
     return `👕 **T-Shirt Printing**
 
 • **Description:** High-quality customized apparel printing using DTF, vinyl transfer, or sublimation techniques.
 • **Common Uses:** Company uniforms, event shirts, class batch tees, family reunion shirts, sports jerseys.
 
-How many shirts are you looking to order?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
+How many shirts are you looking to order?`;
   }
 
-  // PVC ID & ID Lace
+  if (query.includes("sticker") || query.includes("decal")) {
+    return `🏷️ **Custom Stickers & Decals**
+
+• **Description:** Waterproof precision-cut vinyl stickers and die-cut decals for packaging and branding.
+• **Common Uses:** Product labels, food jar stickers, laptop decals, vehicle stickers, packaging seals.
+
+What dimensions and quantity of stickers do you need?`;
+  }
+
   if (query.includes("pvc") || query.includes("id lace") || query.includes("lanyard")) {
     return `🪪 **PVC ID & ID Lace**
 
 • **Description:** Heavy-duty waterproof PVC identification cards and custom sublimated lanyard ID laces.
 • **Common Uses:** School IDs, employee ID badges, membership cards, event accreditation passes.
 
-How many PVC IDs or ID laces do you need?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
+How many PVC IDs or ID laces do you need?`;
   }
 
-  // Rush ID
   if (query.includes("rush id")) {
     return `🪪 **Rush ID Photo Service**
 
 • **Description:** Fast, high-quality photo capturing and printing formatted for passport, visa, and government IDs.
 • **Common Uses:** Passport applications, job requirements, visa applications, government forms (1x1, 2x2).
 
-What size or package of Rush ID photo do you need?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
+What size or package of Rush ID photo do you need?`;
   }
 
-  // Business Cards
-  if (query.includes("business card") || query.includes("calling card")) {
-    return `💼 **Business Cards & Calling Cards**
-
-• **Description:** Premium quality business cards with matte, glossy, or textured finish options.
-• **Common Uses:** Networking, corporate identity, client contact cards.
-
-How many boxes of business cards do you need?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
-  }
-
-  // Tarpaulin
-  if (query.includes("tarpaulin") || query.includes("tarp")) {
-    return `🚩 **Tarpaulin Printing & Large Format**
-
-• **Description:** Heavy-duty weather-resistant outdoor vinyl tarpaulins and indoor event backdrops.
-• **Common Uses:** Birthday backdrops, fiesta banners, store signages, announcement tarpaulins.
-
-What dimensions (e.g. 3x4 ft, 4x6 ft) and quantity do you need?
-
-[📋 Request Quotation]
-[📞 Contact Us]`;
-  }
-
-  // Founder / Owner
   if (query.includes("owner") || query.includes("founder") || query.includes("who owns") || query.includes("who founded") || query.includes("who started")) {
     return `👨‍💼 **Founder & Owner Information**
 
@@ -370,13 +335,6 @@ If you have any questions or would like to discuss a project with our team, plea
 🌐 Website: https://printmagicna.vercel.app/
 📍 Address: Libjo, New San Vicente, Batangas City, Philippines 4200`;
   }
-
-  return null;
-}
-
-export function getFallbackResponse(promptText: string): string {
-  const quick = getQuickMenuResponse(promptText);
-  if (quick) return quick;
 
   return `I don't have enough verified information to answer that accurately. For the most up-to-date and accurate details, please contact PrintMagic directly. Our team will be happy to assist you.
 
@@ -407,12 +365,6 @@ export default async function handler(req: any, res: any) {
   const rawHistory = Array.isArray(req.body?.messages)
     ? req.body.messages
     : (Array.isArray(req.body?.history) ? req.body.history : []);
-
-  // 1. FIRST check if promptText matches any preset option or menu selection
-  const quickResponse = getQuickMenuResponse(promptText);
-  if (quickResponse) {
-    return res.status(200).json({ reply: quickResponse, response: quickResponse, fallback: false });
-  }
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;
