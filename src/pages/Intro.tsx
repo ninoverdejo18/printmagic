@@ -78,7 +78,7 @@ export default function Intro({ onComplete }: IntroProps) {
         className="absolute inset-0 transition-opacity duration-[2500ms] ease-in-out z-0"
         style={{ 
           opacity: shouldMove ? 1 : 0,
-          backgroundImage: "url('/PrintMagic_2k.png')",
+          backgroundImage: "url('/bg-hero-section1.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
@@ -133,7 +133,7 @@ export default function Intro({ onComplete }: IntroProps) {
         id="intro-logo-brand"
       >
         <img 
-          src="/main-logo1.png" 
+          src="/app-icon111.webp" 
           alt="PrintMagic Logo" 
           className="w-full h-full object-contain"
           referrerPolicy="no-referrer"

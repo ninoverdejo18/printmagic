@@ -15,6 +15,7 @@ import DigitalServices from "./pages/DigitalServices";
 import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import IdApplicationLinks from "./pages/IdApplicationLinks";
+import VirtualAssistant from "./components/VirtualAssistant";
 import { getRouteByHash, getRouteByPageId, updateHashSilently } from "./utils/navigation";
 
 export default function App() {
@@ -326,6 +327,14 @@ export default function App() {
       {/* Global Footer */}
       {currentPage !== "intro" && (
         <Footer setCurrentPage={handleSetCurrentPage} />
+      )}
+
+      {/* Floating Virtual Assistant */}
+      {currentPage !== "intro" && (
+        <VirtualAssistant 
+          setCurrentPage={handleSetCurrentPage} 
+          setSelectedServiceQuote={setSelectedServiceQuote} 
+        />
       )}
     </div>
   );

@@ -122,7 +122,7 @@ export default function Navbar({
             >
               {/* Premium vector brand logo */}
               <img 
-                src="/main-logo1.png" 
+                src="/app-icon111.webp" 
                 alt="PrintMagic Logo" 
                 className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
                 referrerPolicy="no-referrer" 

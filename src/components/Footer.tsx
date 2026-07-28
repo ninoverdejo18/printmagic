@@ -40,7 +40,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         {/* Centered Top Brand Header */}
         <div className="flex flex-col items-center text-center mb-8">
           <img 
-            src="/main-logo1.png" 
+            src="/app-icon111.webp" 
             alt="PrintMagic Logo" 
             className="w-16 h-16 rounded-full object-cover border-2 border-[#12941F]/40 shadow-lg mb-3" 
             referrerPolicy="no-referrer" 
@@ -169,7 +169,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img 
-                src="/main-logo1.png" 
+                src="/app-icon111.webp" 
                 alt="PrintMagic Logo" 
                 className="w-8 h-8 rounded-full border border-[#12941F]/40 object-cover" 
                 referrerPolicy="no-referrer" 
