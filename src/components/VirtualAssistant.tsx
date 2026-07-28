@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, Palette, PenTool, User, Minimize2, Maximize2, RefreshCw, ChevronRight, ChevronDown, ChevronUp, Minus, Volume2, VolumeX, Mic, MicOff, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-const GraphicDesignerBotIcon = ({ className = "w-6 h-6" }: { className?: string }) => {
+const GraphicDesignerBotIcon = ({ className = "w-6 h-6", showHand = true }: { className?: string; showHand?: boolean }) => {
   return (
     <svg
       viewBox="0 0 40 38"
@@ -11,21 +11,25 @@ const GraphicDesignerBotIcon = ({ className = "w-6 h-6" }: { className?: string 
       className={className}
     >
       {/* Left Arm & Waving Hand */}
-      <path
-        d="M 10 21 C 5 20 3 15 4 10"
-        stroke="#0F172A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <g transform="translate(1, 3)">
-        <circle cx="3.5" cy="5.5" r="2.2" fill="#F8FAFC" stroke="#0F172A" strokeWidth="1.2" />
-        <path d="M 2 3.8 L 1 1.8" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
-        <path d="M 3.5 3.3 L 3.5 1" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
-        <path d="M 5 3.8 L 6 1.8" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
-        {/* Waving sparkles */}
-        <path d="M 0 1 L 1.5 2.5" stroke="#F59E0B" strokeWidth="1" strokeLinecap="round" />
-      </g>
+      {showHand && (
+        <>
+          <path
+            d="M 10 21 C 5 20 3 15 4 10"
+            stroke="#0F172A"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <g transform="translate(1, 3)">
+            <circle cx="3.5" cy="5.5" r="2.2" fill="#F8FAFC" stroke="#0F172A" strokeWidth="1.2" />
+            <path d="M 2 3.8 L 1 1.8" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 3.5 3.3 L 3.5 1" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 5 3.8 L 6 1.8" stroke="#0F172A" strokeWidth="1.2" strokeLinecap="round" />
+            {/* Waving sparkles */}
+            <path d="M 0 1 L 1.5 2.5" stroke="#F59E0B" strokeWidth="1" strokeLinecap="round" />
+          </g>
+        </>
+      )}
 
       {/* Right Arm holding Palette */}
       <path
@@ -443,7 +447,7 @@ export default function VirtualAssistant({
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white overflow-hidden p-0.5">
-                    <GraphicDesignerBotIcon className="w-7 h-7" />
+                    <GraphicDesignerBotIcon className="w-7 h-7" showHand={false} />
                   </div>
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-300 border-2 border-[#12941F] rounded-full"></span>
                 </div>
@@ -564,7 +568,7 @@ export default function VirtualAssistant({
                     >
                       {msg.sender === "bot" && (
                         <div className="w-7 h-7 rounded-full bg-[#12941F] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-sm overflow-hidden p-0.5 border border-emerald-400/30">
-                          <GraphicDesignerBotIcon className="w-6 h-6" />
+                          <GraphicDesignerBotIcon className="w-6 h-6" showHand={false} />
                         </div>
                       )}
 
@@ -608,7 +612,7 @@ export default function VirtualAssistant({
                   {isTyping && (
                     <div className="flex gap-2.5 justify-start">
                       <div className="w-7 h-7 rounded-full bg-[#12941F] flex items-center justify-center text-white shrink-0 shadow-sm overflow-hidden p-0.5 border border-emerald-400/30">
-                        <GraphicDesignerBotIcon className="w-6 h-6" />
+                        <GraphicDesignerBotIcon className="w-6 h-6" showHand={false} />
                       </div>
                       <div className="bg-white text-slate-600 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1.5 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-bounce"></span>
@@ -673,34 +677,19 @@ export default function VirtualAssistant({
       {/* Floating Toggle Launcher Button */}
       {!isOpen && (
         <div className="relative group flex flex-col items-end">
-          {/* Speech Bubble Badge with Graphic Design AI Bot and Waving Hand */}
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-2 bg-white text-slate-900 px-3 py-1.5 rounded-2xl shadow-xl border border-slate-200 flex items-center gap-2 pointer-events-none z-10 whitespace-nowrap"
-          >
-            <div className="w-5 h-5 flex items-center justify-center shrink-0">
-              <GraphicDesignerBotIcon className="w-5 h-5" />
-            </div>
-
-          </motion.div>
-
           <motion.button
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="bg-[#12941F] hover:bg-[#0f7e1a] text-white px-4 py-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center gap-2.5 group transition-all duration-300"
+            className="bg-[#12941F] hover:bg-[#0f7e1a] text-white p-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center justify-center group transition-all duration-300"
+            aria-label="Open Virtual Assistant"
           >
             <div className="relative flex items-center justify-center bg-white/20 p-1 rounded-full">
               <GraphicDesignerBotIcon className="w-7 h-7" />
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#12941F] animate-ping"></span>
             </div>
-            <span className="font-bold text-sm tracking-wide hidden sm:inline flex items-center gap-1">
-              Hi!
-            </span>
           </motion.button>
         </div>
       )}
