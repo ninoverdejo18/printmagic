@@ -94,14 +94,22 @@ interface VirtualAssistantProps {
   setSelectedServiceQuote?: (service: string) => void;
 }
 
-const INITIAL_GREETING = `👋 Welcome to PrintMagic!
+const INITIAL_GREETING = `Hello! Welcome to PrintMagic.
+How may I help you today?
 
-Please choose your preferred language.
+Please select from our main options:
 
-🌐 Language / Wika
-
-[🇵🇭 Tagalog]
-[🇺🇸 English]`;
+[🛠️ Services]
+[📋 Request a Quotation]
+[🎨 Graphic Design]
+[🖨️ Printing Services]
+[🖼️ Portfolio / Completed Projects]
+[❓ Frequently Asked Questions (FAQ)]
+[🏢 About PrintMagic]
+[📞 Contact Information]
+[🕒 Business Hours]
+[🪪 ID Application Links]
+[💬 Chat with Our Team]`;
 
 export default function VirtualAssistant({ 
   setCurrentPage, 
@@ -431,14 +439,21 @@ export default function VirtualAssistant({
 
   return (
     <div className="fixed bottom-5 right-5 z-50 font-sans">
-      <AnimatePresence>
-        {isOpen && (
+      <AnimatePresence mode="wait">
+        {isOpen ? (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            key="chat-window"
+            initial={{ opacity: 0, y: 28, scale: 0.88 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className={`bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col border-none ${
+            exit={{ opacity: 0, y: 20, scale: 0.88, transition: { duration: 0.18, ease: "easeIn" } }}
+            transition={{
+              type: "spring",
+              stiffness: 380,
+              damping: 28,
+              mass: 0.85
+            }}
+            style={{ transformOrigin: "bottom right" }}
+            className={`bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col border-none transition-[height,width] duration-300 ease-out ${
               isMinimized ? "h-16 w-80 sm:w-96" : "h-[540px] w-[90vw] sm:w-[410px] max-w-[420px]"
             }`}
           >
@@ -671,28 +686,30 @@ export default function VirtualAssistant({
               </>
             )}
           </motion.div>
+        ) : (
+          <motion.div
+            key="chat-launcher"
+            initial={{ opacity: 0, scale: 0.5, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 12, transition: { duration: 0.15 } }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            className="relative group flex flex-col items-end"
+          >
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => setIsOpen(true)}
+              className="bg-[#12941F] hover:bg-[#0f7e1a] text-white p-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center justify-center group transition-all duration-300 cursor-pointer"
+              aria-label="Open Virtual Assistant"
+            >
+              <div className="relative flex items-center justify-center bg-white/20 p-1 rounded-full">
+                <GraphicDesignerBotIcon className="w-7 h-7" />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#12941F] animate-ping"></span>
+              </div>
+            </motion.button>
+          </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Floating Toggle Launcher Button */}
-      {!isOpen && (
-        <div className="relative group flex flex-col items-end">
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(true)}
-            className="bg-[#12941F] hover:bg-[#0f7e1a] text-white p-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center justify-center group transition-all duration-300"
-            aria-label="Open Virtual Assistant"
-          >
-            <div className="relative flex items-center justify-center bg-white/20 p-1 rounded-full">
-              <GraphicDesignerBotIcon className="w-7 h-7" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#12941F] animate-ping"></span>
-            </div>
-          </motion.button>
-        </div>
-      )}
     </div>
   );
 }
