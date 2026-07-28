@@ -391,7 +391,7 @@ export default async function handler(req: any, res: any) {
       try {
         const ai = new GoogleGenAI({ apiKey });
         const testRes = await ai.models.generateContent({
-          model: "gemini-2.5-flash",
+          model: "gemini-2.0-flash",
           contents: "Hello, reply with OK if connected."
         });
         return res.status(200).json({
@@ -485,7 +485,7 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const modelsToTry = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-flash-latest"];
+    const modelsToTry = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash", "gemini-flash-latest"];
     let replyText = "";
 
     for (const modelName of modelsToTry) {
