@@ -357,8 +357,24 @@ Monday – Sunday
 }
 
 export default async function handler(req: any, res: any) {
-  // Support GET request for Vercel configuration & connectivity testing
-  if (req.method === "GET" || req.method === "get") {
+  // Set CORS headers for Vercel Serverless API
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, HEAD");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
+  );
+
+  const method = (req.method || "GET").toUpperCase();
+
+  // Handle CORS preflight request
+  if (method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Support GET and HEAD requests for Vercel configuration & connectivity testing
+  if (method === "GET" || method === "HEAD") {
     let apiKey = (process.env.GEMINI_API_KEY || "").trim();
     apiKey = apiKey.replace(/^["']|["']$/g, "").trim();
 
@@ -411,8 +427,8 @@ export default async function handler(req: any, res: any) {
     });
   }
 
-  if (req.method !== "POST" && req.method !== "post") {
-    return res.status(405).json({ error: "Method not allowed" });
+  if (method !== "POST") {
+    return res.status(405).json({ error: `Method ${method} not allowed. Use GET or POST.` });
   }
 
   let body = req.body;
