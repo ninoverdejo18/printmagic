@@ -357,6 +357,60 @@ Monday – Sunday
 }
 
 export default async function handler(req: any, res: any) {
+  // Support GET request for Vercel configuration & connectivity testing
+  if (req.method === "GET" || req.method === "get") {
+    let apiKey = (process.env.GEMINI_API_KEY || "").trim();
+    apiKey = apiKey.replace(/^["']|["']$/g, "").trim();
+
+    if (!apiKey || apiKey === "undefined" || apiKey.includes("YOUR_API_KEY") || apiKey.length < 10) {
+      return res.status(200).json({
+        status: "ok",
+        configured: false,
+        message: "GEMINI_API_KEY environment variable is missing or placeholder in Vercel. Intelligent local knowledge base engine is active.",
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    if (req.query?.test === "true" || req.query?.test === "1") {
+      try {
+        const ai = new GoogleGenAI({ apiKey });
+        const testRes = await ai.models.generateContent({
+          model: "gemini-2.5-flash",
+          contents: "Hello, reply with OK if connected."
+        });
+        return res.status(200).json({
+          status: "ok",
+          configured: true,
+          liveTest: "passed",
+          modelUsed: "gemini-2.5-flash",
+          response: testRes.text || "OK",
+          timestamp: new Date().toISOString()
+        });
+      } catch (testErr: any) {
+        const errMsg = testErr?.message || String(testErr);
+        let cause = "API key test failed.";
+        if (errMsg.includes("401") || errMsg.includes("invalid authentication")) {
+          cause = "The GEMINI_API_KEY in Vercel Environment Variables is invalid or expired. Obtain a valid Gemini API Key from Google AI Studio (https://aistudio.google.com/app/apikey) and re-save it in Vercel project settings.";
+        }
+        return res.status(200).json({
+          status: "warning",
+          configured: true,
+          liveTest: "failed",
+          error: errMsg,
+          recommendation: cause,
+          timestamp: new Date().toISOString()
+        });
+      }
+    }
+
+    return res.status(200).json({
+      status: "ok",
+      configured: true,
+      message: "GEMINI_API_KEY is configured on Vercel. To run a live connection test, visit /api/chat?test=true",
+      timestamp: new Date().toISOString()
+    });
+  }
+
   if (req.method !== "POST" && req.method !== "post") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -378,21 +432,15 @@ export default async function handler(req: any, res: any) {
     : (Array.isArray(body?.history) ? body.history : []);
 
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
+    let apiKey = (process.env.GEMINI_API_KEY || "").trim();
+    apiKey = apiKey.replace(/^["']|["']$/g, "").trim();
 
-    if (!apiKey) {
+    if (!apiKey || apiKey === "undefined" || apiKey.includes("YOUR_API_KEY") || apiKey.length < 10) {
       const responseText = getFallbackResponse(promptText);
       return res.status(200).json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const ai = new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build'
-        }
-      }
-    });
+    const ai = new GoogleGenAI({ apiKey });
 
     const formattedHistory: Array<{ role: string; parts: Array<{ text: string }> }> = [];
     for (const msg of rawHistory) {
@@ -421,7 +469,7 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const modelsToTry = ["gemini-3.6-flash", "gemini-flash-latest", "gemini-3.1-flash-lite"];
+    const modelsToTry = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-flash-latest"];
     let replyText = "";
 
     for (const modelName of modelsToTry) {
@@ -440,7 +488,12 @@ export default async function handler(req: any, res: any) {
           break;
         }
       } catch (err: any) {
-        console.warn(`[Gemini API Vercel] ${modelName} failed:`, err?.message || err);
+        const msg = err?.message || String(err);
+        if (msg.includes("401") || msg.includes("invalid authentication")) {
+          console.warn(`[Gemini API Vercel] 401 Invalid Authentication credentials for ${modelName}. Verify GEMINI_API_KEY at https://aistudio.google.com/app/apikey`);
+        } else {
+          console.warn(`[Gemini API Vercel] ${modelName} failed:`, msg);
+        }
         continue;
       }
     }

@@ -1307,22 +1307,16 @@ app.post("/api/chat", async (req, res) => {
     : (Array.isArray(req.body?.history) ? req.body.history : []);
 
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
+    let apiKey = (process.env.GEMINI_API_KEY || "").trim();
+    apiKey = apiKey.replace(/^["']|["']$/g, "").trim();
 
-    if (!apiKey) {
+    if (!apiKey || apiKey === "undefined" || apiKey.includes("YOUR_API_KEY") || apiKey.length < 10) {
       // Lazy fallback if GEMINI_API_KEY is not set
       const responseText = getFallbackResponse(promptText);
       return res.json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const ai = new GoogleGenAI({ 
-      apiKey,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build'
-        }
-      }
-    });
+    const ai = new GoogleGenAI({ apiKey });
 
     // Format chat history for Gemini API safely
     const formattedHistory: Array<{ role: string; parts: Array<{ text: string }> }> = [];
@@ -1353,7 +1347,7 @@ app.post("/api/chat", async (req, res) => {
       return res.json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const modelsToTry = ["gemini-3.6-flash", "gemini-flash-latest", "gemini-3.1-flash-lite"];
+    const modelsToTry = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-flash-latest"];
     let replyText = "";
 
     for (const modelName of modelsToTry) {
