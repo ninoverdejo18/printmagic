@@ -403,7 +403,7 @@ export default async function handler(req: any, res: any) {
     }
 
     if (isTestCall) {
-      const testModels = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash", "gemini-flash-latest"];
+      const testModels = ["gemini-3.6-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"];
       let lastErr: any = null;
       let successModel = "";
       let successText = "";
@@ -521,7 +521,7 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ reply: responseText, response: responseText, fallback: true });
     }
 
-    const modelsToTry = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash", "gemini-flash-latest"];
+    const modelsToTry = ["gemini-3.6-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"];
     let replyText = "";
 
     for (const modelName of modelsToTry) {
