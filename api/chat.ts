@@ -387,36 +387,72 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    let isTestCall = false;
     if (req.query?.test === "true" || req.query?.test === "1") {
+      isTestCall = true;
+    } else if (req.url) {
       try {
-        const ai = new GoogleGenAI({ apiKey });
-        const testRes = await ai.models.generateContent({
-          model: "gemini-2.0-flash",
-          contents: "Hello, reply with OK if connected."
-        });
+        const parsedUrl = new URL(req.url, "http://localhost");
+        const testParam = parsedUrl.searchParams.get("test");
+        if (testParam === "true" || testParam === "1") {
+          isTestCall = true;
+        }
+      } catch {
+        // Fallback ignored
+      }
+    }
+
+    if (isTestCall) {
+      const testModels = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash", "gemini-flash-latest"];
+      let lastErr: any = null;
+      let successModel = "";
+      let successText = "";
+
+      const ai = new GoogleGenAI({ apiKey });
+
+      for (const m of testModels) {
+        try {
+          const testRes = await ai.models.generateContent({
+            model: m,
+            contents: "Hello, reply with OK if connected."
+          });
+          if (testRes.text) {
+            successModel = m;
+            successText = testRes.text;
+            break;
+          }
+        } catch (tErr: any) {
+          lastErr = tErr;
+        }
+      }
+
+      if (successModel) {
         return res.status(200).json({
           status: "ok",
           configured: true,
           liveTest: "passed",
-          modelUsed: "gemini-2.5-flash",
-          response: testRes.text || "OK",
-          timestamp: new Date().toISOString()
-        });
-      } catch (testErr: any) {
-        const errMsg = testErr?.message || String(testErr);
-        let cause = "API key test failed.";
-        if (errMsg.includes("401") || errMsg.includes("invalid authentication")) {
-          cause = "The GEMINI_API_KEY in Vercel Environment Variables is invalid or expired. Obtain a valid Gemini API Key from Google AI Studio (https://aistudio.google.com/app/apikey) and re-save it in Vercel project settings.";
-        }
-        return res.status(200).json({
-          status: "warning",
-          configured: true,
-          liveTest: "failed",
-          error: errMsg,
-          recommendation: cause,
+          modelUsed: successModel,
+          response: successText,
           timestamp: new Date().toISOString()
         });
       }
+
+      const errMsg = lastErr?.message || String(lastErr || "Unknown error");
+      let cause = "API key test failed.";
+      if (errMsg.includes("401") || errMsg.includes("invalid authentication")) {
+        cause = "The GEMINI_API_KEY in Vercel Environment Variables is invalid or expired. Obtain a valid Gemini API Key from Google AI Studio (https://aistudio.google.com/app/apikey) and re-save it in Vercel project settings.";
+      } else if (errMsg.includes("429") || errMsg.includes("RESOURCE_EXHAUSTED") || errMsg.toLowerCase().includes("quota")) {
+        cause = "Quota limit or rate limit reached (429 RESOURCE_EXHAUSTED) on your Gemini API key free tier. Please wait a few seconds or check your key quota/billing at https://ai.google.dev/gemini-api/docs/rate-limits.";
+      }
+
+      return res.status(200).json({
+        status: "warning",
+        configured: true,
+        liveTest: "failed",
+        error: errMsg,
+        recommendation: cause,
+        timestamp: new Date().toISOString()
+      });
     }
 
     return res.status(200).json({
