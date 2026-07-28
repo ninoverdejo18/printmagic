@@ -683,9 +683,7 @@ export default function VirtualAssistant({
             <div className="w-5 h-5 flex items-center justify-center shrink-0">
               <GraphicDesignerBotIcon className="w-5 h-5" />
             </div>
-            <span className="text-xs font-bold text-slate-800 flex items-center gap-1">
-              Ask AI Designer <span className="text-base leading-none">👋</span>
-            </span>
+
           </motion.div>
 
           <motion.button
@@ -701,7 +699,7 @@ export default function VirtualAssistant({
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#12941F] animate-ping"></span>
             </div>
             <span className="font-bold text-sm tracking-wide hidden sm:inline flex items-center gap-1">
-              PrintMagic AI
+              Hi!
             </span>
           </motion.button>
         </div>
