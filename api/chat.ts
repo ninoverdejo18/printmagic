@@ -361,10 +361,21 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const promptText = (req.body?.userPrompt || req.body?.message || "").toString().trim();
-  const rawHistory = Array.isArray(req.body?.messages)
-    ? req.body.messages
-    : (Array.isArray(req.body?.history) ? req.body.history : []);
+  let body = req.body;
+  if (typeof req.body === "string") {
+    try {
+      body = JSON.parse(req.body);
+    } catch {
+      body = {};
+    }
+  } else if (!body) {
+    body = {};
+  }
+
+  const promptText = (body?.userPrompt || body?.message || "").toString().trim();
+  const rawHistory = Array.isArray(body?.messages)
+    ? body.messages
+    : (Array.isArray(body?.history) ? body.history : []);
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;
