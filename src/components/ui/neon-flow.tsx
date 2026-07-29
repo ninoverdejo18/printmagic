@@ -321,7 +321,7 @@ export function TubesBackground({
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
           {bgImageMobile ? (
             <picture className="w-full h-full block">
-              <source media="(max-width: 767px)" srcSet={bgImageMobile} />
+              <source media="(max-width: 1023px)" srcSet={bgImageMobile} />
               <img 
                 src={bgImage || bgImageMobile} 
                 alt="Hero Background" 

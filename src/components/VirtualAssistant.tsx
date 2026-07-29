@@ -131,10 +131,32 @@ export default function VirtualAssistant({
   const [isVoiceMode, setIsVoiceMode] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
   const recognitionRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const synthIntervalRef = useRef<any>(null);
   const activeUtterancesRef = useRef<SpeechSynthesisUtterance[]>([]);
+  const scrollTimeoutRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 700);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const stopSpeaking = () => {
     if (!('speechSynthesis' in window)) return;
@@ -438,7 +460,9 @@ export default function VirtualAssistant({
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 font-sans">
+    <div className={`fixed bottom-5 right-5 z-50 font-sans transition-all duration-300 ${
+      isScrolling ? "opacity-0 pointer-events-none translate-y-8 scale-90" : "opacity-100 pointer-events-auto translate-y-0 scale-100"
+    }`}>
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div

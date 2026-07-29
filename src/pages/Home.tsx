@@ -17,7 +17,6 @@ import {
   BadgeCheck, 
   Bookmark, 
   Sparkles,
-  ChevronRight,
   Upload,
   Download,
   Search,
@@ -47,6 +46,7 @@ const homeServicesList = [
     categoryLabel: "Large Format",
     description: "Heavy-duty, weatherproof flex banners for grand openings, birthdays, store ads & event backdrops.",
     icon: Printer,
+    image: "/home-services-iconss/tarpualin-icon1.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -56,6 +56,7 @@ const homeServicesList = [
     categoryLabel: "Graphic Design",
     description: "Professional graphic design, vector logos, custom promotional flyers & brand layout grids.",
     icon: Palette,
+    image: "/home-services-iconss/design-layout-icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -65,6 +66,7 @@ const homeServicesList = [
     categoryLabel: "Merchandise",
     description: "Custom printed mugs, keychains, canvas tote bags, and corporate keepsakes for events.",
     icon: Gift,
+    image: "/home-services-iconss/souvenirs_giveaways-icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -74,6 +76,7 @@ const homeServicesList = [
     categoryLabel: "Digital Services",
     description: "High-speed document scanning, high-resolution laser printing, copying & booklet binding.",
     icon: FileText,
+    image: "/home-services-iconss/Document_Services_icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -83,6 +86,8 @@ const homeServicesList = [
     categoryLabel: "10-Min Express",
     description: "Instant 10-minute studio photo prints (1x1, 2x2, Passport) with background replacements.",
     icon: Camera,
+    image: "/home-services-iconss/rush-id-icon.webp",
+    imageScale: "scale-[1.00]",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -92,6 +97,7 @@ const homeServicesList = [
     categoryLabel: "Business Printing",
     description: "Premium calling cards on thick boardstock with matte, glossy & scratch-proof laminations.",
     icon: CreditCard,
+    image: "/home-services-iconss/Business_cards_icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -101,6 +107,7 @@ const homeServicesList = [
     categoryLabel: "Apparel Printing",
     description: "High-durability DTF, sublimation, and vinyl customized shirts for sports teams & uniforms.",
     icon: Shirt,
+    image: "/home-services-iconss/t-shirt-printing-icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -110,6 +117,7 @@ const homeServicesList = [
     categoryLabel: "Credentials",
     description: "ATM-grade durable plastic PVC badges, student IDs, and custom sublimated lanyard laces.",
     icon: BadgeCheck,
+    image: "/home-services-iconss/PVC_ID_and_Lanyards_icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -119,6 +127,7 @@ const homeServicesList = [
     categoryLabel: "Office Signage",
     description: "Sleek Sintra board office nameplates, door tags, and executive desktop display signs.",
     icon: Bookmark,
+    image: "/home-services-iconss/Premium_NamePlates_icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   },
@@ -129,6 +138,7 @@ const homeServicesList = [
     categoryLabel: "Labels & Decals",
     description: "100% waterproof vinyl stickers, product labels, and custom die-cut vehicle decals.",
     icon: Sparkles,
+    image: "/home-services-iconss/Stickers_and_Decals_icon.webp",
     badgeColor: "bg-slate-100 text-black border-slate-200",
     iconBg: "bg-slate-100 text-black"
   }
@@ -301,7 +311,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
           >
             <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full">
               {/* Header */}
-              <div className="text-center max-w-3xl mx-auto space-y-3 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
+              <div className="text-center max-w-3xl mx-auto space-y-3">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight font-display">
                   Printing & Graphic Services
                 </h2>
@@ -318,10 +328,22 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                       key={service.id}
                       id={`home-service-card-${service.id}`}
                       onClick={() => handleNav(service.id)}
-                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-[#12941F] text-left h-full"
+                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-[#12941F] text-center h-full"
                     >
                       <div className="space-y-1.5 flex-1 flex flex-col justify-between">
                         <div>
+                          {/* Service Icon Image */}
+                          {service.image && (
+                            <div className="w-full h-34 sm:h-38 mb-3 bg-slate-50/80 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 p-1 group-hover:bg-[#12941F]/5 group-hover:border-[#12941F]/30 transition-all">
+                              <img
+                                src={service.image}
+                                alt={service.title}
+                                referrerPolicy="no-referrer"
+                                className={`max-w-full max-h-full object-contain ${service.imageScale || "scale-[1.08]"} transition-transform duration-300`}
+                              />
+                            </div>
+                          )}
+
                           {/* Title */}
                           <h3 className="text-sm font-extrabold text-slate-900 font-display tracking-tight group-hover:text-[#12941F] transition-colors leading-snug">
                             {service.title}
@@ -331,14 +353,6 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                           <p className="text-xs text-[#7D7D7D] font-sans leading-relaxed mt-1">
                             {service.description}
                           </p>
-                        </div>
-
-                        {/* Navigation Link Button */}
-                        <div className="pt-2.5 border-t border-slate-100 mt-3 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-[#12941F]">
-                          <span>Explore Service</span>
-                          <div className="w-5 h-5 rounded-full bg-slate-100 group-hover:bg-[#12941F] group-hover:text-white text-slate-800 flex items-center justify-center transition-all">
-                            <ChevronRight className="w-3 h-3" />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -358,7 +372,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
             style={{ backgroundImage: "url('/Green_Paint_PureWhite_2K.webp')" }}
           >
             <div className="w-full space-y-8 relative z-10">
-              <div className="max-w-3xl mx-auto text-center space-y-3 px-4 sm:px-6 md:px-8 lg:px-10 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
+              <div className="max-w-3xl mx-auto text-center space-y-3">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12941F] tracking-tight font-display">
                   Our Gallery
                 </h2>
@@ -397,7 +411,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
                     <button
                       onClick={() => handleNav("contact")}
-                      className="px-8 py-3 bg-[#12941F] hover:bg-[#14A823] text-white border border-[#12941F] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#0a5210] hover:bg-[#07360b] text-white border border-[#0a5210] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-quote-btn"
                     >
                       <span>Request a Quote</span>
@@ -406,7 +420,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                       href="https://www.facebook.com/Printmagic29"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-3 bg-[#132C22] border-2 border-[#28473B] text-[#F8FAFC] rounded-lg font-bold hover:bg-[#28473B]/50 transition-all duration-200 flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#0a5210] hover:bg-[#07360b] text-white border border-[#0a5210] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-messenger-btn"
                     >
                       <span>Chat on Messenger</span>

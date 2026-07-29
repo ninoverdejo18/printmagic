@@ -183,7 +183,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
-                  className="px-6 py-2 bg-[#15803d] hover:bg-[#166534] text-white rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
+                  className="px-6 py-2 bg-[#0a5210] hover:bg-[#07360b] text-white rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -303,7 +303,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3 rounded-lg bg-[#15803d] hover:bg-[#166534] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-emerald-300"
+                    className="px-8 py-3 rounded-lg bg-[#0a5210] hover:bg-[#07360b] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-emerald-900"
                     id="submit-quote-btn"
                   >
                     <span>{isSubmitting ? "Sending..." : "Send Request"}</span>

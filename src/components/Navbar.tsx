@@ -383,7 +383,7 @@ export default function Navbar({
                       }
                       handleNavClick("/#contact");
                     }}
-                    className="block w-full text-center py-2.5 rounded-full bg-[#12941F] hover:bg-[#0e7a18] text-white border border-[#12941F] font-extrabold text-sm shadow-sm transition-all"
+                    className="block w-full text-center py-2.5 rounded-full bg-[#0a5210] hover:bg-[#07360b] text-white border border-[#0a5210] font-extrabold text-sm shadow-sm transition-all"
                     id="mobile-nav-quotation-btn"
                   >
                     Need Quotation?

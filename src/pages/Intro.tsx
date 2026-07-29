@@ -74,11 +74,22 @@ export default function Intro({ onComplete }: IntroProps) {
       />
 
       {/* 2. Hero Background Image with Overlay (Revealed state, matching InkRevealIntro) */}
+      {/* Desktop view background (lg screens and above) */}
       <div 
-        className="absolute inset-0 transition-opacity duration-[2500ms] ease-in-out z-0"
+        className="absolute inset-0 transition-opacity duration-[2500ms] ease-in-out z-0 hidden lg:block"
         style={{ 
           opacity: shouldMove ? 1 : 0,
           backgroundImage: "url('/bg-hero-section1.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      />
+      {/* Mobile & Tablet view background (below lg) */}
+      <div 
+        className="absolute inset-0 transition-opacity duration-[2500ms] ease-in-out z-0 block lg:hidden"
+        style={{ 
+          opacity: shouldMove ? 1 : 0,
+          backgroundImage: "url('/printmagic_new_2k_mobile_view.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
