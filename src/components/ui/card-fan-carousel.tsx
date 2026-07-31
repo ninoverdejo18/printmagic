@@ -321,8 +321,7 @@ export default function SocialCards({ cards }: SocialCardsProps) {
             className="font-display font-black uppercase tracking-widest"
             fontSize="32"
             style={{ 
-              fontFamily: '"Space Grotesk", "Inter", system-ui, sans-serif',
-              filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.95))"
+              fontFamily: '"Space Grotesk", "Inter", system-ui, sans-serif'
             }}
           >
             <textPath href="#text-curve" startOffset="50%" textAnchor="middle" fill="#F4C542">

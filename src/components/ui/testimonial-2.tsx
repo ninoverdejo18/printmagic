@@ -128,7 +128,7 @@ export const AnimatedTestimonialGrid = ({
               <img
                 src={testimonial.imgSrc}
                 alt={testimonial.alt}
-                className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+                className="w-full h-full object-contain"
               />
             )}
           </motion.div>

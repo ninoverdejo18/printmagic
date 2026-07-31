@@ -29,14 +29,14 @@
   --font-oldpress: "Old Printing Press", serif;
   --font-italiana: "Italiana", Georgia, serif;
   --font-playfair: "Playfair Display", Georgia, serif;
-  --color-primary: #12941F;
-  --color-secondary: #166534;
-  --color-accent: #12941F;
-  --color-accent-hover: #166534;
+  --color-primary: #108c1d;
+  --color-secondary: #0d7018;
+  --color-accent: #108c1d;
+  --color-accent-hover: #14A823;
   --color-main-bg: #0B1F18;
   --color-secondary-bg: #132C22;
   --color-card-bg: #1C3A2E;
-  --color-primary-accent: #12941F;
+  --color-primary-accent: #108c1d;
   --color-hover-accent: #166534;
   --color-primary-text: #F8FAFC;
   --color-secondary-text: #CBD5D1;
@@ -117,7 +117,7 @@ h1, h2, h3 {
 }
 
 h2 {
-  color: #12941F;
+  color: #108c1d;
 }
 
 h4, h5, h6 {

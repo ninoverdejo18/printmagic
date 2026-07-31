@@ -92,7 +92,7 @@ export default function About({ setCurrentPage }: AboutProps) {
 
         {/* 2. About, Vision & Mission Bento Section */}
         <FlowSection id="about-bento-flow" className="bg-white">
-          <section className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch px-4 sm:px-6 md:px-8 lg:px-10">
+          <section className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch px-4 sm:px-6 md:px-8 lg:px-10">
             {/* About Us Card - spans 7 cols on lg */}
             <div className="lg:col-span-7 bg-slate-50 border border-slate-200 hover:border-emerald-500/40 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm relative overflow-hidden text-left transition-all duration-300">
               <div className="space-y-4">
@@ -157,7 +157,7 @@ export default function About({ setCurrentPage }: AboutProps) {
         {/* 3. Core Values & Principles Grid */}
         <FlowSection id="about-values-flow" className="bg-slate-100/80">
           <section className="bg-slate-100/80 py-16 px-4 sm:px-6 md:px-8 lg:px-10">
-            <div className="w-full space-y-12">
+            <div className="w-full max-w-7xl mx-auto space-y-12">
               <div className="text-center space-y-2">
                 <span className="text-xs uppercase font-bold tracking-widest text-emerald-700 font-mono">What Drives Us</span>
                 <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight font-display">
@@ -189,7 +189,7 @@ export default function About({ setCurrentPage }: AboutProps) {
 
         {/* 4. Timeline Milestones */}
         <FlowSection id="about-timeline-flow" className="bg-white">
-          <section className="w-full space-y-12 px-4 sm:px-6 md:px-8 lg:px-10">
+          <section className="w-full max-w-7xl mx-auto space-y-12 px-4 sm:px-6 md:px-8 lg:px-10">
             <div className="text-center space-y-2">
               <span className="text-xs uppercase font-bold tracking-widest text-emerald-700 font-mono">How We've Grown</span>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight font-display">
@@ -226,7 +226,7 @@ export default function About({ setCurrentPage }: AboutProps) {
 
         {/* 5. CTA Footer Block */}
         <FlowSection id="about-cta-flow" className="bg-white">
-          <section className="w-full pb-8 px-4 sm:px-6 md:px-8 lg:px-10">
+          <section className="w-full max-w-7xl mx-auto pb-8 px-4 sm:px-6 md:px-8 lg:px-10">
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl text-white">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#4ade80]/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#4ade80]/10 rounded-full blur-xl -ml-10 -mb-10"></div>

@@ -482,13 +482,13 @@ export default function VirtualAssistant({
             }`}
           >
             {/* Assistant Header */}
-            <div className="bg-[#12941F] px-4 py-3 flex items-center justify-between shrink-0 text-white">
+            <div className="bg-[#14A823] px-4 py-3 flex items-center justify-between shrink-0 text-white">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white overflow-hidden p-0.5">
                     <GraphicDesignerBotIcon className="w-7 h-7" showHand={false} />
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-300 border-2 border-[#12941F] rounded-full"></span>
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-300 border-2 border-[#14A823] rounded-full"></span>
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-sm tracking-wide">PrintMagic Assistant</h3>
@@ -557,7 +557,7 @@ export default function VirtualAssistant({
                       <>
                         <button
                           onClick={() => handleSendMessage("menu")}
-                          className="shrink-0 bg-[#12941F] hover:bg-[#0f7e1a] text-white px-2.5 py-1 rounded-full flex items-center gap-1 transition-colors font-medium text-xs shadow-xs"
+                          className="shrink-0 bg-[#108c1d] hover:bg-[#14A823] text-white px-2.5 py-1 rounded-full flex items-center gap-1 transition-colors font-medium text-xs shadow-xs"
                         >
                           📋 Menu
                         </button>
@@ -701,7 +701,7 @@ export default function VirtualAssistant({
                     <button
                       type="submit"
                       disabled={!inputValue.trim() || isTyping}
-                      className="bg-[#12941F] hover:bg-[#0f7e1a] disabled:opacity-40 text-white p-2.5 rounded-xl transition-colors shadow-sm flex items-center justify-center shrink-0"
+                      className="bg-[#108c1d] hover:bg-[#14A823] disabled:opacity-40 text-white p-2.5 rounded-xl transition-colors shadow-sm flex items-center justify-center shrink-0"
                     >
                       <Send className="w-4 h-4" />
                     </button>
@@ -723,12 +723,12 @@ export default function VirtualAssistant({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => setIsOpen(true)}
-              className="bg-[#12941F] hover:bg-[#0f7e1a] text-white p-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center justify-center group transition-all duration-300 cursor-pointer"
+              className="bg-[#108c1d] hover:bg-[#14A823] text-white p-3 rounded-full shadow-2xl border-2 border-emerald-400/40 flex items-center justify-center group transition-all duration-300 cursor-pointer"
               aria-label="Open Virtual Assistant"
             >
               <div className="relative flex items-center justify-center bg-white/20 p-1 rounded-full">
                 <GraphicDesignerBotIcon className="w-7 h-7" />
-                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#12941F] animate-ping"></span>
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border-2 border-[#14A823] animate-ping"></span>
               </div>
             </motion.button>
           </motion.div>

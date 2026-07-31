@@ -362,7 +362,7 @@ export default function ServiceDetail({
         <p className="text-sm text-slate-600">The requested service profile could not be located in our catalog database.</p>
         <button 
           onClick={() => setCurrentPage("home")}
-          className="px-6 py-2.5 rounded-lg bg-[#15803d] text-white hover:bg-[#166534] font-bold text-sm cursor-pointer"
+          className="px-6 py-2.5 rounded-lg bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] font-bold text-sm cursor-pointer shadow-md transition-all"
         >
           Return to Home
         </button>
@@ -403,7 +403,7 @@ export default function ServiceDetail({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="relative py-10 px-4 sm:px-6 md:px-8 lg:px-10 w-full bg-slate-950 text-white min-h-screen overflow-hidden"
+      className="relative pt-24 pb-16 px-4 sm:px-6 md:px-8 lg:px-10 w-full bg-slate-950 text-white min-h-screen overflow-hidden"
       id={`service-detail-page-${data.id}`}
     >
       {/* Full screen / full section animated gradient background with reduced white */}
@@ -433,7 +433,7 @@ export default function ServiceDetail({
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full min-h-[40vh] lg:min-h-[50vh] py-6">
           <div className="lg:col-span-7 space-y-5 text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#14A823] tracking-tight leading-tight font-display">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#108c1d] tracking-tight leading-tight font-display">
               {data.title}
             </h1>
 
@@ -451,8 +451,8 @@ export default function ServiceDetail({
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-left">
-                <h3 className="text-lg font-bold text-[#14A823] mt-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">High-Quality Vibrant Graphics</h3>
-                <p className="text-xs text-white font-sans mt-0.5 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
+                <h3 className="text-lg font-bold text-[#108c1d] mt-1">High-Quality Vibrant Graphics</h3>
+                <p className="text-xs text-white font-sans mt-0.5">We use industrial ink heads designed to resist fading under Batangas sun and rain.</p>
               </div>
             </div>
           </div>
@@ -466,7 +466,7 @@ export default function ServiceDetail({
             
             {/* Interactive Collapsible FAQ Section */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-extrabold text-[#14A823] font-display text-left">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#108c1d] font-display text-left">
                 Frequently Asked Questions
               </h3>
               
@@ -484,7 +484,7 @@ export default function ServiceDetail({
                         id={`faq-toggle-btn-${idx}`}
                       >
                         <span className="text-xs sm:text-sm font-bold text-[#DEDEDE] font-display leading-tight">{faq.q}</span>
-                        <ChevronDown className={`w-4 h-4 text-[#14A823] shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown className={`w-4 h-4 text-[#108c1d] shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
                       </button>
                       
                       <AnimatePresence initial={false}>
@@ -515,10 +515,10 @@ export default function ServiceDetail({
             
             {/* Custom Quote Submission Block */}
             <div className="bg-slate-900/90 backdrop-blur-md text-white border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-5 text-left shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#14A823]/10 rounded-full blur-xl -mr-6 -mt-6"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#108c1d]/10 rounded-full blur-xl -mr-6 -mt-6"></div>
               
               <div className="space-y-2">
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#14A823] font-display leading-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#108c1d] font-display leading-tight">
                   Need a Customized Quote for {data.title}?
                 </h3>
                 <p className="text-xs text-[#C4C4C4] font-sans leading-relaxed">
@@ -529,7 +529,7 @@ export default function ServiceDetail({
               <div className="space-y-3 pt-1">
                 <button
                   onClick={handleQuoteRedirect}
-                  className="w-full py-3 bg-[#15803d] hover:bg-[#166534] text-white font-extrabold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-md transform hover:-translate-y-0.5"
+                  className="w-full py-3 bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] font-extrabold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-md transform hover:-translate-y-0.5"
                   id="service-detail-quote-btn"
                 >
                   <span>Request Instant Quotation</span>
@@ -539,7 +539,7 @@ export default function ServiceDetail({
                   href="https://www.facebook.com/Printmagic29"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 bg-[#132C22] hover:bg-[#1C3A2E] border border-[#28473B] text-white font-bold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] font-extrabold text-xs sm:text-sm rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-md transform hover:-translate-y-0.5"
                   id="service-detail-chat-btn"
                 >
                   <span>Chat on Facebook Messenger</span>

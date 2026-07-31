@@ -48,7 +48,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
       className="w-full min-h-screen pt-24 pb-20 px-4 sm:px-6 md:px-8 lg:px-10 bg-slate-50 relative overflow-hidden"
       id="id-application-links-page"
     >
-      <div className="max-w-7xl mx-auto space-y-10 relative z-10 w-full" id="id-application-links">
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full" id="id-application-links">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 bg-white/95 backdrop-blur-md p-6 sm:p-10 rounded-3xl shadow-2xl border border-slate-200">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -64,7 +64,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
 
           <div className="-mx-6 sm:-mx-10 h-px bg-slate-200" />
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight font-display" id="id-application-links-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#108c1d] tracking-tight font-display" id="id-application-links-heading">
             ID Application Links
           </h2>
 
@@ -77,7 +77,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
         <div className="bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-200 space-y-6" id="grade-level-section">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-[#12941F] text-xs font-bold font-mono uppercase tracking-wider mb-2">
+              <div className="inline-flex items-center gap-1.5 text-[#108c1d] text-xs font-bold font-mono uppercase tracking-wider mb-2">
                 <FileCheck className="w-3.5 h-3.5" />
                 <span>Junior & Senior High School PVC ID Registration</span>
               </div>
@@ -110,7 +110,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-50 border border-slate-200 text-slate-700 inline-block">
                     {item.code}
                   </span>
-                  <h4 className="text-lg font-black text-slate-900 font-display group-hover:text-[#12941F] transition-colors">
+                  <h4 className="text-lg font-black text-slate-900 font-display group-hover:text-[#108c1d] transition-colors">
                     {item.grade}
                   </h4>
                   <p className="text-[11px] text-slate-600 font-sans font-medium">
@@ -119,7 +119,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
                 </div>
 
                 <div
-                  className="w-full py-1.5 px-2 rounded-lg bg-[#12941F] group-hover:bg-[#166534] text-white font-bold text-[11px] transition-colors flex items-center justify-center gap-1 shadow-sm"
+                  className="w-full py-1.5 px-2 rounded-lg bg-[#108c1d] group-hover:bg-[#0d7018] text-white font-bold text-[11px] transition-colors flex items-center justify-center gap-1 shadow-sm"
                 >
                   <span>Click Here</span>
                   <ChevronRight className="w-3 h-3" />
@@ -133,8 +133,8 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
         <div className="bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl space-y-6" id="id-lost-section">
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
             <div className="space-y-2 flex-1">
-              <div className="inline-flex items-center gap-1.5 text-[#12941F] text-xs font-bold font-mono uppercase tracking-wider">
-                <AlertCircle className="w-4 h-4 text-[#12941F]" />
+              <div className="inline-flex items-center gap-1.5 text-[#108c1d] text-xs font-bold font-mono uppercase tracking-wider">
+                <AlertCircle className="w-4 h-4 text-[#108c1d]" />
                 <span>Lost Card & ID Replacement Portal</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
@@ -160,7 +160,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSeEWKNZNnSQIyNfBedI2jxzFaYEAgzYubezNm6_u1IlJFYbTQ/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl bg-[#12941F] hover:bg-[#166534] text-white text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
+                  className="w-full py-2.5 px-4 rounded-xl bg-[#108c1d] hover:bg-[#14A823] text-white text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
                 >
                   <span className="flex items-center gap-2">
                     <ClipboardList className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
                 <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
                   <a 
                     href={`mailto:${emailAddress}?subject=Lost%20ID%20Replacement%20Request`}
-                    className="text-xs font-mono font-bold text-slate-900 hover:text-[#12941F] hover:underline truncate"
+                    className="text-xs font-mono font-bold text-slate-900 hover:text-[#108c1d] hover:underline truncate"
                     title="Send Email"
                   >
                     {emailAddress}
@@ -196,7 +196,7 @@ export default function IdApplicationLinks({}: IdApplicationLinksProps) {
                     title="Copy email address"
                     aria-label="Copy email address"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-[#12941F]" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-[#108c1d]" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>

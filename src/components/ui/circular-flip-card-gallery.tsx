@@ -257,10 +257,10 @@ export default function CircularGallery({ onNavigate }: CircularGalleryProps) {
           >
             {/* Central text - adapted to space constraint */}
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none p-4">
-              <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white text-center text-balance mb-3 leading-none [text-shadow:0_4px_16px_rgba(0,0,0,0.95)]">
+              <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white text-center text-balance mb-3 leading-none">
                 Crafting Magic
               </h2>
-              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-[#F4C542] tracking-widest uppercase text-center [text-shadow:0_2px_6px_rgba(0,0,0,0.9)] max-w-sm">
+              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-[#F4C542] tracking-widest uppercase text-center max-w-sm">
                 Premium Custom Tees
               </p>
             </div>

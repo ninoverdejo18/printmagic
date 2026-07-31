@@ -197,7 +197,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, index, onClick }) => {
             initial={{ y: 15, opacity: 0 }}
             animate={{ y: isHovered ? 0 : 5, opacity: isHovered ? 1 : 0.9 }}
             transition={{ type: "spring", stiffness: 180, damping: 15 }}
-            className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#12941F] transition-colors leading-tight drop-shadow-md"
+            className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#12941F] transition-colors leading-tight"
           >
             {item.title}
           </motion.h3>
@@ -211,7 +211,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, index, onClick }) => {
                 damping: 15,
                 delay: 0.03,
               }}
-              className="text-xs text-[#CBD5D1] uppercase tracking-wider font-semibold drop-shadow-sm"
+              className="text-xs text-[#CBD5D1] uppercase tracking-wider font-semibold"
             >
               {item.category}
             </motion.p>
@@ -455,9 +455,9 @@ export default function GenerativeArtGallery() {
   }, [selectedItemIndex, galleryItems.length]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+    <div className="w-full max-w-7xl mx-auto">
       {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {galleryItems.map((item, index) => (
           <GalleryCard 
             key={item.title} 

@@ -55,7 +55,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             href="https://www.facebook.com/Printmagic29"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border border-white/20 hover:border-[#12941F] flex items-center justify-center text-white hover:text-[#12941F] transition-colors mt-5"
+            className="w-10 h-10 rounded-full border border-white/20 hover:border-[#108c1d] flex items-center justify-center text-white hover:text-[#108c1d] transition-colors mt-5"
             aria-label="Facebook Page"
             id="mobile-footer-facebook-link"
           >
@@ -80,9 +80,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                       e.preventDefault();
                       setCurrentPage(service.hash);
                     }}
-                    className="text-slate-200 hover:text-[#12941F] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug flex items-center gap-1"
+                    className="text-slate-200 hover:text-[#108c1d] transition-colors font-normal text-left focus:outline-none cursor-pointer leading-snug flex items-center gap-1"
                   >
-                    {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
+                    {service.isSubitem && <span className="text-[#108c1d] font-bold">›</span>}
                     <span>{service.name}</span>
                   </a>
                 </li>
@@ -125,7 +125,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                   <div className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center shrink-0">
                     <Mail className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <a href="mailto:printmagiconline.service@gmail.com" className="text-slate-200 hover:text-[#12941F] break-all font-normal text-[10px]">
+                  <a href="mailto:printmagiconline.service@gmail.com" className="text-slate-200 hover:text-[#108c1d] break-all font-normal text-[10px]">
                     printmagiconline.service@gmail.com
                   </a>
                 </li>
@@ -152,7 +152,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             href="https://www.facebook.com/Printmagic29" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-[#12941F] flex items-center gap-1 font-normal text-slate-300 transition-colors"
+            className="hover:text-[#108c1d] flex items-center gap-1 font-normal text-slate-300 transition-colors"
           >
             <span>Connect on Facebook</span>
             <ArrowUpRight className="w-3 h-3" />
@@ -171,11 +171,11 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <img 
                 src="/app-icon111.webp" 
                 alt="PrintMagic Logo" 
-                className="w-8 h-8 rounded-full border border-[#12941F]/40 object-cover" 
+                className="w-8 h-8 rounded-full border border-[#108c1d]/40 object-cover" 
                 referrerPolicy="no-referrer" 
               />
               <span className="text-xl font-bold tracking-tight text-white font-display">
-                Print<span className="text-[#12941F]">Magic</span>
+                Print<span className="text-[#108c1d]">Magic</span>
               </span>
             </div>
             <p className="text-xs text-[#E2E8F0] leading-relaxed font-sans max-w-xs">
@@ -186,7 +186,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                 href="https://www.facebook.com/Printmagic29"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#12941F]/20 text-white hover:text-[#12941F] flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#132C22] hover:bg-[#108c1d]/20 text-white hover:text-[#108c1d] flex items-center justify-center transition-colors"
                 aria-label="Facebook Page"
                 id="desktop-footer-facebook-link"
               >
@@ -209,9 +209,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                       e.preventDefault();
                       setCurrentPage(service.hash);
                     }}
-                    className="text-[#E2E8F0] hover:text-[#12941F] transition-colors font-medium text-left focus:outline-none cursor-pointer flex items-center gap-1"
+                    className="text-[#E2E8F0] hover:text-[#108c1d] transition-colors font-medium text-left focus:outline-none cursor-pointer flex items-center gap-1"
                   >
-                    {service.isSubitem && <span className="text-[#12941F] font-bold">›</span>}
+                    {service.isSubitem && <span className="text-[#108c1d] font-bold">›</span>}
                     <span>{service.name}</span>
                   </a>
                 </li>
@@ -247,7 +247,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-white shrink-0" />
-                <a href="mailto:printmagiconline.service@gmail.com" className="hover:text-[#12941F] break-all font-medium text-[#E2E8F0]">
+                <a href="mailto:printmagiconline.service@gmail.com" className="hover:text-[#108c1d] break-all font-medium text-[#E2E8F0]">
                   printmagiconline.service@gmail.com
                 </a>
               </li>
@@ -270,7 +270,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             href="https://www.facebook.com/Printmagic29" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-[#12941F] flex items-center gap-1 font-semibold text-[#E2E8F0] transition-colors"
+            className="hover:text-[#108c1d] flex items-center gap-1 font-semibold text-[#E2E8F0] transition-colors"
           >
             <span>Connect on Facebook</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

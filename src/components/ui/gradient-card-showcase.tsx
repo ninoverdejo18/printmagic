@@ -588,7 +588,7 @@ export default function SkewCards({ setCurrentPage }: SkewCardsProps) {
     >
       {/* Desktop Grid Layout (14 Cards surrounding center text block) */}
       <div
-        className="hidden lg:grid grid-cols-5 max-w-[1160px] mx-auto gap-px bg-slate-200 border border-slate-200 rounded-2xl overflow-hidden shadow-sm"
+        className="hidden lg:grid grid-cols-5 max-w-7xl mx-auto gap-px bg-slate-200 border border-slate-200 rounded-2xl overflow-hidden shadow-sm"
         style={{ gridTemplateRows: "repeat(4, 115px)" }}
       >
         {/* Center Text Block */}

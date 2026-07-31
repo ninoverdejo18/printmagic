@@ -225,7 +225,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                       </div>
                       {/* Overlay badge at the bottom */}
                       <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent flex flex-col justify-end pointer-events-none z-10">
-                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#12941F]">FOUNDER & OWNER</span>
+                        <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#108c1d]">FOUNDER & OWNER</span>
                         <p className="text-xl font-extrabold text-white font-display">Albert Inoc</p>
                       </div>
                     </div>
@@ -243,7 +243,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                 >
                   {/* Section Header */}
                   <div className="space-y-3">
-                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#12941F] leading-tight font-display">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#108c1d] leading-tight font-display">
                       About Us
                     </h2>
                     <p className="text-sm sm:text-base text-[#454545] opacity-90 leading-relaxed font-sans">
@@ -312,7 +312,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
             <div className="max-w-7xl mx-auto space-y-12 relative z-10 w-full">
               {/* Header */}
               <div className="text-center max-w-3xl mx-auto space-y-3">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight font-display">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#108c1d] tracking-tight font-display">
                   Printing & Graphic Services
                 </h2>
                 <p className="text-sm sm:text-base text-[#454545] opacity-90 font-sans leading-relaxed">
@@ -328,13 +328,13 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                       key={service.id}
                       id={`home-service-card-${service.id}`}
                       onClick={() => handleNav(service.id)}
-                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-[#12941F] text-center h-full"
+                      className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:border-[#108c1d] text-center h-full"
                     >
                       <div className="space-y-1.5 flex-1 flex flex-col justify-between">
                         <div>
                           {/* Service Icon Image */}
                           {service.image && (
-                            <div className="w-full h-34 sm:h-38 mb-3 bg-slate-50/80 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 p-1 group-hover:bg-[#12941F]/5 group-hover:border-[#12941F]/30 transition-all">
+                            <div className="w-full h-34 sm:h-38 mb-3 bg-slate-50/80 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 p-1 group-hover:bg-[#108c1d]/5 group-hover:border-[#108c1d]/30 transition-all">
                               <img
                                 src={service.image}
                                 alt={service.title}
@@ -345,7 +345,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                           )}
 
                           {/* Title */}
-                          <h3 className="text-sm font-extrabold text-slate-900 font-display tracking-tight group-hover:text-[#12941F] transition-colors leading-snug">
+                          <h3 className="text-sm font-extrabold text-slate-900 font-display tracking-tight group-hover:text-[#108c1d] transition-colors leading-snug">
                             {service.title}
                           </h3>
 
@@ -353,6 +353,21 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                           <p className="text-xs text-[#7D7D7D] font-sans leading-relaxed mt-1">
                             {service.description}
                           </p>
+                        </div>
+
+                        {/* Theme Button matching button#cta-quote-btn */}
+                        <div className="pt-3 mt-auto">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleNav(service.id);
+                            }}
+                            className="w-full py-2 px-3 bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer transform hover:-translate-y-[-1px]"
+                            id={`service-btn-${service.id}`}
+                          >
+                            <span>Learn More</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -366,14 +381,14 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
         {/* 4. CREATIVE GALLERY SECTION */}
         <FlowSection id="gallery-flow" className="bg-white" data-section-title="Gallery">
           <section 
-            className="w-full min-h-screen py-16 text-center border-b border-slate-200 relative overflow-hidden flex flex-col items-center justify-center bg-contain bg-center bg-no-repeat bg-white" 
+            className="w-full min-h-screen py-16 px-4 sm:px-6 md:px-8 lg:px-10 text-center border-b border-slate-200 relative overflow-hidden flex flex-col items-center justify-center bg-contain bg-center bg-no-repeat bg-white" 
             id="gallery-section"
             data-section-title="Gallery"
             style={{ backgroundImage: "url('/Green_Paint_PureWhite_2K.webp')" }}
           >
-            <div className="w-full space-y-8 relative z-10">
+            <div className="w-full max-w-7xl mx-auto space-y-8 relative z-10">
               <div className="max-w-3xl mx-auto text-center space-y-3">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12941F] tracking-tight font-display">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#108c1d] tracking-tight font-display">
                   Our Gallery
                 </h2>
                 <p className="text-sm sm:text-base text-[#454545] opacity-90 font-sans leading-relaxed">
@@ -395,14 +410,14 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
         {/* 7. CALL TO ACTION */}
         <FlowSection id="cta-flow" className="bg-white" data-section-title="Contact Us" data-section-hash="/#contact">
           <section className="w-full bg-white py-16 text-slate-900" id="cta-section" data-section-title="Contact Us" data-section-hash="/#contact">
-            <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
               <div className="bg-[#0B1F18] border border-[#28473B]/50 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl text-white">
                 {/* Abstract background subtle circle */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#12941F]/15 rounded-full blur-2xl -mr-10 -mt-10"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#12941F]/15 rounded-full blur-xl -ml-10 -mb-10"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#14A823]/15 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#14A823]/15 rounded-full blur-xl -ml-10 -mb-10"></div>
 
                 <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12941F] tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#108c1d] tracking-tight">
                     Ready to See the Magic on Your Next Project?
                   </h2>
                   <p className="text-sm sm:text-base text-[#D1D5DB] font-sans">
@@ -411,7 +426,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
                     <button
                       onClick={() => handleNav("contact")}
-                      className="px-8 py-3 bg-[#0a5210] hover:bg-[#07360b] text-white border border-[#0a5210] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-quote-btn"
                     >
                       <span>Request a Quote</span>
@@ -420,7 +435,7 @@ export default function Home({ setCurrentPage, setSelectedServiceQuote }: HomePr
                       href="https://www.facebook.com/Printmagic29"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-3 bg-[#0a5210] hover:bg-[#07360b] text-white border border-[#0a5210] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
+                      className="px-8 py-3 bg-[#108c1d] hover:bg-[#0d7018] text-white border border-[#108c1d] hover:border-[#0d7018] rounded-lg font-bold shadow-md hover:opacity-95 transition-all flex items-center justify-center transform hover:-translate-y-[-2px] cursor-pointer"
                       id="cta-messenger-btn"
                     >
                       <span>Chat on Messenger</span>

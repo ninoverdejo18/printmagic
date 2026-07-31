@@ -65,20 +65,21 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="space-y-12 py-12 px-4 sm:px-6 md:px-8 lg:px-10 w-full bg-white text-slate-900 min-h-screen"
+      className="w-full pt-24 pb-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-white text-slate-900 min-h-screen"
       id="contact-page"
     >
-      {/* Header */}
-      <div className="text-center space-y-3 pt-6">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12941F] tracking-tight">
-          Contact PrintMagic
-        </h1>
-        <p className="text-sm sm:text-base text-[#7D7D7D] max-w-xl mx-auto font-sans">
-          Need a price quotation or looking to design custom branding assets? Send us your project details below and our team will reply immediately!
-        </p>
-      </div>
+      <div className="max-w-7xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="text-center space-y-3 pt-2">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#108c1d] tracking-tight">
+            Contact PrintMagic
+          </h1>
+          <p className="text-sm sm:text-base text-[#7D7D7D] max-w-xl mx-auto font-sans">
+            Need a price quotation or looking to design custom branding assets? Send us your project details below and our team will reply immediately!
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
         
         {/* Left Side: Coordinates & Maps */}
         <div className="lg:col-span-5 space-y-8 text-left">
@@ -183,7 +184,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
-                  className="px-6 py-2 bg-[#0a5210] hover:bg-[#07360b] text-white rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
+                  className="px-6 py-2 bg-[#108c1d] hover:bg-[#14A823] border border-[#108c1d] hover:border-[#14A823] text-white rounded-lg font-bold text-xs shadow-md hover:opacity-95 transition-all cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -204,7 +205,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your first and last name"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#14A823] focus:ring-1 focus:ring-[#14A823] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                   />
                 </div>
 
@@ -222,7 +223,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. name@example.com"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#14A823] focus:ring-1 focus:ring-[#14A823] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                     />
                   </div>
 
@@ -239,7 +240,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="e.g. 0912 345 6789"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#14A823] focus:ring-1 focus:ring-[#14A823] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                     />
                   </div>
                 </div>
@@ -255,7 +256,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none font-sans text-xs sm:text-sm cursor-pointer"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#14A823] focus:ring-1 focus:ring-[#14A823] focus:outline-none font-sans text-xs sm:text-sm cursor-pointer"
                   >
                     {printingCategories.map((cat) => (
                       <optgroup key={cat.id} label={cat.title} className="bg-white text-slate-900">
@@ -292,7 +293,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Enter sizes (e.g. 3ft x 2ft), quantity, design preferences, or deadlines..."
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#12941F] focus:ring-1 focus:ring-[#12941F] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 focus:border-[#14A823] focus:ring-1 focus:ring-[#14A823] focus:outline-none placeholder-slate-400 font-sans text-xs sm:text-sm"
                   ></textarea>
                 </div>
 
@@ -303,7 +304,7 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3 rounded-lg bg-[#0a5210] hover:bg-[#07360b] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-emerald-900"
+                    className="px-8 py-3 rounded-lg bg-[#108c1d] hover:bg-[#14A823] border border-[#108c1d] hover:border-[#14A823] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer disabled:bg-emerald-900"
                     id="submit-quote-btn"
                   >
                     <span>{isSubmitting ? "Sending..." : "Send Request"}</span>
@@ -314,8 +315,8 @@ export default function Contact({ selectedServiceQuote = "", setSelectedServiceQ
             )}
           </div>
         </div>
-
       </div>
-    </motion.div>
+    </div>
+  </motion.div>
   );
 }
